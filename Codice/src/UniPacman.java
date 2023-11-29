@@ -8,13 +8,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAGMGoGlXmaEyoQ= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoGlXmaEyoQ= >>
-// ----------- >>
 public class UniPacman{
-// ----------- << class.extras@AAAAAAGMGoGlXmaEyoQ= >>
-// ----------- >>
+
 }

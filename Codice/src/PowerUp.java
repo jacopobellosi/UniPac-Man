@@ -9,6 +9,5 @@ import java.time.*;
 
 
 public class PowerUp extends GameObject {
-// ----------- << class.extras@AAAAAAGMGoLcyGdWiDc= >>
-// ----------- >>
+
 }

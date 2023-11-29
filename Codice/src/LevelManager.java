@@ -10,12 +10,6 @@ import java.time.*;
 
 
 
-// ----------- << imports@AAAAAAGMGoKzpGbbyYA= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoKzpGbbyYA= >>
-// ----------- >>
 public class LevelManager {
-// ----------- << class.extras@AAAAAAGMGoKzpGbbyYA= >>
-// ----------- >>
+
 }

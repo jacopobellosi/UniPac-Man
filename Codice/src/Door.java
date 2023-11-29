@@ -8,13 +8,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAGMGoLiuGeoVLw= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoLiuGeoVLw= >>
-// ----------- >>
 public class Door extends GameObject {
-// ----------- << class.extras@AAAAAAGMGoLiuGeoVLw= >>
-// ----------- >>
+
 }

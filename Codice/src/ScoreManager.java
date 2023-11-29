@@ -8,13 +8,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAGMGoQxmWgtCbE= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoQxmWgtCbE= >>
-// ----------- >>
 public class ScoreManager {
-// ----------- << class.extras@AAAAAAGMGoQxmWgtCbE= >>
-// ----------- >>
+
 }

@@ -9,13 +9,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAGMGoLk92fR9Ao= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoLk92fR9Ao= >>
-// ----------- >>
 public class Ghost extends GameObject {
-// ----------- << class.extras@AAAAAAGMGoLk92fR9Ao= >>
-// ----------- >>
+
 }

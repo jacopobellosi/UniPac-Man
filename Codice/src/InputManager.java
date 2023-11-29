@@ -8,13 +8,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAGMGoQHD2gDxn0= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoQHD2gDxn0= >>
-// ----------- >>
 public class InputManager {
-// ----------- << class.extras@AAAAAAGMGoQHD2gDxn0= >>
-// ----------- >>
+
 }

@@ -9,13 +9,6 @@ import java.util.*;
 import java.time.*;
 
 
-
-// ----------- << imports@AAAAAAGMGoLV9GcEudg= >>
-// ----------- >>
-
-// ----------- << class.annotations@AAAAAAGMGoLV9GcEudg= >>
-// ----------- >>
 public class Level {
-// ----------- << class.extras@AAAAAAGMGoLV9GcEudg= >>
-// ----------- >>
+
 }
