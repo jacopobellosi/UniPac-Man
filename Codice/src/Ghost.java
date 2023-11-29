@@ -8,7 +8,7 @@
 import java.util.*;
 import java.time.*;
 
-
+//fantasmini
 public class Ghost extends GameObject {
 
 }

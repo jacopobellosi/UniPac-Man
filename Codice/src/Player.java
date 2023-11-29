@@ -7,7 +7,7 @@
 import java.util.*;
 import java.time.*;
 
-
+//Rappresenta il personaggio principale del gioco
 public class Player {
 
 }

@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.*;
-
+//Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
 public class GameEngine extends JPanel implements ActionListener {
     private Timer gameTimer;
     private Player player;  // Supponiamo che ci sia una classe Player da implementare

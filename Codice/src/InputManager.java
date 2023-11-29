@@ -7,7 +7,7 @@
 import java.util.*;
 import java.time.*;
 
-
+//Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
 public class InputManager {
 
 }

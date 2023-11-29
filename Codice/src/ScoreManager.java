@@ -7,7 +7,7 @@
 import java.util.*;
 import java.time.*;
 
-
+// Gestisce il punteggio del giocatore.
 public class ScoreManager {
 
 }

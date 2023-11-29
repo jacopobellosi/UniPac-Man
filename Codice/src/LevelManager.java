@@ -8,7 +8,7 @@
 import java.util.*;
 import java.time.*;
 
-
+//Gestisce i livelli del gioco, inclusa la transizione tra di essi.
 
 public class LevelManager {
 

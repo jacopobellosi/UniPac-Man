@@ -8,7 +8,7 @@
 import java.util.*;
 import java.time.*;
 
-
+//Rappresenta un ostacolo o un elemento bloccante in un livello
 public class Obstacole extends GameObject {
 
 

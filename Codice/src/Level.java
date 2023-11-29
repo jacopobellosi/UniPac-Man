@@ -8,7 +8,7 @@
 import java.util.*;
 import java.time.*;
 
-
+//Rappresenta un singolo livello del gioco, definendo la sua struttura, i personaggi, gli oggetti, ecc.
 public class Level {
 
 }
