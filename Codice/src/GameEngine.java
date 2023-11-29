@@ -6,8 +6,55 @@
 
 
 import java.util.*;
+
+import javax.swing.JPanel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.*;
 
-public class GameEngine {
-    
+public class GameEngine extends JPanel implements ActionListener {
+    private Timer gameTimer;
+    private Player player;  // Supponiamo che ci sia una classe Player da implementare
+    private InputManager inputManager;
+
+    public GameEngine() {
+        setFocusable(true);
+        gameTimer = new Timer(16, this);  // Timer per aggiornare il gioco ogni 16 millisecondi (circa 60 FPS)
+        gameTimer.start();
+
+        player = new Player();  // Inizializza il personaggio principale
+        inputManager = new InputManager(player);  // Inizializza l'InputManager e gli assegna il giocatore
+
+        addKeyListener(inputManager);  // Aggiunge l'InputManager come KeyListener al pannello
+    }
+
+    public void startGame() {
+        // Inizializza altri elementi di gioco e inizia la logica del gioco
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Chiamato ad ogni aggiornamento del timer
+        updateGame();
+        repaint();  // Richiama il metodo paintComponent
+    }
+
+    private void updateGame() {
+        // Aggiorna la logica di gioco, inclusi movimenti, collisioni, ecc.
+        player.update();  // Supponiamo che ci sia un metodo update() in Player
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // Disegna gli elementi di gioco, inclusi il personaggio, gli oggetti, ecc.
+        player.draw(g);  // Supponiamo che ci sia un metodo draw(Graphics g) in Player
+    }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
