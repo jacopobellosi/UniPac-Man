@@ -5,9 +5,33 @@
 */
 
 import java.util.*;
+import java.awt.Rectangle;
+import java.awt.Graphics;
 import java.time.*;
 
 //Rappresenta il personaggio principale del gioco
-public class Player {
-
+public class Player extends Rectangle{
+	
+	private int dx,dy;
+	public Player(int x, int y , int width, int height, int dx , int dy) {
+		setBounds(x,y,width,height);
+		this.dx = dx;
+		this.dy = dy;
+		
+	}
+	
+	public void tick() {
+		this.x += dx;
+		this.dy = dy;
+		
+	}
+	public void draw(Graphics g) {
+		g.fillRect(this.dx, this.dy, this.height, this.width);
+	}
+	public void setDx(int dx) {
+		this.dx = dx;
+	}
+	public void setDy(int dy) {
+		this.dy=dy;
+	}
 }

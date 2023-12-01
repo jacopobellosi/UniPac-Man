@@ -4,57 +4,35 @@
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
 
-
 import java.util.*;
-
-import javax.swing.JPanel;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.JFrame;
+import java.awt.Component;
+import java.awt.GridLayout;
 import java.time.*;
+
 //Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
-public class GameEngine extends JPanel implements ActionListener {
-    private Timer gameTimer;
-    private Player player;  // Supponiamo che ci sia una classe Player da implementare
-    private InputManager inputManager;
+public class GameEngine extends JFrame {
+	GameEngine f = new GameEngine();
+	public static void main(String[] args) {
+		GameEngine f = new GameEngine();
 
-    public GameEngine() {
-        setFocusable(true);
-        gameTimer = new Timer(16, this);  // Timer per aggiornare il gioco ogni 16 millisecondi (circa 60 FPS)
-        gameTimer.start();
+	}
+	public void init() {
+		setLayout( new GridLayout(1,1,0,0));
+		setLocationRelativeTo(null);
+		InputManager s = new InputManager();
+		setVisible(true);
+	}
 
-        player = new Player();  // Inizializza il personaggio principale
-        inputManager = new InputManager(player);  // Inizializza l'InputManager e gli assegna il giocatore
+	public GameEngine() {
+		super("UniPac");
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(500, 500);
+		setLocation(200, 200);
+		setResizable(false);
+		init();
 
-        addKeyListener(inputManager);  // Aggiunge l'InputManager come KeyListener al pannello
-    }
-
-    public void startGame() {
-        // Inizializza altri elementi di gioco e inizia la logica del gioco
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // Chiamato ad ogni aggiornamento del timer
-        updateGame();
-        repaint();  // Richiama il metodo paintComponent
-    }
-
-    private void updateGame() {
-        // Aggiorna la logica di gioco, inclusi movimenti, collisioni, ecc.
-        player.update();  // Supponiamo che ci sia un metodo update() in Player
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        // Disegna gli elementi di gioco, inclusi il personaggio, gli oggetti, ecc.
-        player.draw(g);  // Supponiamo che ci sia un metodo draw(Graphics g) in Player
-    }
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 }
