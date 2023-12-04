@@ -6,14 +6,12 @@
 
 import java.util.*;
 import javax.swing.*;
-import javax.swing.JFrame;
-import java.awt.Component;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.time.*;
 
 //Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
 public class GameEngine extends JFrame {
-	GameEngine f = new GameEngine();
+	
 	public static void main(String[] args) {
 		GameEngine f = new GameEngine();
 
@@ -26,7 +24,7 @@ public class GameEngine extends JFrame {
 	}
 
 	public GameEngine() {
-		super("UniPac");
+		super("UniPac-Man");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500, 500);
@@ -35,4 +33,5 @@ public class GameEngine extends JFrame {
 		init();
 
 	}
+	
 }
