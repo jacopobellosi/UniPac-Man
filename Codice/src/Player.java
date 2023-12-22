@@ -29,17 +29,20 @@ public class Player  extends GameObject{
     	direction="down";
     }
     /*
-     * public void getPlayerImage(){
-     * 		try{
-     * 		}
-     * }
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     */
+      public void getPlayerImage(){
+      		try{
+      			up1 = ImageIO.read(getClass().getResourceAsStream("/pacman/su_dx.gif"));
+      			up2 = ImageIO.read(getClass().getResourceAsStream("/pacman/su_sx.gif"));
+      			down1 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_dx.gif"));
+      			down2 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_sx.gif"));
+      			right = ImageIO.read(getClass().getResourceAsStream("/pacman/destra.gif"));
+      			left = ImageIO.read(getClass().getResourceAsStream("/pacman/sinistra.gif"));
+      			
+     		}catch(IOException e) {
+     			e.printStackTrace();
+     		}
+      }
+   */
     
     public void getPlayerImage()  {
     	up1 =   new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
