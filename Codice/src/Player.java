@@ -29,28 +29,27 @@ public class Player  extends GameObject{
     	direction="down";
     }
     /*
-    public void getPlayerImage() {
-    	try {
-    		up1 = ImageIO.read(getClass().getResourceAsStream("/pacman/su_dx.gif"));
-    		up2 = ImageIO.read(getClass().getResourceAsStream("/pacman/su_sx.gif"));
-    		down1 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_dx.gif"));
-    		down1 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_sx.gif"));
-    		right1 = ImageIO.read(getClass().getResourceAsStream("/pacman/destra.gif"));
-    		left1 = ImageIO.read(getClass().getResourceAsStream("/pacman/sinistra.gif"));
-    		
-    	}catch(IOException e) {
-    		e.printStackTrace();
-    	}
-    }
-    */
+     * public void getPlayerImage(){
+     * 		try{
+     * 		}
+     * }
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
     
     public void getPlayerImage()  {
-    	up1 =  new ImageIcon(getClass().getResource("/immagini/pacman/sudx.")).getImage();
-		up2 =  new ImageIcon(getClass().getResource("/immagini/pacman/susx.gif")).getImage();
-		down1 = new ImageIcon(getClass().getResource("/immagini/pacman/giusx.gif")).getImage();
-		right1 =  new ImageIcon(getClass().getResource("/immagini/pacman/dx.gif")).getImage();
-		left1 =new ImageIcon(getClass().getResource("/immagini/pacman/sx.gif")).getImage();
+    	up1 =   new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
+		up2 =   new ImageIcon(getClass().getResource("/pacman/su_sx.gif")).getImage();
+		down1 = new ImageIcon(getClass().getResource("/pacman/giu_dx.gif")).getImage();
+		down2 = new ImageIcon(getClass().getResource("/pacman/giu_sx.gif")).getImage();
+		right =  new ImageIcon(getClass().getResource("/pacman/destra.gif")).getImage();
+		left =  new ImageIcon(getClass().getResource("/pacman/sinistra.gif")).getImage();
     }
+    
     
     public void update() {
     	if(keyH.upPressed == true) {
@@ -79,10 +78,10 @@ public class Player  extends GameObject{
 				image=down1;
 				break;
 			case"left":
-				image=left1;
+				image=left;
 				break;
 			case"right":
-				image=right1;
+				image=right;
 				break;
 		}
 		g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
