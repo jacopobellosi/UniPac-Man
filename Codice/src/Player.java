@@ -3,40 +3,36 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class Player extends GameObject {
-    private int speed;  // Velocità di movimento del giocatore
-    private int dx;     // Cambiamento della coordinata x
-
-    public Player(int x, int y) {
-        super(x, y);
-        speed = 5;  // Imposta una velocità iniziale
+public class Player  extends GameObject{
+	
+    GameEngine gp;
+    InputManager keyH;
+    
+    public Player(GameEngine gp,InputManager keyH) {
+    	this.gp=gp;
+    	this.keyH=keyH;
+    	setDefaultValue();
     }
-
+    
+    public void setDefaultValue() {
+    	x=100;
+    	y=100;
+    	speed = 4;
+    }
     public void update() {
-        // Aggiorna la posizione del giocatore in base al cambiamento della coordinata x
-        x += dx;
+    	if(keyH.upPressed == true) {
+			y -=speed;
+		}else if(keyH.downPressed == true) {
+			y +=speed;
+		}else if(keyH.leftPressed == true) {
+			x -=speed;
+		}else if(keyH.rightPressed == true) {
+			x +=speed;
+		}
     }
-
-    public  void draw(Graphics g) {
-        // Disegna il giocatore (puoi personalizzare il disegno)
-        g.setColor(Color.YELLOW);
-        g.fillRect(x, y, 50, 50);
-    }
-
-    // Metodo per gestire la pressione di un tasto
-    public void handleKeyPress(int keyCode) {
-        if (keyCode == KeyEvent.VK_LEFT) {
-            dx = -speed;  // Sposta il giocatore a sinistra
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            dx = speed;   // Sposta il giocatore a destra
-        }
-        // Puoi aggiungere gestione per altri tasti se necessario
-    }
-
-    // Metodo per gestire il rilascio di un tasto
-    public void handleKeyRelease(int keyCode) {
-        if (keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_RIGHT) {
-            dx = 0;  // Ferma il movimento quando il tasto è rilasciato
-        }
+    public void draw(Graphics2D g2) {
+    	g2.setColor(Color.white);
+		g2.fillRect(x, y, gp.titleSize, gp.titleSize);
+		
     }
 }
