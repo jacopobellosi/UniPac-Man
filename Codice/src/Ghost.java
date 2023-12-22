@@ -11,4 +11,9 @@ import java.time.*;
 //fantasmini
 public class Ghost extends GameObject {
 
+	public Ghost(int x, int y) {
+		super(x, y);
+		// TODO Auto-generated constructor stub
+	}
+
 }

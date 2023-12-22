@@ -16,66 +16,54 @@ import java.awt.event.KeyListener;
 import java.time.*;
 
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
-public class InputManager implements ActionListener, KeyListener {
-
-	Timer t = new Timer(10,this);
-	Player p = new Player(10,10,10,10,1,1);
-	
-	public InputManager() {
-
-		t.start();
-	}
-	
-
+public class InputManager implements  KeyListener {
+	public boolean upPressed, downPressed, leftPressed,rightPressed;
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void paint(Graphics g) {
-		g.drawRect(10,10,10,10);
-		System.out.println("OK ciao");
-		g.clearRect(0, 0, 0, 0 );
-		p.draw(g);
-	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		switch(e.getKeyCode()){
-			case KeyEvent.VK_D:
-				p.setDx(1);
-				break;
-			case KeyEvent.VK_S:
-				p.setDy(1);
-				break;
-			case KeyEvent.VK_A:
-				p.setDx(-1);
-				break;
-			case KeyEvent.VK_W:
-				p.setDy(-1);
-				break;
+		int code = e.getKeyCode();
+
+		if(code == KeyEvent.VK_W) {
+			upPressed = true;
+		}
+		if(code == KeyEvent.VK_S) {
+			downPressed = true;
+		}
+		if(code == KeyEvent.VK_A) {
+			leftPressed = true;
+		}
+		if(code == KeyEvent.VK_D) {
+			rightPressed = true;
 		}
 	}
-
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		int code = e.getKeyCode();
+
+		if(code == KeyEvent.VK_W) {
+			upPressed = false;
+		}
+		if(code == KeyEvent.VK_S) {
+			downPressed = false;
+		}
+		if(code == KeyEvent.VK_A) {
+			leftPressed = false;
+		}
+		if(code == KeyEvent.VK_D) {
+			rightPressed = false;
+		}
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		p.tick();
-		repain();
-	}
 
+	
 
-	private void repain() {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }

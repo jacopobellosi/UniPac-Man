@@ -4,35 +4,99 @@
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
 
+
 import java.util.*;
-import javax.swing.*;
-import java.awt.*;
 import java.time.*;
 
-//Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
-public class GameEngine extends JFrame {
+//Rappresenta un singolo livello del gioco, definendo la sua struttura, i personaggi, gli oggetti, ecc.
+import java.awt.*;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+
+public class GameEngine extends JPanel implements Runnable{
+ 
+	final int originalTitleSize = 16; // 16x16 title
+	final int scale=3;
+	final int titleSize = originalTitleSize * scale;
 	
-	public static void main(String[] args) {
-		GameEngine f = new GameEngine();
+	
+	final int maxScreenCol = 16;
+	final int maxScreenRow = 12;
+	final int screenWidth = titleSize * maxScreenCol;
+	final int screenHeight = titleSize * maxScreenRow;
+	int FPS=60;
+	InputManager keyH = new InputManager();
 
-	}
-	public void init() {
-		setLayout( new GridLayout(1,1,0,0));
-		setLocationRelativeTo(null);
-		InputManager s = new InputManager();
-		setVisible(true);
-	}
-
+	Thread gameThread;
+	
+	int playerX =100;
+	int playerY =100;
+	int playerSpeed =4;
+	
+	
 	public GameEngine() {
-		super("UniPac-Man");
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 500);
-		setLocation(200, 200);
-		getContentPane().setBackground(Color.black);
-		setResizable(false);
-		init();
-
+		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+		this.setBackground(Color.black);
+		this.setDoubleBuffered(true);
+		this.addKeyListener(keyH);
+		this.setFocusable(true);
+		
 	}
 	
+	public void StartGameThread() {
+		gameThread = new Thread(this);
+		gameThread.start();
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		double drawInterval = 1000000000/FPS;
+		double nextDrawTine = System.nanoTime();
+		while(gameThread != null) {
+			//System.out.print("ciao");
+			//long currentTime = System.nanoTime();
+			 
+			//UPDATE
+			update();
+			//DRAW
+			repaint();
+			try {
+				double remainingTime = nextDrawTine - System.nanoTime();
+				remainingTime = remainingTime/1000000;
+				if(remainingTime<0) {
+					remainingTime =0;
+				}
+				Thread.sleep((long) remainingTime);
+				nextDrawTine += drawInterval;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	public void update() {
+		if(keyH.upPressed == true) {
+			playerY -=playerSpeed;
+		}else if(keyH.downPressed == true) {
+			playerY +=playerSpeed;
+		}else if(keyH.leftPressed == true) {
+			playerX -=playerSpeed;
+		}else if(keyH.rightPressed == true) {
+			playerX +=playerSpeed;
+		}
+	}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D)g;
+		
+		g2.setColor(Color.white);
+		g2.fillRect(playerX, playerY, titleSize, titleSize);
+		g2.dispose();
+		
+	}
 }
