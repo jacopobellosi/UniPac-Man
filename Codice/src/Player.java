@@ -45,12 +45,11 @@ public class Player  extends GameObject{
     */
     
     public void getPlayerImage()  {
-    	up1 =  (BufferedImage)new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
-		up2 = (BufferedImage) new ImageIcon(getClass().getResource("/pacman/su_sx.gif")).getImage();
-		down1 = (BufferedImage) new ImageIcon(getClass().getResource("/pacman/giu_dx.gif")).getImage();
-		down2 = (BufferedImage) new ImageIcon(getClass().getResource("/pacman/giu_sx.gif")).getImage();
-		right1 = (BufferedImage) new ImageIcon(getClass().getResource("/pacman/destra.gif")).getImage();
-		left1 =(BufferedImage) new ImageIcon(getClass().getResource("/pacman/destra.gif")).getImage();
+    	up1 =  new ImageIcon(getClass().getResource("/immagini/pacman/sudx.")).getImage();
+		up2 =  new ImageIcon(getClass().getResource("/immagini/pacman/susx.gif")).getImage();
+		down1 = new ImageIcon(getClass().getResource("/immagini/pacman/giusx.gif")).getImage();
+		right1 =  new ImageIcon(getClass().getResource("/immagini/pacman/dx.gif")).getImage();
+		left1 =new ImageIcon(getClass().getResource("/immagini/pacman/sx.gif")).getImage();
     }
     
     public void update() {
@@ -71,7 +70,7 @@ public class Player  extends GameObject{
     public void draw(Graphics2D g2) {
     	//g2.setColor(Color.white);
 		//g2.fillRect(x, y, gp.titleSize, gp.titleSize);
-		BufferedImage image = null;
+		Image image = null;
 		switch(direction) {
 			case"up":
 				image=up1;
