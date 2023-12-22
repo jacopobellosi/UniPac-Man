@@ -11,7 +11,7 @@ import java.time.*;
 public class Door extends GameObject {
 
 	public Door(int x, int y) {
-		super(x, y);
+		
 		// TODO Auto-generated constructor stub
 	}
 

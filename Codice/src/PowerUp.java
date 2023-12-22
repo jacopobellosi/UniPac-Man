@@ -11,7 +11,7 @@ import java.time.*;
 public class PowerUp extends GameObject {
 
 	public PowerUp(int x, int y) {
-		super(x, y);
+		
 		// TODO Auto-generated constructor stub
 	}
 

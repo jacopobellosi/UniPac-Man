@@ -12,7 +12,7 @@ import java.time.*;
 public class Obstacole extends GameObject {
 
 	public Obstacole(int x, int y) {
-		super(x, y);
+		
 		// TODO Auto-generated constructor stub
 	}
 
