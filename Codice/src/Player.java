@@ -62,10 +62,10 @@ public class Player  extends GameObject{
 			direction="down";
 			y +=speed;
 		}else if(keyH.leftPressed == true) {
-			direction="sinistra";
+			direction="left";
 			x -=speed;
 		}else if(keyH.rightPressed == true) {
-			direction="destra";
+			direction="right";
 			x +=speed;
 		}
     }
