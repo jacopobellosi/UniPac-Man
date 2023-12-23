@@ -6,55 +6,89 @@
 
 
 import java.util.*;
+import java.time.*;
 
+//Rappresenta un singolo livello del gioco, definendo la sua struttura, i personaggi, gli oggetti, ecc.
+import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.*;
-//Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
-public class GameEngine extends JPanel implements ActionListener {
-    private Timer gameTimer;
-    private Player player;  // Supponiamo che ci sia una classe Player da implementare
-    private InputManager inputManager;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
-    public GameEngine() {
-        setFocusable(true);
-        gameTimer = new Timer(16, this);  // Timer per aggiornare il gioco ogni 16 millisecondi (circa 60 FPS)
-        gameTimer.start();
 
-        player = new Player();  // Inizializza il personaggio principale
-        inputManager = new InputManager(player);  // Inizializza l'InputManager e gli assegna il giocatore
+public class GameEngine extends JPanel implements Runnable{
+ 
+	final int originalTitleSize = 16; // 16x16 title
+	final int scale=3;
+	public final int titleSize = originalTitleSize * scale;
+	
+	
+	final int maxScreenCol = 16;
+	final int maxScreenRow = 12;
+	final int screenWidth = titleSize * maxScreenCol;
+	final int screenHeight = titleSize * maxScreenRow;
+	int FPS=60;
+	InputManager keyH = new InputManager();
 
-        addKeyListener(inputManager);  // Aggiunge l'InputManager come KeyListener al pannello
-    }
+	Thread gameThread;
+	Player player =new Player(this,keyH);
+	int playerX =100;
+	int playerY =100;
+	int playerSpeed =4;
+	
+	
+	public GameEngine() {
+		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+		this.setBackground(Color.black);
+		this.setDoubleBuffered(true);
+		this.addKeyListener(keyH);
+		this.setFocusable(true);
+		
+	}
 
-    public void startGame() {
-        // Inizializza altri elementi di gioco e inizia la logica del gioco
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // Chiamato ad ogni aggiornamento del timer
-        updateGame();
-        repaint();  // Richiama il metodo paintComponent
-    }
-
-    private void updateGame() {
-        // Aggiorna la logica di gioco, inclusi movimenti, collisioni, ecc.
-        player.update();  // Supponiamo che ci sia un metodo update() in Player
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        // Disegna gli elementi di gioco, inclusi il personaggio, gli oggetti, ecc.
-        player.draw(g);  // Supponiamo che ci sia un metodo draw(Graphics g) in Player
-    }
-
+	
+	public void StartGameThread() {
+		gameThread = new Thread(this);
+		gameThread.start();
+	}
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void run() {
 		// TODO Auto-generated method stub
+		double drawInterval = 1000000000/FPS;
+		double nextDrawTine = System.nanoTime();
+		while(gameThread != null) {
+			//System.out.print("ciao");
+			//long currentTime = System.nanoTime();
+			 
+			//UPDATE
+			update();
+			//DRAW
+			repaint();
+			try {
+				double remainingTime = nextDrawTine - System.nanoTime();
+				remainingTime = remainingTime/1000000;
+				if(remainingTime<0) {
+					remainingTime =0;
+				}
+				Thread.sleep((long) remainingTime);
+				nextDrawTine += drawInterval;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	public void update() {
+		player.update();
+	}
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D)g;
+		player.draw(g2);
+		g2.dispose();
 		
 	}
 }

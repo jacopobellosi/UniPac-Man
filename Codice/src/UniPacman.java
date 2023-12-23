@@ -5,9 +5,45 @@
 */
 
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.*;
 
-//main 
-public class UniPacman{
+//Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
+public class UniPacman  {
 
+	public static void main(String[] args) {
+		JFrame window = new JFrame();
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setSize(500, 500);
+		window.setLocation(200, 200);
+		window.setTitle("Pac-Man");
+		
+		GameEngine livello = new GameEngine();
+		window.add(livello);
+		window.pack();
+		
+		window.setLocationRelativeTo(null);
+		window.setVisible(true);
+		
+		livello.StartGameThread();
+		
+	}
+    
+	/*
+	 * public void init() {
+	 
+		setLayout( new GridLayout(1,1,0,0));
+		setLocationRelativeTo(null);
+		InputManager s = new InputManager();
+		setVisible(true);
+		
+	}
+	*/
+
+	
+	
+	
 }

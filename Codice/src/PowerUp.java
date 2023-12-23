@@ -10,4 +10,9 @@ import java.time.*;
 //Rappresenta un oggetto che conferisce al giocatore potenziamenti o benefici specifici quando raccolto
 public class PowerUp extends GameObject {
 
+	public PowerUp(int x, int y) {
+		
+		// TODO Auto-generated constructor stub
+	}
+
 }

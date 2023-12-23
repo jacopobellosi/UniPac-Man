@@ -11,5 +11,10 @@ import java.time.*;
 //Rappresenta un ostacolo o un elemento bloccante in un livello
 public class Obstacole extends GameObject {
 
+	public Obstacole(int x, int y) {
+		
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

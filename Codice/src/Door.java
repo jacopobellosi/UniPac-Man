@@ -10,4 +10,9 @@ import java.time.*;
 //Rappresenta un elemento di transizione tra i livelli, come una porta che si apre quando determinate condizioni sono soddisfatte
 public class Door extends GameObject {
 
+	public Door(int x, int y) {
+		
+		// TODO Auto-generated constructor stub
+	}
+
 }

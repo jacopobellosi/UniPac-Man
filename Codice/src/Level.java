@@ -9,6 +9,12 @@ import java.util.*;
 import java.time.*;
 
 //Rappresenta un singolo livello del gioco, definendo la sua struttura, i personaggi, gli oggetti, ecc.
-public class Level {
+import java.awt.*;
+import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
+public class Level extends JPanel{
+ 
+	
 }
