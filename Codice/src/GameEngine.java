@@ -25,13 +25,14 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int titleSize = originalTitleSize * scale;
 	
 	
-	final int maxScreenCol = 16;
-	final int maxScreenRow = 12;
-	final int screenWidth = titleSize * maxScreenCol;
-	final int screenHeight = titleSize * maxScreenRow;
+	public final int maxScreenCol = 16;
+	public final int maxScreenRow = 12;
+	public final int screenWidth = titleSize * maxScreenCol;
+	public final int screenHeight = titleSize * maxScreenRow;
 	int FPS=60;
 	InputManager keyH = new InputManager();
 
+	Tilemanger tileM = new Tilemanger(this);
 	Thread gameThread;
 	Player player =new Player(this,keyH);
 
@@ -85,6 +86,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
+		tileM.draw(g2);
 		player.draw(g2);
 		g2.dispose();
 		
