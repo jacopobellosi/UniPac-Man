@@ -11,4 +11,7 @@ public class GameObject {
    public int speed;
    public Image up1,up2, down1,down2,left,right;
    public String direction;
+   
+   
+
 }

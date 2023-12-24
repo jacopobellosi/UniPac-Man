@@ -6,15 +6,14 @@
 
 
 import java.util.*;
+import java.awt.image.BufferedImage;
 import java.time.*;
 
 //Rappresenta un ostacolo o un elemento bloccante in un livello
-public class Obstacole extends GameObject {
+public class Obstacole  {
 
-	public Obstacole(int x, int y) {
-		
-		// TODO Auto-generated constructor stub
-	}
-
+	public BufferedImage image;
+	public boolean collision = false;
+	
 
 }
