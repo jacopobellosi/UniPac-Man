@@ -5,7 +5,7 @@ public class CollisionChecker {
 		this.gp = gp;
 		
 	}
-	public void checktile(GameObject entity) {
+	public void checktile(Entity entity) {
 		int entityLeftWorldX = entity.x + entity.solidArea.x;
 		int entityRightWorldX = entity.x + entity.solidArea.x + entity.solidArea.width;
 		int entityTopWorldY = entity.y + entity.solidArea.y;
@@ -56,11 +56,50 @@ public class CollisionChecker {
 	
 	
 	
-	public int checkObkect(GameObject entity, boolean player){
+	public int checkObject(Entity entity, boolean player){
 		int index = 999;
 		for(int i =0;i<gp.obj.length;i++) {
 			if(gp.obj[i]!=null) {
-				//entity.sol
+				entity.solidArea.x += entity.x ;
+				entity.solidArea.y += entity.y ;
+				gp.obj[i].solidArea.x = gp.obj[i].x + gp.obj[i].solidArea.x;
+				gp.obj[i].solidArea.y = gp.obj[i].y + gp.obj[i].solidArea.y;
+				switch(entity.direction) {
+				case"up":
+					entity.solidArea.y -= entity.speed;
+					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
+						System.out.print("collisione su");
+					}
+					break;
+				case"down":
+					entity.solidArea.y += entity.speed;
+					entity.solidArea.y -= entity.speed;
+					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
+						System.out.print("collisione giu");
+					}
+					break;
+				case"left":
+					entity.solidArea.x -= entity.speed;
+					entity.solidArea.y -= entity.speed;
+					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
+						System.out.print("collisione");
+					}
+					break;
+				case"right":
+					entity.solidArea.x += entity.speed;
+					entity.solidArea.y -= entity.speed;
+					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
+						System.out.print("collisione");
+					}
+					break;
+						
+				}
+				entity.solidArea.x = entity.solidAreaDefaultx;
+				entity.solidArea.y = entity.solidAreaDefaulty;
+				gp.obj[i].solidArea.x = gp.obj[i].solidAreaDefaultx;
+				gp.obj[i].solidArea.y = gp.obj[i].solidAreaDefaulty;
+				
+				
 			}
 		}
 		return index;

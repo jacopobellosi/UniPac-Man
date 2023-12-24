@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 
 
-public class Player  extends GameObject{
+public class Player  extends Entity{
 	
     GameEngine gp;
     InputManager keyH;
@@ -71,6 +71,7 @@ public class Player  extends GameObject{
     	
     	collisionON = false;
     	gp.cCheck.checktile(this);
+    	int objIndex = gp.cCheck.checkObject(this, true);
     	
     	//check collision
     	/*

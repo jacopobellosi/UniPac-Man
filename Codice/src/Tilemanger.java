@@ -73,11 +73,7 @@ public class Tilemanger {
 		int row = 0;
 		int x =0;
 		int y=0;
-		try {
-			imagecfu=ImageIO.read(getClass().getResourceAsStream("/pacman/objects/superata.gif"));
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+
 		
 		while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
 			int tileNum = mapTilenum[col][row];
