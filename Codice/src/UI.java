@@ -18,7 +18,7 @@ public class UI {
 		f_30 = new Font("PacFont Good", Font.PLAIN,30);
 		f_50 = new Font("PacFont Good", Font.BOLD,50);
 		
-		c_30 = new Font("calibri", Font.PLAIN,30);
+		c_30 = new Font("namco regular", Font.PLAIN,25);
 
 
 		GameObject vita = new vitaPacMan(gp);
@@ -62,7 +62,7 @@ public class UI {
 		
 			g2.setFont(c_30);
 			g2.setColor(Color.white);
-			g2.drawString(""+gp.player.hashKey, 200, 49);
+			g2.drawString(""+gp.player.hashKey, 200, 45);
 		}
 		
 	}
