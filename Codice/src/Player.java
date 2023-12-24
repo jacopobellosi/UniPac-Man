@@ -115,8 +115,13 @@ public class Player  extends Entity{
     			System.out.println("Numero pallini: "+ hashKey);
     			break;
     		}
-    		
-    		
+    			
+    	}
+    	if(hashKey==2) {
+			gp.ui.gameFinished=true;
+			//ui.stopMusic(); in caso metteremo il suono
+
+
     	}
     }
     public void draw(Graphics2D g2) {
