@@ -68,28 +68,48 @@ public class CollisionChecker {
 				case"up":
 					entity.solidArea.y -= entity.speed;
 					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
-						System.out.print("collisione su");
+						if(gp.obj[i].collision==true) {
+							entity.collisionON = true;
+						}
+						if(player == true) {
+							index = i;
+						}
 					}
 					break;
 				case"down":
 					entity.solidArea.y += entity.speed;
 					entity.solidArea.y -= entity.speed;
 					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
-						System.out.print("collisione giu");
+						if(gp.obj[i].collision==true) {
+							entity.collisionON = true;
+						}
+						if(player == true) {
+							index = i;
+						}
 					}
 					break;
 				case"left":
 					entity.solidArea.x -= entity.speed;
 					entity.solidArea.y -= entity.speed;
 					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
-						System.out.print("collisione");
+						if(gp.obj[i].collision==true) {
+							entity.collisionON = true;
+						}
+						if(player == true) {
+							index = i;
+						}
 					}
 					break;
 				case"right":
 					entity.solidArea.x += entity.speed;
 					entity.solidArea.y -= entity.speed;
 					if(entity.solidArea.intersects(gp.obj[i].solidArea)) {
-						System.out.print("collisione");
+						if(gp.obj[i].collision==true) {
+							entity.collisionON = true;
+						}
+						if(player == true) {
+							index = i;
+						}
 					}
 					break;
 						

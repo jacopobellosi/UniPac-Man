@@ -14,14 +14,15 @@ public class Player  extends Entity{
 	
     GameEngine gp;
     InputManager keyH;
-    
+    int hashKey = 0;
     public Player(GameEngine gp,InputManager keyH) {
     	this.gp=gp;
     	this.keyH=keyH;
     	
     	solidArea = new Rectangle(8,16,32,32);
-    	solidAreaDefaultx=8;
-    	solidAreaDefaulty = 16;
+    	solidArea.x = 8;
+    	solidAreaDefaultx= solidArea.x;
+    	solidAreaDefaulty = solidArea.y;
     	setDefaultValue();
     	getPlayerImage();
     }
@@ -72,7 +73,7 @@ public class Player  extends Entity{
     	collisionON = false;
     	gp.cCheck.checktile(this);
     	int objIndex = gp.cCheck.checkObject(this, true);
-    	
+    	mangiaPalline(objIndex);
     	//check collision
     	/*
     	if( collisionON == false) {
@@ -104,6 +105,20 @@ public class Player  extends Entity{
     	
     	
     	
+    }
+    public void mangiaPalline(int i) {
+    	if(i != 999) {
+    		String objectName = gp.obj[i].name;
+    		switch(objectName){
+    		case"CFU":
+    			hashKey++;
+    			gp.obj[i]=null;
+    			System.out.println("Numero pallini: "+ hashKey);
+    			break;
+    		}
+    		
+    		
+    	}
     }
     public void draw(Graphics2D g2) {
     	//g2.setColor(Color.white);
