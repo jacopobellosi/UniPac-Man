@@ -9,6 +9,6 @@ public class Entity {
 	   public boolean collision=false;
 	   public Rectangle solidArea;
 	   public boolean collisionON = false;
-
+	   int maxLife,life;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;
 }

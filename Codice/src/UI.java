@@ -1,21 +1,25 @@
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.awt.Font;
 public class UI {
 	GameEngine gp;
 	Font arial_40;
 	Font arial_80B;
-
+	BufferedImage pacLife;
 	public boolean gameFinished=false;
-	
+	Graphics2D g2;
 	public UI(GameEngine gp) {
 		this.gp = gp;
 		arial_40 = new Font("arial", Font.PLAIN,40);
 		arial_80B = new Font("arial", Font.BOLD,40);
-
+		GameObject vita = new vitaPacMan(gp);
+		pacLife = vita.imageVita;
 	}
 	public void drawContaPallini(Graphics2D g2) {
+		this.g2=g2;
+		drawPlayerLife();
 		if(gameFinished==true) {
 			g2.setFont(arial_40);
 			g2.setColor(Color.white);
@@ -52,4 +56,15 @@ public class UI {
 		}
 		
 	}
+	private void drawPlayerLife() {
+		// TODO Auto-generated method stub
+		int x = gp.titleSize/2;
+		int y = gp.titleSize/2;
+		int i=0;
+		while(i < gp.player.maxLife) {
+			g2.drawImage(pacLife,x,y,gp.titleSize, gp.titleSize,null);
+			i++;
+			x +=gp.titleSize;
+		}
+}
 }

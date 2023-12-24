@@ -12,11 +12,13 @@ public class Tilemanger {
 	Obstacole[] tile;
 	public BufferedImage imagecfu ;
 	public int mapTilenum[][];
+	static int conteggio;
 	public  Tilemanger(GameEngine gp) {
 		this.gp = gp;
 		tile= new Obstacole[10];
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
 		getTileImage();
+		conteggio=0;
 		loadMap("/pacman/mappa/mappa01.txt");
 	}
 	
@@ -52,6 +54,10 @@ public class Tilemanger {
 						String numbers[] = line.split(" ");
 						int num = Integer.parseInt(numbers[col]);
 						mapTilenum[col][row] = num;
+						if(mapTilenum[col][row]==0) {
+							//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
+							conteggio++;
+						}
 						col++;
 					}
 					if(col == gp.maxScreenCol) {
@@ -67,6 +73,10 @@ public class Tilemanger {
 		}
 		
 	}
+	public static int getPalliniTotali() {
+		
+		return conteggio;
+	}
 	public void draw(Graphics g2) {
 
 		int col = 0;
@@ -79,9 +89,7 @@ public class Tilemanger {
 			int tileNum = mapTilenum[col][row];
 			g2.drawImage(tile[tileNum].image, x, y, gp.titleSize, gp.titleSize, null);
 			
-			if(mapTilenum[col][row]==0) {
-				//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
-			}
+			
 			
 			col++;
 			x +=gp.titleSize;
