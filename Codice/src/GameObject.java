@@ -15,7 +15,7 @@ public class GameObject {
 	public int mapTilenum[][];
 	
 	
-   	public Rectangle solidArea = new Rectangle(0,0,48,48);
+   	public Rectangle solidArea = new Rectangle(0,0,20,20);
    	public int solidAreaDefaultx, solidAreaDefaulty;
    	
    	

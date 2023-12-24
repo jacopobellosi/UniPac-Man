@@ -19,8 +19,7 @@ public class Player  extends Entity{
     	this.gp=gp;
     	this.keyH=keyH;
     	
-    	solidArea = new Rectangle(8,16,32,32);
-    	solidArea.x = 8;
+    	solidArea = new Rectangle(8,9,15,15);
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
     	setDefaultValue();
@@ -28,8 +27,8 @@ public class Player  extends Entity{
     }
     
     public void setDefaultValue() {
-    	x=100;
-    	y=100;
+    	x=150;
+    	y=200;
     	speed = 4;
     	direction="down";
     }

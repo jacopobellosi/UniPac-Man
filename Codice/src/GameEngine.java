@@ -31,7 +31,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int screenHeight = titleSize * maxScreenRow;
 	int FPS=60;
 	InputManager keyH = new InputManager();
-
+	public UI ui = new UI(this);
 	Tilemanger tileM = new Tilemanger(this);
 	Thread gameThread;
 	public CollisionChecker cCheck = new CollisionChecker(this);
@@ -97,6 +97,8 @@ public class GameEngine extends JPanel implements Runnable{
 			}
 		}
 		player.draw(g2);
+		//UI
+		ui.drawContaPallini(g2);
 		g2.dispose();
 		
 	}
