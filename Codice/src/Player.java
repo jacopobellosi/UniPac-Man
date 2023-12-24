@@ -23,6 +23,7 @@ public class Player  extends Entity{
     	solidArea = new Rectangle(8,9,15,15);
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
+    	pallini_totali = Tilemanger.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
     	
@@ -121,8 +122,7 @@ public class Player  extends Entity{
     		}
     			
     	}
-    	pallini_totali = Tilemanger.getPalliniTotali();
-    	System.out.println(" su" + pallini_totali);
+    	
     	if(hashKey==pallini_totali) {
 			gp.ui.gameFinished=true;
 			//ui.stopMusic(); in caso metteremo il suono
