@@ -7,7 +7,7 @@ public class ObjCFU extends GameObject{
 	public ObjCFU() {
 		name="CFU";
 		try {
-			image=ImageIO.read(getClass().getResourceAsStream("/pacman/objects/superata.gif"));
+			imagecfu=ImageIO.read(getClass().getResourceAsStream("/pacman/objects/superata.gif"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}

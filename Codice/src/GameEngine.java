@@ -37,7 +37,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public CollisionChecker cCheck = new CollisionChecker(this);
 	public AssetSetter aSetter=new AssetSetter(this);
 	Player player =new Player(this,keyH);
-	public GameObject obj[]=new GameObject[3];//numero massimo oggetti
+	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	
 	public GameEngine() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -93,7 +93,7 @@ public class GameEngine extends JPanel implements Runnable{
 		tileM.draw(g2);
 		for(int i=0;i< obj.length;i++)		{
 			if(obj[i]!=null) {
-				obj[i].draw(g2,this);
+				obj[i].drawCFU(g2,this);
 			}
 		}
 		player.draw(g2);

@@ -15,28 +15,23 @@ public class GameObject {
    public Rectangle solidArea;
    public boolean collisionON = false;
 
-    public BufferedImage image;
+    public BufferedImage imagecfu;
 	public String name;
 	public boolean collision=false;
+	public int mapTilenum[][];
 	
-	public void draw(Graphics2D g2,GameEngine gp) {
-		int col = 0;
-		int row = 0;
-		int x =0;
-		int y=0;
-		while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
-			//int tileNum = mapTilenum[col][row];
-			g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
-			col++;
-			x +=gp.titleSize;
+	
+	public void drawCFU(Graphics2D g2,GameEngine gp) {
+
+		int x = this.x ;
+		int y= this.y ;
+		
+
+			g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
 			
-			if(col==gp.maxScreenCol){
-				col =0;
-				x=0;
-				row++;
-				y +=gp.titleSize;
-			}
+	
 			
-		}
+		
+		
 	}
 }

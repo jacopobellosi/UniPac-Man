@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +10,7 @@ import javax.imageio.ImageIO;
 public class Tilemanger {
 	GameEngine gp;
 	Obstacole[] tile;
-	
+	public BufferedImage imagecfu ;
 	public int mapTilenum[][];
 	public  Tilemanger(GameEngine gp) {
 		this.gp = gp;
@@ -72,9 +73,20 @@ public class Tilemanger {
 		int row = 0;
 		int x =0;
 		int y=0;
+		try {
+			imagecfu=ImageIO.read(getClass().getResourceAsStream("/pacman/objects/superata.gif"));
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 		while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
 			int tileNum = mapTilenum[col][row];
 			g2.drawImage(tile[tileNum].image, x, y, gp.titleSize, gp.titleSize, null);
+			
+			if(mapTilenum[col][row]==0) {
+				//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
+			}
+			
 			col++;
 			x +=gp.titleSize;
 			
