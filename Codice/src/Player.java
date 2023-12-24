@@ -20,6 +20,8 @@ public class Player  extends GameObject{
     	this.keyH=keyH;
     	
     	solidArea = new Rectangle(8,16,32,32);
+    	solidAreaDefaultx=8;
+    	solidAreaDefaulty = 16;
     	setDefaultValue();
     	getPlayerImage();
     }
