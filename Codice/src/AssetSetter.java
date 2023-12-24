@@ -10,11 +10,15 @@ public class AssetSetter {
 	public AssetSetter(GameEngine gp) {
 		this.gp=gp;
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
-		loadMap("/pacman/mappa/mappa01.txt");
 	}
-	public void loadMap(String S) {
+	public void setMonster() {
+		gp.ghost[0] = new Ghost(gp);
+		gp.ghost[0].x = gp.titleSize *1;
+		gp.ghost[0].y = gp.titleSize *1;
 		
-		
+		gp.ghost[1] = new Ghost(gp);
+		gp.ghost[1].x = gp.titleSize *2;
+		gp.ghost[1].y = gp.titleSize *2;
 	}
 	public void setObject() {
 		try {
@@ -58,3 +62,4 @@ public class AssetSetter {
 */
 	}
 }
+	

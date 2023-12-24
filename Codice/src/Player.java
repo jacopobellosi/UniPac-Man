@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
 
 public class Player  extends Entity{
 	
-    GameEngine gp;
     InputManager keyH;
     int hashKey = 0;
     int pallini_totali;
     public Player(GameEngine gp,InputManager keyH) {
+    	super(gp);
     	this.gp=gp;
     	this.keyH=keyH;
     	

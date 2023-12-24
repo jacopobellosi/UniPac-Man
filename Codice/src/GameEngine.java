@@ -38,7 +38,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public AssetSetter aSetter=new AssetSetter(this);
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
-	
+	public Entity ghost[] = new Entity[4];
 	public GameEngine() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
@@ -50,6 +50,7 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void setupGame() {
+		aSetter.setMonster();
 		aSetter.setObject();
 	}
 	
@@ -86,6 +87,11 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	public void update() {
 		player.update();
+		for(int i=0;i<ghost.length;i++) {
+			if(ghost[i]!=null) {
+				ghost[i].update();
+			}
+		}
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -97,6 +103,12 @@ public class GameEngine extends JPanel implements Runnable{
 			}
 		}
 		player.draw(g2);
+		for(int i=0;i<ghost.length;i++) {
+			if(ghost[i]!=null) {
+				ghost[i].setAction();
+				ghost[i].draw(g2,this);
+			}
+		}
 		//UI
 		ui.drawContaPallini(g2);
 		g2.dispose();
