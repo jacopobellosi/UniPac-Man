@@ -34,6 +34,7 @@ public class GameEngine extends JPanel implements Runnable{
 
 	Tilemanger tileM = new Tilemanger(this);
 	Thread gameThread;
+	public CollisionChecker cCheck = new CollisionChecker(this);
 	Player player =new Player(this,keyH);
 
 	

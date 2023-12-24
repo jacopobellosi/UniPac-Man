@@ -12,6 +12,7 @@ public class GameObject {
    public Image up1,up2, down1,down2,left,right;
    public String direction;
    
-   
+   public Rectangle solidArea;
+   public boolean collisionON = false;
 
 }

@@ -10,7 +10,7 @@ public class Tilemanger {
 	GameEngine gp;
 	Obstacole[] tile;
 	
-	int mapTilenum[][];
+	public int mapTilenum[][];
 	public  Tilemanger(GameEngine gp) {
 		this.gp = gp;
 		tile= new Obstacole[10];
@@ -27,9 +27,11 @@ public class Tilemanger {
 			
 			tile[1] = new Obstacole();
 			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/bordo_ver.png"));
+			tile[1].collision = true;
 			
 			tile[2] = new Obstacole();
 			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/bordo_orz.png"));
+			tile[2].collision = true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

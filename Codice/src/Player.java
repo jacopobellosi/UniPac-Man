@@ -18,6 +18,8 @@ public class Player  extends GameObject{
     public Player(GameEngine gp,InputManager keyH) {
     	this.gp=gp;
     	this.keyH=keyH;
+    	
+    	solidArea = new Rectangle(8,16,32,32);
     	setDefaultValue();
     	getPlayerImage();
     }
@@ -57,17 +59,48 @@ public class Player  extends GameObject{
     public void update() {
     	if(keyH.upPressed == true) {
     		direction="up";
-			y -=speed;
 		}else if(keyH.downPressed == true) {
 			direction="down";
-			y +=speed;
 		}else if(keyH.leftPressed == true) {
 			direction="left";
-			x -=speed;
 		}else if(keyH.rightPressed == true) {
 			direction="right";
-			x +=speed;
 		}
+    	
+    	collisionON = false;
+    	gp.cCheck.checktile(this);
+    	
+    	//check collision
+    	/*
+    	if( collisionON == false) {
+    		switch(direction){
+    		case"up":
+    			y -=speed;
+    			break;
+    		case"down":
+    			y +=speed;
+    			break;
+    		case"right":
+    			x +=speed;
+    			break;
+    		case"left":
+    			x -=speed;
+    			break;
+    		}
+    	}
+    	*/
+    	if(keyH.upPressed == true && collisionON == false) {
+    		y -=speed;
+    	}else if(keyH.downPressed == true && collisionON == false) {
+    		y +=speed;
+    	}else if(keyH.leftPressed == true && collisionON == false) {
+    		x -=speed;
+    	}else if(keyH.rightPressed == true && collisionON == false) {
+    		x +=speed;
+    	}
+    	
+    	
+    	
     }
     public void draw(Graphics2D g2) {
     	//g2.setColor(Color.white);
