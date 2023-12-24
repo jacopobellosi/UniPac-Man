@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 public class GameObject {
    
 	public int x,y;
-    public BufferedImage imagecfu;
+    public BufferedImage imagecfu,imageVita;
 	public String name;
 	public boolean collision=false;
 	public int mapTilenum[][];

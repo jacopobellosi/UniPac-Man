@@ -15,6 +15,7 @@ public class Player  extends Entity{
     GameEngine gp;
     InputManager keyH;
     int hashKey = 0;
+    int pallini_totali;
     public Player(GameEngine gp,InputManager keyH) {
     	this.gp=gp;
     	this.keyH=keyH;
@@ -24,6 +25,7 @@ public class Player  extends Entity{
     	solidAreaDefaulty = solidArea.y;
     	setDefaultValue();
     	getPlayerImage();
+    	
     }
     
     public void setDefaultValue() {
@@ -31,6 +33,8 @@ public class Player  extends Entity{
     	y=200;
     	speed = 4;
     	direction="down";
+    	maxLife = 3;
+    	life = maxLife;
     }
     /*
       public void getPlayerImage(){
@@ -117,7 +121,9 @@ public class Player  extends Entity{
     		}
     			
     	}
-    	if(hashKey==2) {
+    	pallini_totali = Tilemanger.getPalliniTotali();
+    	System.out.println(" su" + pallini_totali);
+    	if(hashKey==pallini_totali) {
 			gp.ui.gameFinished=true;
 			//ui.stopMusic(); in caso metteremo il suono
 
