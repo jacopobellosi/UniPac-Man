@@ -27,7 +27,7 @@ public class UniPacman  {
 		
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		
+		livello.setupGame();
 		livello.StartGameThread();
 		
 	}
