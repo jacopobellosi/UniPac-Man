@@ -88,5 +88,6 @@ public class Player  extends GameObject{
 				break;
 		}
 		g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
+		
     }
 }
