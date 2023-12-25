@@ -1,5 +1,7 @@
 
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
 import java.awt.Font;
@@ -8,7 +10,7 @@ public class UI {
 	Font f_30;
 	Font f_50;
 	Font c_30;
-
+	InputManager keyH;
 	BufferedImage pacLife;
 	public boolean gameFinished=false;
 	Graphics2D g2;
@@ -18,7 +20,7 @@ public class UI {
 		f_30 = new Font("PacFont Good", Font.PLAIN,30);
 		f_50 = new Font("PacFont Good", Font.BOLD,50);
 		
-		c_30 = new Font("namco regular", Font.PLAIN,25);
+		c_30 = new Font("namco regular", Font.PLAIN,20);
 
 
 		GameObject vita = new vitaPacMan(gp);
@@ -54,15 +56,32 @@ public class UI {
 			g2.drawString(text, x, y);
 			
 			gp.gameThread=null;
+			
+			text = "press SPACE to start";
+			g2.setFont(f_30);
+		    g2.setColor(Color.yellow);
+			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+		    x=gp.screenWidth/2-textLength/2;
+			y=gp.screenHeight/2+(gp.titleSize*3);
+			g2.drawString(text, x, y);
+
+			 GameRestart gameRestart = new GameRestart();
+			 gp.addKeyListener(gameRestart);
+			/*
+		    if(keyH.spacePressed == true ) {
+		    	gameFinished=false;
+		    	gp.StartGameThread();
+
+		    }*/
 
 		}else {
 			g2.setFont(f_30);
 			g2.setColor(Color.white);
-			g2.drawString("Pallini - ", 25, 50);
+			g2.drawString("cfu - ", 200, 50);
 		
 			g2.setFont(c_30);
 			g2.setColor(Color.white);
-			g2.drawString(""+gp.player.hashKey, 200, 45);
+			g2.drawString(""+gp.player.hashKey, 300, 45);
 		}
 		
 	}
@@ -76,5 +95,6 @@ public class UI {
 			i++;
 			x +=gp.titleSize;
 		}
-}
+	}
+	
 }

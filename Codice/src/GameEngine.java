@@ -58,6 +58,9 @@ public class GameEngine extends JPanel implements Runnable{
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
+	public void StopGameThread() {
+		gameThread.interrupt();
+	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
