@@ -82,7 +82,8 @@ public class InputManager implements  KeyListener {
 		}
 		//tasto per restart
 		if(code == KeyEvent.VK_SPACE ) {
-			gp.restartGame();
+			gp.gameState=gp.playState;
+			//gp.restartGame();
 
 		}
 	}
