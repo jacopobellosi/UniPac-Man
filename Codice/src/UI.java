@@ -108,7 +108,7 @@ public class UI {
 	
 	public void drawTitleScreen() {
 		
-		g2.setColor(Color.black);//new Color(70,120,80) per scegliere una propria gradazione
+		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		//title
 		g2.setFont(f_50);
