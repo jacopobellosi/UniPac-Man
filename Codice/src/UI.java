@@ -30,32 +30,28 @@ public class UI {
 		this.g2=g2;
 		drawPlayerLife();
 		if(gameFinished==true) {
-			g2.setFont(f_30);
-			g2.setColor(Color.white);
-
 			String text;
 			int textLength;
 			int x;
 			int y;
 			
 			text= "Complimenti hai raccolto tutti i CFU";
+			g2.setFont(f_30);
+			g2.setColor(Color.white);
 			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-			
 			x=gp.screenWidth/2-textLength/2;
 			y=gp.screenHeight/2-(gp.titleSize*2);
 			g2.drawString(text, x, y);
 			
-			g2.setFont(f_50);
-			g2.setColor(Color.white);
 			
 			text= "TI SEI LAUREATO!";
+			g2.setFont(f_50);
+			g2.setColor(Color.white);
 			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-			
 			x=gp.screenWidth/2-textLength/2;
 			y=gp.screenHeight/2;//-(gp.titleSize*4);
 			g2.drawString(text, x, y);
-			
-			gp.gameThread=null;
+					
 			
 			text = "press SPACE to start";
 			g2.setFont(f_30);
@@ -65,15 +61,9 @@ public class UI {
 			y=gp.screenHeight/2+(gp.titleSize*3);
 			g2.drawString(text, x, y);
 
-			 GameRestart gameRestart = new GameRestart();
-			 gp.addKeyListener(gameRestart);
-			/*
-		    if(keyH.spacePressed == true ) {
-		    	gameFinished=false;
-		    	gp.StartGameThread();
+			gp.gameThread=null;
 
-		    }*/
-
+			
 		}else {
 			g2.setFont(f_30);
 			g2.setColor(Color.white);
@@ -97,7 +87,7 @@ public class UI {
 		}
 	}
 	
-	public void draw(Graphics2D g2) {
+	public void drawPause(Graphics2D g2) {
 		this.g2=g2;
 		g2.setFont(c_30);
 		g2.setColor(Color.white);

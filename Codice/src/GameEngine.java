@@ -30,7 +30,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int screenWidth = titleSize * maxScreenCol;
 	public final int screenHeight = titleSize * maxScreenRow;
 	int FPS=60;
-	InputManager keyH = new InputManager();
+	InputManager keyH = new InputManager(this);
 	public UI ui = new UI(this);
 	Tilemanger tileM = new Tilemanger(this);
 	Thread gameThread;
@@ -70,6 +70,18 @@ public class GameEngine extends JPanel implements Runnable{
 	public void StopGameThread() {
 		gameThread.interrupt();
 	}
+	
+	public void restartGame() {
+        // Ad esempio, fermare il thread corrente del gioco
+		
+		StopGameThread();
+        
+        // Riprendere il gioco dall'inizio
+		ui.gameFinished = false;
+        setupGame();
+        StartGameThread();
+    }
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub

@@ -28,24 +28,13 @@ public class UniPacman  {
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		
-		//GameRestart gameRestart = new GameRestart();
-	    //window.addKeyListener(gameRestart);
-	       
 		livello.setupGame();
 		livello.StartGameThread();
 		
-	}
-	public void restartGame() {
-        // Implementare la logica per riprendere il gioco dall'inizio
-        // Ad esempio, fermare il thread corrente del gioco
-		GameEngine livello = new GameEngine();
+		livello.restartGame();     
 
-		livello.StopGameThread();
-        
-        // Riprendere il gioco dall'inizio
-        livello.setupGame();
-        livello.StartGameThread();
-    }
+	}
+	
 	/*
 	 * public void init() {
 	 
