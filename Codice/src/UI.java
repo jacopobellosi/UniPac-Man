@@ -10,19 +10,20 @@ public class UI {
 	Font f_30;
 	Font f_50;
 	Font c_30;
+	Font a_20;
 	InputManager keyH;
 	BufferedImage pacLife;
 	public boolean gameFinished=false;
 	Graphics2D g2;
 	public int commandNum=0;
+	public int coommandNum;
 	
 	public UI(GameEngine gp) {
 		this.gp = gp;
 		f_30 = new Font("PacFont Good", Font.PLAIN,30);
 		f_50 = new Font("PacFont Good", Font.BOLD,50);
-		
 		c_30 = new Font("namco regular", Font.PLAIN,20);
-
+		a_20= new Font("Arial", Font.BOLD,20);
 
 		GameObject vita = new vitaPacMan(gp);
 		pacLife = vita.imageVita;
@@ -129,20 +130,22 @@ public class UI {
 		
 		//menu
 		g2.setFont(c_30);
-		text="nuova partita";
+		text=" nuova partita";
 		x=getXforCentered(text);
 		y+=gp.titleSize*4;
 		g2.drawString(text,x,y);
 		if(commandNum==0) {
+			g2.setFont(a_20);
 			g2.drawString(">", x-gp.titleSize, y);
 		}
-		
-		text="esci";
+		g2.setFont(c_30);
+		text=" esci";
 		x=getXforCentered(text);
 		y+=gp.titleSize;
 		g2.drawString(text,x,y);
-		if(commandNum==2) {
-			g2.drawString(">", x-gp.titleSize, y);
+		if(commandNum==1) {
+			g2.setFont(a_20);
+			g2.drawString(">", x-gp.titleSize+5, y);
 		}
 	}
 	
