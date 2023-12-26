@@ -45,6 +45,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int titleState=0;
 	public final int playState=1;
 	public final int pauseState=2;
+	public final int endState=3;
 
 	
 	public GameEngine() {
@@ -73,17 +74,6 @@ public class GameEngine extends JPanel implements Runnable{
 		gameThread.interrupt();
 	}
 	
-	public void restartGame() {
-        // Ad esempio, fermare il thread corrente del gioco
-		
-		StopGameThread();
-        
-        // Riprendere il gioco dall'inizio
-		ui.gameFinished = false;
-        setupGame();
-        StartGameThread();
-    }
-	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -111,6 +101,7 @@ public class GameEngine extends JPanel implements Runnable{
 			}
 		}
 	}
+	
 	public void update() {
 		if(gameState==playState) {
 			player.update();
@@ -120,19 +111,16 @@ public class GameEngine extends JPanel implements Runnable{
 				}
 			}
 		}
-		if(gameState==pauseState) {
-			//nothing
-		}
-		
 		
 	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 		
 		if(gameState==titleState) {
 			ui.draw(g2);
-		}else {
+		}else if(gameState==playState){
 			tileM.draw(g2);
 			for(int i=0;i< obj.length;i++)		{
 				if(obj[i]!=null) {
@@ -149,6 +137,9 @@ public class GameEngine extends JPanel implements Runnable{
 			//UI
 			ui.drawContaPallini(g2);
 			g2.dispose();
+		}else if(gameState==endState) {
+			ui.draw(g2);
+
 		}
 	}
 

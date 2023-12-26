@@ -31,8 +31,6 @@ public class UniPacman  {
 		livello.setupGame();
 		livello.StartGameThread();
 		
-		livello.restartGame();     
-
 	}
 	
 	/*

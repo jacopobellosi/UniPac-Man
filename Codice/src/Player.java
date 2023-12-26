@@ -125,10 +125,10 @@ public class Player  extends Entity{
     			
     	}
     	
-    	if(hashKey==3) {
-			gp.ui.gameFinished=true;
+    	if(hashKey==5) {
+    		gp.gameState=gp.endState;
 			//ui.stopMusic(); in caso metteremo il suono
-			 //hashKey==pallini_totali  hashKey==3 per prove veloci di termine
+			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
     	}
     }

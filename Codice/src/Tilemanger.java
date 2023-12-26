@@ -29,11 +29,11 @@ public class Tilemanger {
 			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/pacman/tile/sfondo.jpg"));
 			
 			tile[1] = new Obstacole();
-			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/bordo_ver.png"));
+			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/border_verticale.png"));
 			tile[1].collision = true;
 			
 			tile[2] = new Obstacole();
-			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/bordo_orz.png"));
+			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/border_orizzontale.png"));
 			tile[2].collision = true;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

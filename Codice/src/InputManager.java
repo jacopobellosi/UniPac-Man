@@ -41,14 +41,15 @@ public class InputManager implements  KeyListener {
 			
 			if(code == KeyEvent.VK_W) {
 				gp.ui.commandNum--;
-				if(gp.ui.commandNum<0)
+				if(gp.ui.commandNum<0) {
 					gp.ui.commandNum=1;
+				}
 			}
 			if(code == KeyEvent.VK_S) {
 				gp.ui.commandNum++;
 				if(gp.ui.commandNum>1) {
 					gp.ui.commandNum=0;
-			}
+				}
 			}
 			if (code == KeyEvent.VK_ENTER) {
 				if(gp.ui.coommandNum==0) {
@@ -59,6 +60,14 @@ public class InputManager implements  KeyListener {
 				}
 			}
 		}
+		
+		//fine
+		if(gp.gameState == gp.endState) {
+			if (code == KeyEvent.VK_SPACE) {
+				gp.gameState = gp.titleState;
+			}
+		}
+			
 		
 		if(code == KeyEvent.VK_W) {
 			upPressed = true;
@@ -80,12 +89,7 @@ public class InputManager implements  KeyListener {
 				gp.gameState=gp.playState;
 			}
 		}
-		//tasto per restart
-		if(code == KeyEvent.VK_SPACE ) {
-			gp.gameState=gp.playState;
-			//gp.restartGame();
-
-		}
+		
 	}
 	
 	@Override
