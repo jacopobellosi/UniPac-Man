@@ -17,7 +17,14 @@ import java.time.*;
 
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
 public class InputManager implements  KeyListener {
-	public boolean upPressed, downPressed, leftPressed,rightPressed;
+	public boolean upPressed, downPressed, leftPressed,rightPressed,spacePressed;
+	
+	GameEngine gp;
+	
+	public InputManager(GameEngine gp) {
+		this.gp=gp;
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -41,7 +48,21 @@ public class InputManager implements  KeyListener {
 		if(code == KeyEvent.VK_D) {
 			rightPressed = true;
 		}
+		//tasto per la pausa
+		if(code == KeyEvent.VK_P) {
+			if(gp.gameState==gp.playState) {
+				gp.gameState=gp.pauseState;
+			}else if(gp.gameState==gp.pauseState) {
+				gp.gameState=gp.playState;
+			}
+		}
+		//tasto per restart
+		if(code == KeyEvent.VK_SPACE ) {
+			gp.restartGame();
+
+		}
 	}
+	
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub

@@ -25,17 +25,27 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int titleSize = originalTitleSize * scale;
 	
 	
-	final int maxScreenCol = 16;
-	final int maxScreenRow = 12;
-	final int screenWidth = titleSize * maxScreenCol;
-	final int screenHeight = titleSize * maxScreenRow;
+	public final int maxScreenCol = 16;
+	public final int maxScreenRow = 12;
+	public final int screenWidth = titleSize * maxScreenCol;
+	public final int screenHeight = titleSize * maxScreenRow;
 	int FPS=60;
-	InputManager keyH = new InputManager();
-
+	InputManager keyH = new InputManager(this);
+	public UI ui = new UI(this);
+	Tilemanger tileM = new Tilemanger(this);
 	Thread gameThread;
+	public CollisionChecker cCheck = new CollisionChecker(this);
+	public AssetSetter aSetter=new AssetSetter(this);
 	Player player =new Player(this,keyH);
-
+	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
+	public Entity ghost[] = new Entity[4];
 	
+	//game state
+	public int gameState;
+	public final int titleState=0;
+	public final int playState=1;
+	public final int pauseState=2;
+
 	
 	public GameEngine() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -47,11 +57,33 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 
 
+	public void setupGame() {
+		aSetter.setMonster();
+		aSetter.setObject();
+		gameState=titleState;
+
+		
+	}
 	
 	public void StartGameThread() {
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
+	public void StopGameThread() {
+		gameThread.interrupt();
+	}
+	
+	public void restartGame() {
+        // Ad esempio, fermare il thread corrente del gioco
+		
+		StopGameThread();
+        
+        // Riprendere il gioco dall'inizio
+		ui.gameFinished = false;
+        setupGame();
+        StartGameThread();
+    }
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -80,13 +112,46 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 	}
 	public void update() {
-		player.update();
+		if(gameState==playState) {
+			player.update();
+			for(int i=0;i<ghost.length;i++) {
+				if(ghost[i]!=null) {
+					ghost[i].update();
+				}
+			}
+		}
+		if(gameState==pauseState) {
+			//nothing
+		}
+		
+		
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
-		player.draw(g2);
-		g2.dispose();
 		
+		if(gameState==titleState) {
+			ui.draw(g2);
+		}else {
+			tileM.draw(g2);
+			for(int i=0;i< obj.length;i++)		{
+				if(obj[i]!=null) {
+					obj[i].drawCFU(g2,this);
+				}
+			}
+			player.draw(g2);
+			for(int i=0;i<ghost.length;i++) {
+				if(ghost[i]!=null) {
+					ghost[i].setAction();
+					ghost[i].draw(g2,this);
+				}
+			}
+			//UI
+			ui.drawContaPallini(g2);
+			g2.dispose();
+		}
 	}
+
+
+
 }

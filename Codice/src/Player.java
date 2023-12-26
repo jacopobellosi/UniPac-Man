@@ -10,23 +10,32 @@ import javax.swing.ImageIcon;
 
 
 
-public class Player  extends GameObject{
+public class Player  extends Entity{
 	
-    GameEngine gp;
     InputManager keyH;
-    
+    int hashKey = 0;
+    int pallini_totali;
     public Player(GameEngine gp,InputManager keyH) {
+    	super(gp);
     	this.gp=gp;
     	this.keyH=keyH;
+    	
+    	solidArea = new Rectangle(8,9,15,15);
+    	solidAreaDefaultx= solidArea.x;
+    	solidAreaDefaulty = solidArea.y;
+    	pallini_totali = Tilemanger.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
+    	
     }
     
     public void setDefaultValue() {
-    	x=100;
-    	y=100;
+    	x=150;
+    	y=200;
     	speed = 4;
     	direction="down";
+    	maxLife = 3;
+    	life = maxLife;
     }
     /*
       public void getPlayerImage(){
@@ -51,23 +60,77 @@ public class Player  extends GameObject{
 		down2 = new ImageIcon(getClass().getResource("/pacman/giu_sx.gif")).getImage();
 		right =  new ImageIcon(getClass().getResource("/pacman/destra.gif")).getImage();
 		left =  new ImageIcon(getClass().getResource("/pacman/sinistra.gif")).getImage();
+		logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
+
     }
     
     
     public void update() {
     	if(keyH.upPressed == true) {
     		direction="up";
-			y -=speed;
 		}else if(keyH.downPressed == true) {
 			direction="down";
-			y +=speed;
 		}else if(keyH.leftPressed == true) {
 			direction="left";
-			x -=speed;
 		}else if(keyH.rightPressed == true) {
 			direction="right";
-			x +=speed;
 		}
+    	
+    	collisionON = false;
+    	gp.cCheck.checktile(this);
+    	int objIndex = gp.cCheck.checkObject(this, true);
+    	mangiaPalline(objIndex);
+    	//check collision
+    	/*
+    	if( collisionON == false) {
+    		switch(direction){
+    		case"up":
+    			y -=speed;
+    			break;
+    		case"down":
+    			y +=speed;
+    			break;
+    		case"right":
+    			x +=speed;
+    			break;
+    		case"left":
+    			x -=speed;
+    			break;
+    		}
+    	}
+    	*/
+    	if(keyH.upPressed == true && collisionON == false) {
+    		y -=speed;
+    	}else if(keyH.downPressed == true && collisionON == false) {
+    		y +=speed;
+    	}else if(keyH.leftPressed == true && collisionON == false) {
+    		x -=speed;
+    	}else if(keyH.rightPressed == true && collisionON == false) {
+    		x +=speed;
+    	}
+    	
+    	
+    	
+    }
+    public void mangiaPalline(int i) {
+    	if(i != 999) {
+    		String objectName = gp.obj[i].name;
+    		switch(objectName){
+    		case"CFU":
+    			hashKey++;
+    			gp.obj[i]=null;
+    			System.out.println("Numero pallini: "+ hashKey);
+    			break;
+    		}
+    			
+    	}
+    	
+    	if(hashKey==3) {
+			gp.ui.gameFinished=true;
+			//ui.stopMusic(); in caso metteremo il suono
+			 //hashKey==pallini_totali  hashKey==3 per prove veloci di termine
+
+    	}
     }
     public void draw(Graphics2D g2) {
     	//g2.setColor(Color.white);
