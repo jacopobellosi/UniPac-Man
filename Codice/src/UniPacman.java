@@ -28,8 +28,8 @@ public class UniPacman  {
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		
-		GameRestart gameRestart = new GameRestart();
-	    window.addKeyListener(gameRestart);
+		//GameRestart gameRestart = new GameRestart();
+	    //window.addKeyListener(gameRestart);
 	       
 		livello.setupGame();
 		livello.StartGameThread();

@@ -19,6 +19,8 @@ import java.time.*;
 public class InputManager implements  KeyListener {
 	public boolean upPressed, downPressed, leftPressed,rightPressed,spacePressed;
 	GameEngine gp;
+	
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -41,6 +43,14 @@ public class InputManager implements  KeyListener {
 		}
 		if(code == KeyEvent.VK_D) {
 			rightPressed = true;
+		}
+		//tasto per la pausa
+		if(code == KeyEvent.VK_P) {
+			if(gp.gameState==gp.playState) {
+				gp.gameState=gp.pauseState;
+			}else if(gp.gameState==gp.pauseState) {
+				gp.gameState=gp.playState;
+			}
 		}
 		/*if(code == KeyEvent.VK_SPACE ) {
 			gp.setupGame();

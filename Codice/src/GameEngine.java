@@ -39,6 +39,13 @@ public class GameEngine extends JPanel implements Runnable{
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public Entity ghost[] = new Entity[4];
+	
+	//game state
+	public int gameState;
+	public final int playState=1;
+	public final int pauseState=2;
+
+	
 	public GameEngine() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
@@ -50,8 +57,10 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void setupGame() {
+		gameState=playState;
 		aSetter.setMonster();
 		aSetter.setObject();
+		
 	}
 	
 	public void StartGameThread() {
@@ -89,12 +98,19 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 	}
 	public void update() {
-		player.update();
-		for(int i=0;i<ghost.length;i++) {
-			if(ghost[i]!=null) {
-				ghost[i].update();
+		if(gameState==playState) {
+			player.update();
+			for(int i=0;i<ghost.length;i++) {
+				if(ghost[i]!=null) {
+					ghost[i].update();
+				}
 			}
 		}
+		if(gameState==pauseState) {
+			//nothing
+		}
+		
+		
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
