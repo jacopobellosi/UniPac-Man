@@ -60,6 +60,8 @@ public class Player  extends Entity{
 		down2 = new ImageIcon(getClass().getResource("/pacman/giu_sx.gif")).getImage();
 		right =  new ImageIcon(getClass().getResource("/pacman/destra.gif")).getImage();
 		left =  new ImageIcon(getClass().getResource("/pacman/sinistra.gif")).getImage();
+		logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
+
     }
     
     

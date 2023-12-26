@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public class Entity {
 		public int x,y;
 	   public int speed;
-	   public Image up1,up2, down1,down2,left,right, imageGhost;
+	   public Image up1,up2, down1,down2,left,right, imageGhost,logo;
 	   public String direction;
 	   public boolean collision=false;
 	   public Rectangle solidArea = new Rectangle(0,0,48,48);

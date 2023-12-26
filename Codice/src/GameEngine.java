@@ -42,6 +42,7 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	//game state
 	public int gameState;
+	public final int titleState=0;
 	public final int playState=1;
 	public final int pauseState=2;
 
@@ -57,9 +58,10 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void setupGame() {
-		gameState=playState;
 		aSetter.setMonster();
 		aSetter.setObject();
+		gameState=titleState;
+
 		
 	}
 	
@@ -127,23 +129,27 @@ public class GameEngine extends JPanel implements Runnable{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
-		tileM.draw(g2);
-		for(int i=0;i< obj.length;i++)		{
-			if(obj[i]!=null) {
-				obj[i].drawCFU(g2,this);
-			}
-		}
-		player.draw(g2);
-		for(int i=0;i<ghost.length;i++) {
-			if(ghost[i]!=null) {
-				ghost[i].setAction();
-				ghost[i].draw(g2,this);
-			}
-		}
-		//UI
-		ui.drawContaPallini(g2);
-		g2.dispose();
 		
+		if(gameState==titleState) {
+			ui.draw(g2);
+		}else {
+			tileM.draw(g2);
+			for(int i=0;i< obj.length;i++)		{
+				if(obj[i]!=null) {
+					obj[i].drawCFU(g2,this);
+				}
+			}
+			player.draw(g2);
+			for(int i=0;i<ghost.length;i++) {
+				if(ghost[i]!=null) {
+					ghost[i].setAction();
+					ghost[i].draw(g2,this);
+				}
+			}
+			//UI
+			ui.drawContaPallini(g2);
+			g2.dispose();
+		}
 	}
 
 

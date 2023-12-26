@@ -14,6 +14,7 @@ public class UI {
 	BufferedImage pacLife;
 	public boolean gameFinished=false;
 	Graphics2D g2;
+	public int commandNum=0;
 	
 	public UI(GameEngine gp) {
 		this.gp = gp;
@@ -87,10 +88,14 @@ public class UI {
 		}
 	}
 	
-	public void drawPause(Graphics2D g2) {
+	public void draw(Graphics2D g2) {
 		this.g2=g2;
-		g2.setFont(c_30);
+		//g2.setFont(c_30);
 		g2.setColor(Color.white);
+		
+		if(gp.gameState==gp.titleState) {
+			drawTitleScreen();
+		}
 		
 		if(gp.gameState==gp.playState) {
 			
@@ -100,11 +105,59 @@ public class UI {
 		}
 	}
 	
-	public void drawPauseScreen() {
-		String text="PAUSED";
+	public void drawTitleScreen() {
+		
+		g2.setColor(Color.black);//new Color(70,120,80) per scegliere una propria gradazione
+		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
+		//title
+		g2.setFont(f_50);
+		String text= "UNI PAC-MAN";
+		int x=getXforCentered(text);
+		int y=gp.screenHeight/2-(gp.titleSize*3);
+		
+		//shadow
+		g2.setColor(Color.blue);
+		g2.drawString(text, x+5, y+5);
+		//main color
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		
+		//logo
+		x=gp.screenWidth/2-(gp.titleSize*2)/2;
+		y+=gp.titleSize*2;
+		g2.drawImage(gp.player.logo,x,y,100,100,null);
+		
+		//menu
+		g2.setFont(c_30);
+		text="nuova partita";
+		x=getXforCentered(text);
+		y+=gp.titleSize*4;
+		g2.drawString(text,x,y);
+		if(commandNum==0) {
+			g2.drawString(">", x-gp.titleSize, y);
+		}
+		
+		text="esci";
+		x=getXforCentered(text);
+		y+=gp.titleSize;
+		g2.drawString(text,x,y);
+		if(commandNum==2) {
+			g2.drawString(">", x-gp.titleSize, y);
+		}
+	}
+	
+	private int getXforCentered(String text) {
+		// TODO Auto-generated method stub
 		int x;
 		int lenght=(int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
 		x=gp.screenWidth/2-lenght/2;
+		
+		return x;
+	}
+	public void drawPauseScreen() {
+		g2.setFont(f_30);
+		String text="PAUSED";
+		int x=getXforCentered(text);
 		int y=gp.screenHeight/2;
 		g2.drawString(text, x, y);
 	}
