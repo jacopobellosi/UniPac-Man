@@ -32,37 +32,7 @@ public class UI {
 		this.g2=g2;
 		drawPlayerLife();
 		if(gameFinished==true) {
-			String text;
-			int textLength;
-			int x;
-			int y;
-			
-			text= "Complimenti hai raccolto tutti i CFU";
-			g2.setFont(f_30);
-			g2.setColor(Color.white);
-			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-			x=gp.screenWidth/2-textLength/2;
-			y=gp.screenHeight/2-(gp.titleSize*2);
-			g2.drawString(text, x, y);
-			
-			
-			text= "TI SEI LAUREATO!";
-			g2.setFont(f_50);
-			g2.setColor(Color.white);
-			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-			x=gp.screenWidth/2-textLength/2;
-			y=gp.screenHeight/2;//-(gp.titleSize*4);
-			g2.drawString(text, x, y);
-					
-			
-			text = "press SPACE to start";
-			g2.setFont(f_30);
-		    g2.setColor(Color.yellow);
-			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-		    x=gp.screenWidth/2-textLength/2;
-			y=gp.screenHeight/2+(gp.titleSize*3);
-			g2.drawString(text, x, y);
-
+			drawEndScreen();
 			gp.gameThread=null;
 
 			
@@ -147,6 +117,43 @@ public class UI {
 			g2.setFont(a_20);
 			g2.drawString(">", x-gp.titleSize+5, y);
 		}
+	}
+	public void drawEndScreen() {
+		
+		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
+		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
+		//title
+		String text;
+		int textLength;
+		int x;
+		int y;
+		
+		text= "Complimenti hai raccolto tutti i CFU";
+		g2.setFont(f_30);
+		g2.setColor(Color.white);
+		textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+		x=gp.screenWidth/2-textLength/2;
+		y=gp.screenHeight/2-(gp.titleSize*2);
+		g2.drawString(text, x, y);
+		
+		
+		text= "TI SEI LAUREATO!";
+		g2.setFont(f_50);
+		g2.setColor(Color.white);
+		textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+		x=gp.screenWidth/2-textLength/2;
+		y=gp.screenHeight/2;//-(gp.titleSize*4);
+		g2.drawString(text, x, y);
+				
+		
+		text = "press ENTER to start";
+		g2.setFont(f_30);
+	    g2.setColor(Color.yellow);
+		textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+	    x=gp.screenWidth/2-textLength/2;
+		y=gp.screenHeight/2+(gp.titleSize*3);
+		g2.drawString(text, x, y);
+
 	}
 	
 	private int getXforCentered(String text) {
