@@ -26,7 +26,7 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	
 	public final int maxScreenCol = 16;
-	public final int maxScreenRow = 12;
+	public final int maxScreenRow = 13;
 	public final int screenWidth = titleSize * maxScreenCol;
 	public final int screenHeight = titleSize * maxScreenRow;
 	int FPS=60;

@@ -15,7 +15,7 @@ public class Tilemanger {
 	static int conteggio;
 	public  Tilemanger(GameEngine gp) {
 		this.gp = gp;
-		tile= new Obstacole[15];
+		tile= new Obstacole[21];
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
 		getTileImage();
 		conteggio=0;
@@ -71,6 +71,11 @@ public class Tilemanger {
 			tile[11]=new Obstacole();
 			tile[11].image = ImageIO.read(getClass().getResourceAsStream("/pacman/border/chiuso_sx.png"));
 			tile[11].collision = true;
+			
+			tile[20] = new Obstacole();
+			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/pacman/tile/sfondo.jpg"));
+			
+			
 			
 			
 		} catch (IOException e) {

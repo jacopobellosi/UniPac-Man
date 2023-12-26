@@ -60,7 +60,7 @@ public class UI {
 		int y = gp.titleSize/2;
 		int i=0;
 		while(i < gp.player.maxLife) {
-			g2.drawImage(pacLife,x,y,gp.titleSize, gp.titleSize,null);
+			g2.drawImage(pacLife,x,3,47,47,null);
 			i++;
 			x +=gp.titleSize;
 		}

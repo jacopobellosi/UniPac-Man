@@ -64,7 +64,7 @@ public class InputManager implements  KeyListener {
 		//fine
 		if(gp.gameState == gp.endState) {
 			if (code == KeyEvent.VK_SPACE) {
-				gp.gameState = gp.titleState;
+				
 			}
 		}
 			
