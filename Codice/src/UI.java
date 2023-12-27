@@ -39,7 +39,6 @@ public class UI {
 	private void drawPlayerLife() {
 		// TODO Auto-generated method stub
 		int x = gp.titleSize/2;
-		//int y = gp.titleSize/2;
 		int i=0;
 		if(gp.player.countLife()==3) {
 			while(i < 3) {
