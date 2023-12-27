@@ -205,8 +205,8 @@ public class CollisionChecker {
 		}
 		return index;
 	}
-	public void checkPlayer(Entity entity) {
-		
+	public boolean checkPlayer(Entity entity) {
+				boolean contractPlayer;
 				entity.solidArea.x += entity.x ;
 				entity.solidArea.y += entity.y ;
 				gp.player.solidArea.x = gp.player.x + gp.player.solidArea.x;
@@ -232,15 +232,17 @@ public class CollisionChecker {
 						
 				}
 				if(entity.solidArea.intersects(gp.player.solidArea)) {
-					if(gp.player != entity) {
+					
 						entity.collisionON = true;
-					}
+						contractPlayer=true;
+					
 				}
 				entity.solidArea.x = entity.solidAreaDefaultx;
 				entity.solidArea.y = entity.solidAreaDefaulty;
 				gp.player.solidArea.x = gp.player.solidAreaDefaultx;
 				gp.player.solidArea.y = gp.player.solidAreaDefaulty;
 				
-
-	}
+				
+				return contractPlayer;
+		}
 }
