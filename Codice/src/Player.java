@@ -89,6 +89,8 @@ public class Player  extends Entity{
     	int objIndex = gp.cCheck.checkObject(this, true);
     	mangiaPalline(objIndex);
 
+    	int mangiaPW = gp.cCheck.checkObject(this, true);
+    	mangiaPW(mangiaPW);
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
     	interazioneFanstasma(monsterIndex);
     	//check collision
@@ -120,15 +122,39 @@ public class Player  extends Entity{
     		x +=speed;
     	}
 
-
+    	 if(invincible == true) {
+    		 invincibleCounter++;
+    		 if(invincibleCounter>60) {
+    			 invincible=false;
+    			 invincibleCounter=0;
+    		 }
+    	 }
 
     }
-    private void interazioneFanstasma(int monsterIndex) {
+    private void mangiaPW(int mangiaPW) {
+		// TODO Auto-generated method stub
+    	if(mangiaPW != 999) {
+    		String objectName = gp.pw[mangiaPW].name;
+    		switch(objectName){
+    		case"powerUp":
+    			gp.pw[mangiaPW]=null;
+    			System.out.println("HAI MANGIATO UN POWER UP");
+    			break;
+    		}
+
+    	}
+	}
+
+	private void interazioneFanstasma(int monsterIndex) {
 		// TODO Auto-generated method stub
 		if(monsterIndex!=999) {
 			System.out.println("Un fantasma ti ha colpito");
-			life-=1;
-			restartVita();
+			if(invincible==false) {
+				life-=1;
+				restartVita();
+				invincible=true;
+			}
+			
 		}
 	}
 
@@ -177,7 +203,7 @@ public class Player  extends Entity{
 				break;
 		}
 		g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
-
+		
     }
 
     public void reset() {

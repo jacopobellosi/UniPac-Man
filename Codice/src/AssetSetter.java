@@ -54,9 +54,9 @@ public class AssetSetter {
 	                    }
 	                   
 	                    if(mapTilenum[col][row]==15) {
-	                    	gp.obj[contatore]=new PowerUp(); //il numero � un indice per l'elemento
-	                        gp.obj[contatore].x=col * gp.titleSize; //riga della mappa
-	                        gp.obj[contatore].y=row * gp.titleSize; //colonna della mappa
+	                    	gp.pw[contatore]=new PowerUp(); //il numero � un indice per l'elemento
+	                        gp.pw[contatore].x=col * gp.titleSize; //riga della mappa
+	                        gp.pw[contatore].y=row * gp.titleSize; //colonna della mappa
 	                        contatore++;
 	                    }
 	                    col++;

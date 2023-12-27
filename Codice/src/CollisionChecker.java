@@ -106,6 +106,61 @@ public class CollisionChecker {
 	
 	
 	}
+	
+	public int checkPW(Entity entity, boolean player){
+		int index = 999;
+		for(int i =0;i<gp.pw.length;i++) {
+			if(gp.pw[i]!=null) {
+				entity.solidArea.x += entity.x ;
+				entity.solidArea.y += entity.y ;
+				gp.pw[i].solidArea.x = gp.pw[i].x + gp.pw[i].solidArea.x;
+				gp.pw[i].solidArea.y = gp.pw[i].y + gp.pw[i].solidArea.y;
+				switch(entity.direction) {
+				case"up":
+					entity.solidArea.y -= entity.speed;
+					
+					break;
+				case"down":
+					entity.solidArea.y += entity.speed;
+				
+
+					break;
+				case"left":
+					entity.solidArea.x -= entity.speed;
+
+				
+					break;
+				case"right":
+					entity.solidArea.x += entity.speed;
+					
+					
+					break;
+						
+				}
+				if(entity.solidArea.intersects(gp.pw[i].solidArea)) {
+					if(gp.pw[i].collision==true) {
+						entity.collisionON = true;
+					}
+					if(player == true) {
+						index = i;
+					}
+				}
+				entity.solidArea.x = entity.solidAreaDefaultx;
+				entity.solidArea.y = entity.solidAreaDefaulty;
+				gp.pw[i].solidArea.x = gp.pw[i].solidAreaDefaultx;
+				gp.pw[i].solidArea.y = gp.pw[i].solidAreaDefaulty;
+				
+				
+			}
+		}
+		return index;
+	
+	
+	}
+	
+	
+	
+	
 	public int checkEntity(Entity entity,Entity[] target) {
 		int index = 999;
 		for(int i =0;i<target.length;i++) {

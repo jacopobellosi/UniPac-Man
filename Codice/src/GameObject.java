@@ -27,4 +27,15 @@ public class GameObject {
 
 			g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
 	}
+
+
+
+	public void drawPW(Graphics2D g2, GameEngine gameEngine) {
+		// TODO Auto-generated method stub
+		int x = this.x ;
+		int y= this.y ;
+		
+
+			g2.drawImage(powerUp, x, y, gameEngine.titleSize, gameEngine.titleSize, null);
+	}
 }
