@@ -45,22 +45,7 @@ public class Player  extends Entity{
     	maxLife = 3;
     	life = maxLife;
     }
-    /*
-      public void getPlayerImage(){
-      		try{
-      			up1 = ImageIO.read(getClass().getResourceAsStream("/pacman/su_dx.gif"));
-      			up2 = ImageIO.read(getClass().getResourceAsStream("/pacman/su_sx.gif"));
-      			down1 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_dx.gif"));
-      			down2 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_sx.gif"));
-      			right = ImageIO.read(getClass().getResourceAsStream("/pacman/destra.gif"));
-      			left = ImageIO.read(getClass().getResourceAsStream("/pacman/sinistra.gif"));
-
-     		}catch(IOException e) {
-     			e.printStackTrace();
-     		}
-      }
-   */
-
+   
     public void getPlayerImage()  {
     	up1 =   new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
 		up2 =   new ImageIcon(getClass().getResource("/pacman/su_sx.gif")).getImage();
@@ -151,13 +136,21 @@ public class Player  extends Entity{
 			System.out.println("Un fantasma ti ha colpito");
 			if(invincible==false) {
 				life-=1;
+				System.out.println("ti sono rimaste: "+life +" vite");
+
+				countLife();
 				restartVita();
 				invincible=true;
+				if(life==0) {
+					gp.gameState=gp.endState;
+				}
 			}
 			
 		}
 	}
-
+	public int countLife() {
+		return life;
+	}
 
 
 	public void mangiaPalline(int i) {

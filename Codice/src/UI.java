@@ -39,13 +39,27 @@ public class UI {
 	private void drawPlayerLife() {
 		// TODO Auto-generated method stub
 		int x = gp.titleSize/2;
-		int y = gp.titleSize/2;
+		//int y = gp.titleSize/2;
 		int i=0;
-		while(i < gp.player.maxLife) {
+		if(gp.player.countLife()==3) {
+			while(i < 3) {
 			g2.drawImage(pacLife,x,3,47,47,null);
 			i++;
 			x +=gp.titleSize;
+			}
+		}else if (gp.player.countLife()==2) {
+			while(i < 2) {
+			g2.drawImage(pacLife,x,3,47,47,null);
+			i++;
+			x +=gp.titleSize;
+			}
+		}else {
+			g2.drawImage(pacLife,x,3,47,47,null);
+			x +=gp.titleSize;
+
 		}
+		
+		
 	}
 	
 	public void draw(Graphics2D g2) {
@@ -65,6 +79,7 @@ public class UI {
 		if(gp.gameState==gp.endState) {
 			drawEndScreen();
 		}
+		
 	}
 	public void drawPauseScreen() {
 		g2.setFont(f_50);
@@ -112,34 +127,53 @@ public class UI {
 		String text;
 		int x;
 		int y;
+		if(gp.player.countLife()==0) {
+			text= "Non hai studiato abbastanza";
+			g2.setFont(f_40);
+			g2.setColor(Color.white);
+			x=getXforCentered(text);
+			y=gp.screenHeight/2-(gp.titleSize*2);
+			g2.drawString(text, x, y);
+			
+			text= "NON TI SEI LAUREATO!";
+			g2.setFont(f_50);
+			x=getXforCentered(text);
+			y=gp.screenHeight/2;
+			//shade
+			g2.setColor(Color.red);
+			g2.drawString(text, x+5, y+5);
+			//main color
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+			
+		}else {
+			text= "Complimenti hai raccolto tutti i CFU";
+			g2.setFont(f_40);
+			g2.setColor(Color.white);
+			x=getXforCentered(text);
+			y=gp.screenHeight/2-(gp.titleSize*2);
+			g2.drawString(text, x, y);
+			
+			
+			text= "TI SEI LAUREATO!";
+			g2.setFont(f_50);
+			x=getXforCentered(text);
+			y=gp.screenHeight/2;
+			//shade
+			g2.setColor(Color.red);
+			g2.drawString(text, x+5, y+5);
+			//main color
+			g2.setColor(Color.white);
+			g2.drawString(text, x, y);
+		}			
+			
+			text = "press SPACE to start";
+			g2.setFont(f_30);
+		    g2.setColor(Color.yellow);
+			x=getXforCentered(text);
+			y=gp.screenHeight/2+(gp.titleSize*3);
+			g2.drawString(text, x, y);
 		
-		text= "Complimenti hai raccolto tutti i CFU";
-		g2.setFont(f_40);
-		g2.setColor(Color.white);
-		x=getXforCentered(text);
-		y=gp.screenHeight/2-(gp.titleSize*2);
-		g2.drawString(text, x, y);
-		
-		
-		text= "TI SEI LAUREATO!";
-		g2.setFont(f_50);
-		x=getXforCentered(text);
-		y=gp.screenHeight/2;
-		//shade
-		g2.setColor(Color.red);
-		g2.drawString(text, x+5, y+5);
-		//main color
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
-				
-		
-		text = "press SPACE to start";
-		g2.setFont(f_30);
-	    g2.setColor(Color.yellow);
-		x=getXforCentered(text);
-		y=gp.screenHeight/2+(gp.titleSize*3);
-		g2.drawString(text, x, y);
-
 	}
 	
 	private int getXforCentered(String text) {
