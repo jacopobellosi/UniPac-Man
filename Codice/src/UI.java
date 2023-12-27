@@ -160,7 +160,7 @@ public class UI {
 			x=getXforCentered(text);
 			y=gp.screenHeight/2;
 			//shade
-			g2.setColor(Color.red);
+			g2.setColor(Color.green);
 			g2.drawString(text, x+5, y+5);
 			//main color
 			g2.setColor(Color.white);

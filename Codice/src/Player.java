@@ -139,9 +139,11 @@ public class Player  extends Entity{
 				System.out.println("ti sono rimaste: "+life +" vite");
 				countLife();
 				restartVita();
+				setDefaultValue();
 				invincible=true;
 				if(life==0) {
 					gp.gameState=gp.endState;
+					hashKey=0;
 				}
 			}
 			
