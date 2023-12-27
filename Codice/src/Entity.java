@@ -95,7 +95,6 @@ public class Entity {
 		int y= this.y ;
 		
 
-		g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
 		g2.drawImage(imageFantasma_vunerabile, x, y, gp.titleSize, gp.titleSize, null);
    }
 	

@@ -21,7 +21,7 @@ public class EventHandler {
 	  
 	public void checkEvent() {
 		
-		if(hit(0,6)==true) {
+		if(hit(-1,6)==true) {
 			tunnelsx();
 		}
 		if(hit(15,6)==true) {
