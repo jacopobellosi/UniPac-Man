@@ -9,8 +9,8 @@ public class UI {
 	GameEngine gp;
 	Font f_30;
 	Font f_50;
-	Font c_30;
-	Font a_20;
+	Font f_40;
+	Font f_35;
 	InputManager keyH;
 	BufferedImage pacLife;
 	//public boolean gameFinished=false;
@@ -20,10 +20,10 @@ public class UI {
 	
 	public UI(GameEngine gp) {
 		this.gp = gp;
-		f_30 = new Font("PacFont Good", Font.PLAIN,30);
-		f_50 = new Font("PacFont Good", Font.BOLD,50);
-		c_30 = new Font("namco regular", Font.PLAIN,20);
-		a_20= new Font("Arial", Font.BOLD,20);
+		f_30 = new Font("Gill Sans MT Condensed", Font.PLAIN,30);
+		f_50 = new Font("Gill Sans MT Condensed", Font.BOLD,70);
+		f_40 = new Font("Gill Sans MT Condensed", Font.PLAIN,40);
+		f_35= new Font("Gill Sans MT Condensed", Font.BOLD,35);
 
 		GameObject vita = new vitaPacMan(gp);
 		pacLife = vita.imageVita;
@@ -33,11 +33,8 @@ public class UI {
 		drawPlayerLife();
 		g2.setFont(f_30);
 		g2.setColor(Color.white);
-		g2.drawString("cfu - ", 200, 50);
+		g2.drawString("CFU = "+gp.player.hashKey, 200, 40);
 	
-		g2.setFont(c_30);
-		g2.setColor(Color.white);
-		g2.drawString(""+gp.player.hashKey, 300, 45);
 	}
 	private void drawPlayerLife() {
 		// TODO Auto-generated method stub
@@ -70,7 +67,7 @@ public class UI {
 		}
 	}
 	public void drawPauseScreen() {
-		g2.setFont(c_30);
+		g2.setFont(f_50);
 		String text="paused";
 		g2.setColor(Color.white);
 		int x=getXforCentered(text);
@@ -81,41 +78,29 @@ public class UI {
 		
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
-		//title
-		g2.setFont(f_50);
-		String text= "UNI PAC-MAN";
-		int x=getXforCentered(text);
-		int y=gp.screenHeight/2-(gp.titleSize*3);
-		
-		//shadow
-		g2.setColor(Color.blue);
-		g2.drawString(text, x+5, y+5);
-		//main color
-		g2.setColor(Color.white);
-		g2.drawString(text, x, y);
 		
 		//logo
-		x=gp.screenWidth/2-(gp.titleSize*2)/2;
-		y+=gp.titleSize*2;
-		g2.drawImage(gp.player.logo,x,y,100,100,null);
+		g2.drawImage(gp.player.logo,150,0,450,450,null);
 		
 		//menu
-		g2.setFont(c_30);
-		text=" nuova partita";
-		x=getXforCentered(text);
-		y+=gp.titleSize*4;
+		g2.setFont(f_40);
+		g2.setColor(Color.white);
+		String text="NUOVA PARTITA";
+		int y=gp.screenHeight/2+(gp.titleSize*4);
+		int x=getXforCentered(text);
 		g2.drawString(text,x,y);
 		if(commandNum==0) {
-			g2.setFont(a_20);
+			g2.setFont(f_35);
 			g2.drawString(">", x-gp.titleSize, y);
 		}
-		g2.setFont(c_30);
-		text=" esci";
+		
+		g2.setFont(f_40);
+		text="ESCI";
 		x=getXforCentered(text);
 		y+=gp.titleSize;
 		g2.drawString(text,x,y);
 		if(commandNum==1) {
-			g2.setFont(a_20);
+			g2.setFont(f_35);
 			g2.drawString(">", x-gp.titleSize+5, y);
 		}
 	}
@@ -128,8 +113,8 @@ public class UI {
 		int x;
 		int y;
 		
-		text= "complimenti hai raccolto tutti i CFU";
-		g2.setFont(f_30);
+		text= "Complimenti hai raccolto tutti i CFU";
+		g2.setFont(f_40);
 		g2.setColor(Color.white);
 		x=getXforCentered(text);
 		y=gp.screenHeight/2-(gp.titleSize*2);
@@ -138,9 +123,13 @@ public class UI {
 		
 		text= "TI SEI LAUREATO!";
 		g2.setFont(f_50);
-		g2.setColor(Color.white);
 		x=getXforCentered(text);
-		y=gp.screenHeight/2;//-(gp.titleSize*4);
+		y=gp.screenHeight/2;
+		//shade
+		g2.setColor(Color.red);
+		g2.drawString(text, x+5, y+5);
+		//main color
+		g2.setColor(Color.white);
 		g2.drawString(text, x, y);
 				
 		
