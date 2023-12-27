@@ -85,6 +85,8 @@ public class Player  extends Entity{
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
     	interazioneFanstasma(monsterIndex);
     	//check collision
+    	//gp.eHandler.checkEvent();
+    	
     	/*
     	if( collisionON == false) {
     		switch(direction){

@@ -33,6 +33,7 @@ public class GameEngine extends JPanel implements Runnable{
 	InputManager keyH = new InputManager(this);
 	public UI ui = new UI(this);
 	Tilemanger tileM = new Tilemanger(this);
+	public EventHandler eHandler=new EventHandler(this);
 	Thread gameThread;
 	public CollisionChecker cCheck = new CollisionChecker(this);
 	public AssetSetter aSetter=new AssetSetter(this);

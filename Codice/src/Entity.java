@@ -31,6 +31,8 @@ public class Entity {
 		   gp.cCheck.checktile(this);
 		   //gp.cCheck.checkObject(this, false);
 		   gp.cCheck.checkEntity(this, gp.ghost);
+		   gp.eHandler.checkEvent();
+
 		   boolean contactPlayer = gp.cCheck.checkPlayer(this);
 		   
 		   if(this.type==1 && contactPlayer==true) {
@@ -74,7 +76,7 @@ public class Entity {
 		int y= this.y ;
 		
 
-			g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
+		g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
    }
 	public void killMonster(int i) {
 		gp.ghost[i]=null;

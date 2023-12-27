@@ -4,28 +4,33 @@ public class EventHandler {
 
 	GameEngine gp;
 	Rectangle eventRect;
+	 
 	int eventRectDefaultX,eventRectDefaultY;
 	
 	public EventHandler(GameEngine gp) {
 		this.gp=gp;
-		eventRect.x=23;
-		eventRect.y=23;
-		eventRect.width=2;
-		eventRect.height=2;
+		eventRect=new Rectangle();
+		eventRect.x=7;
+		eventRect.y=2;
+		eventRect.width=16;
+		eventRect.height=16;
 		eventRectDefaultX=eventRect.x;
 		eventRectDefaultY=eventRect.y;	
-
 	}
 	
+	  
 	public void checkEvent() {
-		if(hit(1,7,"left")==true) {
+		
+		if(hit(0,6)==true) {
 			tunnelsx();
 		}
-		if(hit(16,7,"right")==true) {
+		if(hit(15,6)==true) {
 			tunneldx();
 		}
 	}
-	private boolean hit(int eventCol, int eventRow, String reqDirection) {
+	
+	
+	private boolean hit(int eventCol, int eventRow) {
 
 		boolean hit=false;
 		gp.player.solidArea.x=gp.player.x+gp.player.solidArea.x;
@@ -34,9 +39,7 @@ public class EventHandler {
 		eventRect.y=eventRow*gp.titleSize+eventRect.y;
 
 		if(gp.player.solidArea.intersects(eventRect)) {
-			if(gp.player.direction.equals(reqDirection)||reqDirection.contentEquals("any")) {
-				hit=true;
-			}
+			hit=true;
 		}
 		
 		gp.player.solidArea.x=gp.player.solidAreaDefaultx;
@@ -47,14 +50,16 @@ public class EventHandler {
 		return hit;
 	}
 
-	public void tunnelsx() {
-		gp.player.x=gp.titleSize*17;
-		gp.player.y=gp.titleSize*16;
+	
 
+	public void tunnelsx() {
+	    // Aggiorna la posizione del giocatore e del rettangolo solido
+	    gp.player.x = gp.titleSize * 14;
+	    gp.player.y = gp.titleSize * 6;
 	}
 	public void tunneldx() {
-		gp.player.x=gp.titleSize*17;
-		gp.player.y=gp.titleSize*1;
+		gp.player.x=gp.titleSize*1;
+		gp.player.y=gp.titleSize*6;
 
 	}
 }

@@ -52,6 +52,7 @@ public class AssetSetter {
 	                        gp.obj[contatore].x=col * gp.titleSize; //riga della mappa
 	                        gp.obj[contatore].y=row * gp.titleSize; //colonna della mappa
 	                        contatore++;
+	                       
 	                    }
 	                   
 	                    if(mapTilenum[col][row]==15) {
