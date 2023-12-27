@@ -206,7 +206,7 @@ public class CollisionChecker {
 		return index;
 	}
 	public boolean checkPlayer(Entity entity) {
-				boolean contractPlayer;
+				boolean contractPlayer = false;
 				entity.solidArea.x += entity.x ;
 				entity.solidArea.y += entity.y ;
 				gp.player.solidArea.x = gp.player.x + gp.player.solidArea.x;
