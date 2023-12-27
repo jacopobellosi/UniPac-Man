@@ -24,7 +24,7 @@ public class GameEngine extends JPanel implements Runnable{
 	final int scale=3;
 	public final int titleSize = originalTitleSize * scale;
 	
-	
+	public boolean END = false;
 	public final int maxScreenCol = 16;
 	public final int maxScreenRow = 13;
 	public final int screenWidth = titleSize * maxScreenCol;
@@ -79,7 +79,7 @@ public class GameEngine extends JPanel implements Runnable{
 		// TODO Auto-generated method stub
 		double drawInterval = 1000000000/FPS;
 		double nextDrawTine = System.nanoTime();
-		while(gameThread != null) {
+		while(gameThread != null ) {
 			//System.out.print("ciao");
 			//long currentTime = System.nanoTime();
 			 

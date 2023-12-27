@@ -31,8 +31,8 @@ public class UniPacman  {
 		
 		livello.setupGame();
 		livello.StartGameThread();
-		
 	}
+	
 	
 	/*
 	 * public void init() {
