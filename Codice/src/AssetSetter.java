@@ -12,13 +12,24 @@ public class AssetSetter {
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
 	}
 	public void setMonster() {
-		gp.ghost[0] = new Ghost(gp);
-		gp.ghost[0].x = gp.titleSize *1;
-		gp.ghost[0].y = gp.titleSize *1;
+		gp.ghost[0] = new Ghost(gp,1);
+		gp.ghost[0].x = gp.titleSize *10;
+		gp.ghost[0].y = gp.titleSize *4;
 		
-		gp.ghost[1] = new Ghost(gp);
-		gp.ghost[1].x = gp.titleSize *2;
-		gp.ghost[1].y = gp.titleSize *2;
+		gp.ghost[1] = new Ghost(gp,2);
+		gp.ghost[1].x = gp.titleSize *11;
+		gp.ghost[1].y = gp.titleSize *4;
+		
+		gp.ghost[2] = new Ghost(gp,3);
+		gp.ghost[2].x = gp.titleSize *12;
+		gp.ghost[2].y = gp.titleSize *5;
+		
+		gp.ghost[3] = new Ghost(gp,4);
+		gp.ghost[3].x = gp.titleSize *13;
+		gp.ghost[3].y = gp.titleSize *5;
+		
+		
+		
 	}
 	   public void setObject() {
 	        try {

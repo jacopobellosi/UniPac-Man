@@ -14,9 +14,10 @@ import java.io.IOException;
 //fantasmini
 public class Ghost extends Entity {
 		GameEngine gp;
-		
-		public Ghost(GameEngine gp) {
+		static  Player targetPlayer;
+		public Ghost(GameEngine gp, int i) {
 			super(gp);
+			//
 			name="fanstasma";
 			direction="down";
 			speed=1;
@@ -27,18 +28,45 @@ public class Ghost extends Entity {
 			solidAreaDefaultx = solidArea.x;
 			solidAreaDefaulty = solidArea.y;
 			
-			getImage();
+			getImage(i);
 		}
-		public void getImage() {
-			try {
-				imageGhost = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/ROSSO.gif"));
-			}catch(IOException e) {
-				e.printStackTrace();
+		public static void setTarget(Player pacman) {
+			targetPlayer = pacman;
+		}
+		public void getImage(int immagine) {
+			if(immagine==1) {
+				try {
+					imageGhost = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/ROSSO.gif"));
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
 			}
+			if(immagine==2) {
+				try {
+					imageGhost = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/TURCHE.gif"));
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if(immagine==3) {
+				try {
+					imageGhost = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/SALMONE.gif"));
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if(immagine==4) {
+				try {
+					imageGhost = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/ROSA.gif"));
+				}catch(IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
 		}
 		public void setAction() {
 			actionlockCounter++;
-			if (actionlockCounter == 120) {
+			if (actionlockCounter == 150) {
 			     Random random = new Random();
 			     int i = ((Random) random).nextInt(100)+1;
 			     
@@ -57,5 +85,20 @@ public class Ghost extends Entity {
 			     actionlockCounter = 0;
 
 			 }
+			
+			/*
+			 if (x < targetPlayer.x) {
+				 direction = "left";
+		     } else if (x > targetPlayer.x) {
+		        	direction ="right";
+		     }
+
+		        // Muovi il fantasma verso il giocatore lungo l'asse y
+		     if (y < targetPlayer.y) {
+		        	direction = "down";
+		     } else if (y > targetPlayer.y) {
+		        	 direction = "up";
+		     }
+		     */
 		}
 }
