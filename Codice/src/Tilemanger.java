@@ -10,12 +10,12 @@ import javax.imageio.ImageIO;
 public class Tilemanger {
 	GameEngine gp;
 	Obstacole[] tile;
-	public BufferedImage imagecfu ;
+	public BufferedImage imagecfu , powerUp;
 	public int mapTilenum[][];
 	static int conteggio;
 	public  Tilemanger(GameEngine gp) {
 		this.gp = gp;
-		tile= new Obstacole[21];
+		tile= new Obstacole[25];
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
 		getTileImage();
 		conteggio=0;
@@ -75,6 +75,8 @@ public class Tilemanger {
 			tile[20] = new Obstacole();
 			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/pacman/tile/sfondo.jpg"));
 			
+			tile[15] = new Obstacole();
+			tile[15].image = ImageIO.read(getClass().getResourceAsStream("/pacman/tile/sfondo.jpg"));
 			
 			
 			

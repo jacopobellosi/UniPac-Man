@@ -5,14 +5,26 @@
 */
 
 import java.util.*;
+
+import javax.imageio.ImageIO;
+
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.time.*;
 
 //Rappresenta un oggetto che conferisce al giocatore potenziamenti o benefici specifici quando raccolto
 public class PowerUp extends GameObject {
 
-	public PowerUp(int x, int y) {
-		
-		// TODO Auto-generated constructor stub
+	public PowerUp() {
+		name="powerUp";
+		try {
+			powerUp=ImageIO.read(getClass().getResourceAsStream("/pacman/powerup/haivinto.png"));
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		collision = true;
 	}
 
 }
