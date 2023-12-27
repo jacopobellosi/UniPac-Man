@@ -110,6 +110,8 @@ public class GameEngine extends JPanel implements Runnable{
 					ghost[i].update();
 				}
 			}
+		}else if(gameState==pauseState) {
+			
 		}
 		
 	}
@@ -131,7 +133,7 @@ public class GameEngine extends JPanel implements Runnable{
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
 					ghost[i].setAction();
-					ghost[i].draw(g2,this);
+					ghost[i].draw(g2);
 				}
 			}
 			//UI

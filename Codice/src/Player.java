@@ -82,6 +82,7 @@ public class Player  extends Entity{
     	mangiaPalline(objIndex);
     	
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
+    	interazioneFanstasma(monsterIndex);
     	//check collision
     	/*
     	if( collisionON == false) {
@@ -114,7 +115,14 @@ public class Player  extends Entity{
     	
     	
     }
-    public void mangiaPalline(int i) {
+    private void interazioneFanstasma(int monsterIndex) {
+		// TODO Auto-generated method stub
+		if(monsterIndex!=999) {
+			System.out.println("Un fantasma ti ha colpito");
+		}
+	}
+
+	public void mangiaPalline(int i) {
     	if(i != 999) {
     		String objectName = gp.obj[i].name;
     		switch(objectName){
@@ -127,7 +135,7 @@ public class Player  extends Entity{
     			
     	}
     	
-    	if(hashKey==5) {
+    	if(hashKey==pallini_totali) {
     		gp.gameState=gp.endState;
 
 			//ui.stopMusic(); in caso metteremo il suono

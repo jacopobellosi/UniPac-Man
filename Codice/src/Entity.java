@@ -22,25 +22,30 @@ public class Entity {
 
 	   public void update() {
 		   setAction();
-		   collision = false;
-		   //gp.cCheck.checktile(this);
-		   //gp.cCheck.checkEntity(this, gp.ghost);
-		   if(direction=="up") {
+		   collisionON = false;
+		   gp.cCheck.checktile(this);
+		   //gp.cCheck.checkObject(this, false);
+		   gp.cCheck.checkEntity(this, gp.ghost);
+		   gp.cCheck.checkPlayer(this);
+		   
+		   
+
+		   if(direction=="up" && collisionON == false) {
 	    		y -=speed;
-	    	}else if(direction=="down") {
+	    	}else if(direction=="down" && collisionON == false) {
 	    		y +=speed;
-	    	}else if(direction=="left") {
+	    	}else if(direction=="left" && collisionON == false) {
 	    		x -=speed;
-	    	}else if(direction=="right") {
+	    	}else if(direction=="right" && collisionON == false) {
 	    		x +=speed;
 	    	}
 	   }
 	   void setAction() {
 		// TODO Auto-generated method stub
 		
-	}
+	   }
 
-	public void draw(Graphics2D g2,GameEngine gp) {
+	public void draw(Graphics2D g2) {
 		   int x = this.x ;
 			int y= this.y ;
 			
