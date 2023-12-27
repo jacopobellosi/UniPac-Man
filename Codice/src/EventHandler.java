@@ -18,8 +18,11 @@ public class EventHandler {
 	}
 	
 	public void checkEvent() {
-		if(hit(27,16,"right")==true) {
-			tunnel();
+		if(hit(1,7,"left")==true) {
+			tunnelsx();
+		}
+		if(hit(16,7,"right")==true) {
+			tunneldx();
 		}
 	}
 	private boolean hit(int eventCol, int eventRow, String reqDirection) {
@@ -44,9 +47,14 @@ public class EventHandler {
 		return hit;
 	}
 
-	public void tunnel() {
-		gp.player.x=gp.titleSize*20;
-		gp.player.y=gp.titleSize*20;
+	public void tunnelsx() {
+		gp.player.x=gp.titleSize*17;
+		gp.player.y=gp.titleSize*16;
+
+	}
+	public void tunneldx() {
+		gp.player.x=gp.titleSize*17;
+		gp.player.y=gp.titleSize*1;
 
 	}
 }
