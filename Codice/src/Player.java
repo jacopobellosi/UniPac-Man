@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 
 public class Player  extends Entity{
-	
+
     InputManager keyH;
     int hashKey = 0;
     int pallini_totali;
@@ -19,16 +19,16 @@ public class Player  extends Entity{
     	super(gp);
     	this.gp=gp;
     	this.keyH=keyH;
-    	
+
     	solidArea = new Rectangle(10,5,15,15);
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
     	pallini_totali = Tilemanger.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
-    	
+
     }
-    
+
     public void setDefaultValue() {
     	x=150;
     	y=300;
@@ -46,13 +46,13 @@ public class Player  extends Entity{
       			down2 = ImageIO.read(getClass().getResourceAsStream("/pacman/giu_sx.gif"));
       			right = ImageIO.read(getClass().getResourceAsStream("/pacman/destra.gif"));
       			left = ImageIO.read(getClass().getResourceAsStream("/pacman/sinistra.gif"));
-      			
+
      		}catch(IOException e) {
      			e.printStackTrace();
      		}
       }
    */
-    
+
     public void getPlayerImage()  {
     	up1 =   new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
 		up2 =   new ImageIcon(getClass().getResource("/pacman/su_sx.gif")).getImage();
@@ -63,8 +63,8 @@ public class Player  extends Entity{
 		logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
 
     }
-    
-    
+
+
     public void update() {
     	if(keyH.upPressed == true) {
     		direction="up";
@@ -75,13 +75,14 @@ public class Player  extends Entity{
 		}else if(keyH.rightPressed == true) {
 			direction="right";
 		}
-    	
+
     	collisionON = false;
     	gp.cCheck.checktile(this);
     	int objIndex = gp.cCheck.checkObject(this, true);
     	mangiaPalline(objIndex);
-    	
+
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
+    	interazioneFanstasma(monsterIndex);
     	//check collision
     	/*
     	if( collisionON == false) {
@@ -110,11 +111,18 @@ public class Player  extends Entity{
     	}else if(keyH.rightPressed == true && collisionON == false) {
     		x +=speed;
     	}
-    	
-    	
-    	
+
+
+
     }
-    public void mangiaPalline(int i) {
+    private void interazioneFanstasma(int monsterIndex) {
+		// TODO Auto-generated method stub
+		if(monsterIndex!=999) {
+			System.out.println("Un fantasma ti ha colpito");
+		}
+	}
+
+	public void mangiaPalline(int i) {
     	if(i != 999) {
     		String objectName = gp.obj[i].name;
     		switch(objectName){
@@ -124,12 +132,12 @@ public class Player  extends Entity{
     			System.out.println("Numero pallini: "+ hashKey);
     			break;
     		}
-    			
+
     	}
-    	
+
     	if(hashKey==3) {
     		gp.gameState=gp.endState;
-    	
+
 			//ui.stopMusic(); in caso metteremo il suono
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
@@ -157,9 +165,9 @@ public class Player  extends Entity{
 				break;
 		}
 		g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
-		
+
     }
-    
+
     public void reset() {
     	int i=0;
     	setDefaultValue();

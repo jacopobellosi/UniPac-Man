@@ -18,27 +18,27 @@ import java.time.*;
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
 public class InputManager implements  KeyListener {
 	public boolean upPressed, downPressed, leftPressed,rightPressed,spacePressed;
-	
+
 	GameEngine gp;
 	Player pl;
 	public InputManager(GameEngine gp) {
 		this.gp=gp;
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		int code = e.getKeyCode();
-		
-		//titolo 
+
+		//titolo
 		if(gp.gameState == gp.titleState) {
-			
+
 			if(code == KeyEvent.VK_W) {
 				gp.ui.commandNum--;
 				if(gp.ui.commandNum<0) {
@@ -60,7 +60,7 @@ public class InputManager implements  KeyListener {
 				}
 			}
 		}
-		
+
 		//fine
 		if(gp.gameState == gp.endState) {
 			if (code == KeyEvent.VK_SPACE) {
@@ -68,8 +68,8 @@ public class InputManager implements  KeyListener {
 				gp.restart();
 			}
 		}
-			
-		
+
+
 		if(code == KeyEvent.VK_W) {
 			upPressed = true;
 		}
@@ -90,9 +90,9 @@ public class InputManager implements  KeyListener {
 				gp.gameState=gp.playState;
 			}
 		}
-		
+
 	}
-	
+
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -113,7 +113,7 @@ public class InputManager implements  KeyListener {
 	}
 
 
-	
+
 
 
 

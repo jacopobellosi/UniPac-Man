@@ -24,7 +24,7 @@ public class GameEngine extends JPanel implements Runnable{
 	final int scale=3;
 	public final int titleSize = originalTitleSize * scale;
 	
-	
+	public boolean END = false;
 	public final int maxScreenCol = 16;
 	public final int maxScreenRow = 13;
 	public final int screenWidth = titleSize * maxScreenCol;
@@ -78,7 +78,7 @@ public class GameEngine extends JPanel implements Runnable{
 		// TODO Auto-generated method stub
 		double drawInterval = 1000000000/FPS;
 		double nextDrawTine = System.nanoTime();
-		while(gameThread != null) {
+		while(gameThread != null ) {
 			//System.out.print("ciao");
 			//long currentTime = System.nanoTime();
 			 
@@ -109,6 +109,8 @@ public class GameEngine extends JPanel implements Runnable{
 					ghost[i].update();
 				}
 			}
+		}else if(gameState==pauseState) {
+			
 		}
 		
 	}
@@ -130,7 +132,7 @@ public class GameEngine extends JPanel implements Runnable{
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
 					ghost[i].setAction();
-					ghost[i].draw(g2,this);
+					ghost[i].draw(g2);
 				}
 			}
 			//UI

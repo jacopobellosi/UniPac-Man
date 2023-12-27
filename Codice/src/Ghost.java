@@ -18,6 +18,7 @@ public class Ghost extends Entity {
 		public Ghost(GameEngine gp) {
 			super(gp);
 			name="fanstasma";
+			direction="down";
 			speed=1;
 			solidArea.x=3;
 			solidArea.y=7;
@@ -25,6 +26,7 @@ public class Ghost extends Entity {
 			solidArea.width=30;
 			solidAreaDefaultx = solidArea.x;
 			solidAreaDefaulty = solidArea.y;
+			
 			getImage();
 		}
 		public void getImage() {
