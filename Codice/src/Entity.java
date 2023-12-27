@@ -44,9 +44,11 @@ public class Entity {
 		// TODO Auto-generated method stub
 		
 	   }
-
+	public void restartVita() {
+		
+	}
 	public void draw(Graphics2D g2) {
-		   int x = this.x ;
+		   	int x = this.x ;
 			int y= this.y ;
 			
 
