@@ -1,7 +1,11 @@
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+
+import javax.swing.Timer;
 
 public class Entity {
 		public int x,y;
@@ -42,7 +46,22 @@ public class Entity {
 				   gp.player.setDefaultValue();
 			   }else if(gp.player.attacking==true) {
 				   this.life-=1;
-				   gp.ghost[this.hashCode()].killMonster(this.hashCode());
+				   for(int i=0;i<gp.ghost.length;i++) {
+						if(gp.ghost[i]==this) {
+							int tipo = gp.ghost[i].type;
+							gp.killMonster(i);
+							gp.player.punteggio+=60;
+							Timer timer = new Timer(4000, (ActionListener) new ActionListener() {
+					            @Override
+								public void actionPerformed(ActionEvent e) {
+									// TODO Auto-generated method stub
+					            	gp.spawnMonster(tipo);
+								}
+					        });
+					        timer.setRepeats(false); // Imposta il timer su non ripetitivo
+					        timer.start();
+						}
+				   }
 			   }
 		   }
 
@@ -69,7 +88,7 @@ public class Entity {
 			int y= this.y ;
 			
 
-				g2.drawImage(imageFantasma_vunerabile, x, y, gp.titleSize, gp.titleSize, null);
+				g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
 	  }
 	public void drawFantasmaVulnerabile(Graphics2D g2) {
 	   	int x = this.x ;
@@ -77,15 +96,8 @@ public class Entity {
 		
 
 		g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
+		g2.drawImage(imageFantasma_vunerabile, x, y, gp.titleSize, gp.titleSize, null);
    }
-	public void killMonster(int i) {
-		gp.ghost[i]=null;
-		
-	}
-	public void spawnMonster(int i) {
-		gp.ghost[i] = new Ghost(gp,i+1);
-		gp.ghost[i].x = gp.titleSize *9;
-		gp.ghost[i].y = gp.titleSize *4;
-	}
+	
 
 }

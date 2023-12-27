@@ -21,7 +21,7 @@ public class Ghost extends Entity {
 			name="fanstasma";
 			direction="down";
 			speed=1;
-			type=1;
+			type=i;
 			solidArea.x=3;
 			solidArea.y=7;
 			solidArea.height=42;
@@ -72,6 +72,9 @@ public class Ghost extends Entity {
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
+		}
+		public int getType() {
+			return type;
 		}
 		public void setAction() {
 			actionlockCounter++;

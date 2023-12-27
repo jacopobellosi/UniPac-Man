@@ -1,12 +1,17 @@
 // Aggiornamento della classe Player
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 
 
@@ -16,6 +21,9 @@ public class Player  extends Entity{
     int hashKey = 0;
     int punteggio =0;
     int pallini_totali;
+    private Timer powerUpTimer;
+    private Timer respawnTimer;
+    private ArrayList<Integer> tipiFantasmiEliminati = new ArrayList<Integer>();
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
     	this.gp=gp;
@@ -35,6 +43,32 @@ public class Player  extends Entity{
     	attackArea.width = 36;
     	attackArea.height =36;
     	Ghost.setTarget(this);
+    	
+    	powerUpTimer = new Timer(8000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Azioni da eseguire quando il timer scade
+                attacking = false;
+                System.out.println("POWER UP SCADUTO");
+                // Puoi anche interrompere il timer se necessario
+                powerUpTimer.stop();
+            }
+        });
+        powerUpTimer.setRepeats(false);
+        
+        respawnTimer = new Timer(4000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!tipiFantasmiEliminati.isEmpty()) {
+                    // Prendi il primo tipo di fantasma eliminato
+                    int tipoFantasmaRespawn = tipiFantasmiEliminati.remove(0);
+                    gp.spawnMonster(tipoFantasmaRespawn);
+                }
+                // Puoi anche interrompere il timer se necessario
+                respawnTimer.stop();
+            }
+        });
+        respawnTimer.setRepeats(false);
     	
 
     }
@@ -134,9 +168,10 @@ public class Player  extends Entity{
     		case"powerUp":
     			gp.pw[mangiaPW]=null;
     			punteggio+=12;
-    			hashKey+=6;
+    			hashKey+=1;
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
+    			 powerUpTimer.start();
     			break;
     		}
 
@@ -161,8 +196,12 @@ public class Player  extends Entity{
 				}
 			}else if(attacking==true) {
 				if(gp.ghost[monsterIndex].invincible==false) {
-					gp.ghost[monsterIndex].killMonster(monsterIndex);
+					int tipoFantasmaEliminato = gp.ghost[monsterIndex].type;
+					gp.killMonster(monsterIndex);
 					punteggio+=60;
+					
+					tipiFantasmiEliminati.add(tipoFantasmaEliminato);
+					respawnTimer.start();
 				}
 					
 			}

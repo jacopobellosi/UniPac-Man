@@ -12,10 +12,13 @@ import java.time.*;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class GameEngine extends JPanel implements Runnable{
@@ -40,7 +43,7 @@ public class GameEngine extends JPanel implements Runnable{
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public GameObject pw[]=new GameObject[1000];
-	public Entity ghost[] = new Entity[4];
+	public Entity[] ghost = new Entity[4];
 	
 	//game state
 	public int gameState;
@@ -48,14 +51,29 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int playState=1;
 	public final int pauseState=2;
 	public final int endState=3;
-
-	
+	private Timer invicibilityTimer;
+	 private ArrayList<Integer> numeroFantasmiEliminati = new ArrayList<>();
+	 private int number_ghost;
+	 
+	 
 	public GameEngine() {
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyH);
 		this.setFocusable(true);
+		
+		
+		invicibilityTimer = new Timer(4000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	int numeroFantasmaRespawn = numeroFantasmiEliminati.remove(0);
+                ghost[numeroFantasmaRespawn].invincible = false;
+                System.out.println("POWER UP SCADUTO");
+                invicibilityTimer.stop();
+            }
+        });
+        invicibilityTimer.setRepeats(false);
 		
 	}
 
@@ -118,7 +136,7 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 		
 	}
-
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
@@ -132,25 +150,39 @@ public class GameEngine extends JPanel implements Runnable{
 					obj[i].drawCFU(g2,this);
 				}
 			}
-			if(player.attacking==true) {
-				for(int i=0;i<ghost.length;i++) {
-					if(ghost[i]!=null) {
-						ghost[i].drawFantasmaVulnerabile(g2);
-					}
-				}
-			}
+			
 			for(int i=0;i< pw.length;i++)		{
 				if(pw[i]!=null) {
 					pw[i].drawPW(g2,this);
 				}
 			}
 			player.draw(g2);
-			for(int i=0;i<ghost.length;i++) {
-				if(ghost[i]!=null) {
-					ghost[i].setAction();
-					ghost[i].draw(g2);
+			if(player.attacking==true) {
+				for(int i=0;i<ghost.length;i++) {
+					if(ghost[i]!=null && ghost[i].invincible==false) {
+						ghost[i].drawFantasmaVulnerabile(g2);
+						ghost[i].setAction();
+					}
+				}
+				for(int i=0;i<ghost.length;i++) {
+					if(ghost[i]!=null && ghost[i].invincible==true) {
+						ghost[i].setAction();
+						ghost[i].draw(g2);
+					}
+				}
+			}else {
+				for(int i=0;i<ghost.length;i++) {
+					if(ghost[i]!=null) {
+						ghost[i].setAction();
+						ghost[i].draw(g2);
+					}
 				}
 			}
+				
+			
+				
+				
+			
 			//UI
 			ui.drawContaPallini(g2);
 			g2.dispose();
@@ -161,7 +193,33 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 	}
-	
+	public void killMonster(int i) {
+		ghost[i]=null;
+		System.out.println("HAI MANGIATO UN FANSTASMA");
+		 
+	}
+	public void spawnMonster(int tipo) {
+		boolean flag=false;
+		for(int i=0;i<ghost.length && flag==false;i++) {
+			if(ghost[i] ==null) {
+				ghost[i] = new Ghost(this,tipo);
+				ghost[i].x = titleSize *9+tipo*2;
+				ghost[i].y = titleSize *4;
+				flag=true;
+				ghost[i].invincible = true;
+				System.out.println("UN FANSTASMA E' RINATO");
+				int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
+				number_ghost=i;
+				numeroFantasmiEliminati.remove(Integer.valueOf(i));
+				invicibilityTimer.start();
+			}
+			
+		}
+		
+	}
+
+
+
 	public void restart() {
 		player.setDefaultValue();
 		player.setDefaultLife();
