@@ -133,11 +133,10 @@ public class Player  extends Entity{
 	private void interazioneFanstasma(int monsterIndex) {
 		// TODO Auto-generated method stub
 		if(monsterIndex!=999) {
-			System.out.println("Un fantasma ti ha colpito");
 			if(invincible==false) {
 				life-=1;
+				System.out.println("Un fantasma ti ha colpito");
 				System.out.println("ti sono rimaste: "+life +" vite");
-
 				countLife();
 				restartVita();
 				invincible=true;
