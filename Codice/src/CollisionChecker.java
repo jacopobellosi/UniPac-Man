@@ -126,4 +126,54 @@ public class CollisionChecker {
 	
 	
 	}
+	public int checkEntity(Entity entity,Entity[] target) {
+		int index = 999;
+		for(int i =0;i<target.length;i++) {
+			if(target[i]!=null) {
+				entity.solidArea.x += entity.x ;
+				entity.solidArea.y += entity.y ;
+				target[i].solidArea.x = target[i].x + target[i].solidArea.x;
+				target[i].solidArea.y = target[i].y + target[i].solidArea.y;
+				switch(entity.direction) {
+				case"up":
+					entity.solidArea.y -= entity.speed;
+					if(entity.solidArea.intersects(target[i].solidArea)) {
+						
+							entity.collisionON = true;
+							index=i;
+					}
+					break;
+				case"down":
+					entity.solidArea.y += entity.speed;
+					entity.solidArea.y -= entity.speed;
+					
+					break;
+				case"left":
+					entity.solidArea.x -= entity.speed;
+					entity.solidArea.y -= entity.speed;
+					
+					break;
+				case"right":
+					entity.solidArea.x += entity.speed;
+					entity.solidArea.y -= entity.speed;
+					
+					break;
+						
+				}
+				if(entity.solidArea.intersects(target[i].solidArea)) {
+					
+					entity.collisionON = true;
+				index=i;
+				
+				}
+				entity.solidArea.x = entity.solidAreaDefaultx;
+				entity.solidArea.y = entity.solidAreaDefaulty;
+				target[i].solidArea.x = target[i].solidAreaDefaultx;
+				target[i].solidArea.y = target[i].solidAreaDefaulty;
+				
+				
+			}
+		}
+		return index;
+	}
 }

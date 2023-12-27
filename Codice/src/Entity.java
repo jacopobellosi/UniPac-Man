@@ -24,6 +24,7 @@ public class Entity {
 		   setAction();
 		   collision = false;
 		   //gp.cCheck.checktile(this);
+		   //gp.cCheck.checkEntity(this, gp.ghost);
 		   if(direction=="up") {
 	    		y -=speed;
 	    	}else if(direction=="down") {

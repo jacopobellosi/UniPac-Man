@@ -80,6 +80,8 @@ public class Player  extends Entity{
     	gp.cCheck.checktile(this);
     	int objIndex = gp.cCheck.checkObject(this, true);
     	mangiaPalline(objIndex);
+    	
+    	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
     	//check collision
     	/*
     	if( collisionON == false) {
