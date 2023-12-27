@@ -128,6 +128,7 @@ public class Player  extends Entity{
     		case"powerUp":
     			gp.pw[mangiaPW]=null;
     			System.out.println("HAI MANGIATO UN POWER UP");
+    			
     			break;
     		}
 
