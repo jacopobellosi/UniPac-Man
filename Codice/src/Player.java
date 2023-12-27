@@ -162,7 +162,7 @@ public class Player  extends Entity{
 				}
 			}else if(attacking==true) {
 				if(gp.ghost[monsterIndex].invincible==false) {
-					gp.ghost[mosterIndex].killa();
+					gp.ghost[monsterIndex].killa();
 				}
 					
 			}
