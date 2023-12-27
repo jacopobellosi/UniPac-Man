@@ -62,14 +62,13 @@ public class GameEngine extends JPanel implements Runnable{
 		aSetter.setMonster();
 		aSetter.setObject();
 		gameState=titleState;
-
-		
 	}
 	
 	public void StartGameThread() {
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
+	
 	public void StopGameThread() {
 		gameThread.interrupt();
 	}
@@ -144,7 +143,12 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 	}
-
+	
+	public void restart() {
+		player.setDefaultValue();
+		aSetter.setMonster();
+		aSetter.setObject();
+	}
 
 
 }

@@ -20,7 +20,7 @@ public class Player  extends Entity{
     	this.gp=gp;
     	this.keyH=keyH;
     	
-    	solidArea = new Rectangle(8,9,15,15);
+    	solidArea = new Rectangle(10,5,15,15);
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
     	pallini_totali = Tilemanger.getPalliniTotali();
@@ -127,12 +127,15 @@ public class Player  extends Entity{
     			
     	}
     	
-    	if(hashKey==5) {
+    	if(hashKey==3) {
     		gp.gameState=gp.endState;
-
+    	
 			//ui.stopMusic(); in caso metteremo il suono
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
+    	}
+    	if(gp.gameState==gp.endState) {
+    		hashKey=0;
     	}
     }
     public void draw(Graphics2D g2) {
@@ -155,5 +158,12 @@ public class Player  extends Entity{
 		}
 		g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
 		
+    }
+    
+    public void reset() {
+    	int i=0;
+    	setDefaultValue();
+    	mangiaPalline(i);
+    	hashKey=0;
     }
 }

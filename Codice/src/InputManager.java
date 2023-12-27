@@ -20,7 +20,7 @@ public class InputManager implements  KeyListener {
 	public boolean upPressed, downPressed, leftPressed,rightPressed,spacePressed;
 	
 	GameEngine gp;
-	
+	Player pl;
 	public InputManager(GameEngine gp) {
 		this.gp=gp;
 	}
@@ -64,7 +64,8 @@ public class InputManager implements  KeyListener {
 		//fine
 		if(gp.gameState == gp.endState) {
 			if (code == KeyEvent.VK_SPACE) {
-				
+				gp.gameState=gp.titleState;
+				gp.restart();
 			}
 		}
 			
