@@ -12,6 +12,8 @@ public class Entity {
 	   public Rectangle solidArea = new Rectangle(0,0,48,48);
 	   public boolean collisionON = false;
 	   int maxLife,life;
+	   public boolean invincible = false;
+	   public int invincibleCounter=0;
 	   public int actionlockCounter=0;
 	   String name;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;

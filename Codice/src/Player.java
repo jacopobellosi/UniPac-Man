@@ -19,24 +19,22 @@ public class Player  extends Entity{
     	super(gp);
     	this.gp=gp;
     	this.keyH=keyH;
-<<<<<<< Updated upstream
+
 
     	solidArea = new Rectangle(10,5,15,15);
-=======
+
     	
     	solidArea = new Rectangle(8,8,12,12);
->>>>>>> Stashed changes
+
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
     	pallini_totali = Tilemanger.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
-<<<<<<< Updated upstream
 
-=======
     	Ghost.setTarget(this);
     	
->>>>>>> Stashed changes
+
     }
 
     public void setDefaultValue() {
@@ -129,7 +127,7 @@ public class Player  extends Entity{
 		// TODO Auto-generated method stub
 		if(monsterIndex!=999) {
 			System.out.println("Un fantasma ti ha colpito");
-			this.life-=1;
+			life-=1;
 			restartVita();
 		}
 	}
@@ -149,7 +147,7 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==3) {
+    	if(hashKey==pallini_totali) {
     		gp.gameState=gp.endState;
 
 			//ui.stopMusic(); in caso metteremo il suono
