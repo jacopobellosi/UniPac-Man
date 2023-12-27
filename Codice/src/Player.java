@@ -31,7 +31,8 @@ public class Player  extends Entity{
     	pallini_totali = Tilemanger.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
-
+    	attackArea.width = 36;
+    	attackArea.height =36;
     	Ghost.setTarget(this);
     	
 
@@ -63,7 +64,9 @@ public class Player  extends Entity{
 
 
     public void update() {
-    	if(keyH.upPressed == true) {
+    	if(attacking==true) {
+    		attacking();
+    	}else if(keyH.upPressed == true) {
     		direction="up";
 		}else if(keyH.downPressed == true) {
 			direction="down";
@@ -120,7 +123,13 @@ public class Player  extends Entity{
     	 }
 
     }
-    private void mangiaPW(int mangiaPW) {
+    private void attacking() {
+		// TODO Auto-generated method stub
+		speed++;
+		
+	}
+
+	private void mangiaPW(int mangiaPW) {
 		// TODO Auto-generated method stub
     	if(mangiaPW != 999) {
     		String objectName = gp.pw[mangiaPW].name;
@@ -128,7 +137,7 @@ public class Player  extends Entity{
     		case"powerUp":
     			gp.pw[mangiaPW]=null;
     			System.out.println("HAI MANGIATO UN POWER UP");
-    			
+    			attacking=true;
     			break;
     		}
 
@@ -138,7 +147,7 @@ public class Player  extends Entity{
 	private void interazioneFanstasma(int monsterIndex) {
 		// TODO Auto-generated method stub
 		if(monsterIndex!=999) {
-			if(invincible==false) {
+			if(invincible==false && attacking ==false) {
 				life-=1;
 				System.out.println("Un fantasma ti ha colpito");
 				System.out.println("ti sono rimaste: "+life +" vite");
@@ -151,6 +160,11 @@ public class Player  extends Entity{
 					gp.gameState=gp.endState;
 					hashKey=0;
 				}
+			}else if(attacking==true) {
+				if(gp.ghost[monsterIndex].invincible==false) {
+					gp.ghost[monsterIndex].killa();
+				}
+					
 			}
 			
 		}

@@ -30,6 +30,7 @@ public class Ghost extends Entity {
 			solidAreaDefaulty = solidArea.y;
 			
 			getImage(i);
+			fantasmaVulnerabile();
 		}
 		public static void setTarget(Player pacman) {
 			targetPlayer = pacman;

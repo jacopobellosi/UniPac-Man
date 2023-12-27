@@ -16,6 +16,8 @@ public class Entity {
 	   public int invincibleCounter=0;
 	   public int actionlockCounter=0;
 	   public int type;
+	   boolean attacking =false;
+	   public Rectangle attackArea = new Rectangle(0,0,0,0);
 	   String name;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;
 	   	GameEngine gp;
@@ -47,6 +49,7 @@ public class Entity {
 	    	}else if(direction=="right" && collisionON == false) {
 	    		x +=speed;
 	    	}
+		   
 	   }
 	   void setAction() {
 		// TODO Auto-generated method stub
@@ -62,5 +65,10 @@ public class Entity {
 
 				g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
 	   }
+
+	public void killa() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
