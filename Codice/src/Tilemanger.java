@@ -13,13 +13,13 @@ public class Tilemanger {
 	public BufferedImage imagecfu , powerUp;
 	public int mapTilenum[][];
 	static int conteggio;
-	public  Tilemanger(GameEngine gp) {
+	public  Tilemanger(GameEngine gp,String map) {
 		this.gp = gp;
 		tile= new Obstacole[25];
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
 		getTileImage();
 		conteggio=0;
-		loadMap("/pacman/mappa/mappa01.txt");
+		loadMap(map);
 	}
 	
 	public void getTileImage() {

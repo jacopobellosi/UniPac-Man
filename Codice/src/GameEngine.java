@@ -35,17 +35,19 @@ public class GameEngine extends JPanel implements Runnable{
 	int FPS=60;
 	InputManager keyH = new InputManager(this);
 	public UI ui = new UI(this);
-	Tilemanger tileM = new Tilemanger(this);
+	Tilemanger tileM = new Tilemanger(this,"/pacman/mappa/mappa01.txt");
 	public EventHandler eHandler=new EventHandler(this);
 	Thread gameThread;
 	public CollisionChecker cCheck = new CollisionChecker(this);
-	public AssetSetter aSetter=new AssetSetter(this);
+	public AssetSetter aSetter=new AssetSetter(this,"/pacman/mappa/mappa01.txt");
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public GameObject pw[]=new GameObject[1000];
 	public Entity[] ghost = new Entity[4];
-	
+	public Level livello = new Level();
 	//game state
+	int livelloCorrente=1;
+	int livelloMax=2;
 	public int gameState;
 	public final int titleState=0;
 	public final int playState=1;
@@ -221,6 +223,14 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void restart() {
+		player.setDefaultValue();
+		player.setDefaultLife();
+		aSetter.setMonster();
+		aSetter.setObject();
+	}
+	public void nextLevel() {
+		tileM = new Tilemanger(this,"/pacman/mappa/mappa02.txt");
+		aSetter=new AssetSetter(this,"/pacman/mappa/mappa02.txt");
 		player.setDefaultValue();
 		player.setDefaultLife();
 		aSetter.setMonster();

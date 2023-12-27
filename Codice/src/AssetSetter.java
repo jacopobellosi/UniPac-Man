@@ -7,9 +7,11 @@ public class AssetSetter {
 
 	GameEngine gp;
 	public int mapTilenum[][];
-	public AssetSetter(GameEngine gp) {
+	String s;
+	public AssetSetter(GameEngine gp, String map) {
 		this.gp=gp;
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
+		this.s=map;
 	}
 	public void setMonster() {
 		gp.ghost[0] = new Ghost(gp,1);
@@ -34,7 +36,7 @@ public class AssetSetter {
 	
 	   public void setObject() {
 	        try {
-	            InputStream is = getClass().getResourceAsStream("/pacman/mappa/mappa01.txt");
+	            InputStream is = getClass().getResourceAsStream(s);
 	            BufferedReader br = new BufferedReader(new InputStreamReader(is));
 	            int col =0;
 	            int row=0;

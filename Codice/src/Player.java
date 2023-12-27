@@ -227,7 +227,7 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==pallini_totali) {
+    	if(hashKey==4) {
     		gp.gameState=gp.endState;
 
 			//ui.stopMusic(); in caso metteremo il suono
