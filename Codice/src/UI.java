@@ -33,7 +33,7 @@ public class UI {
 		drawPlayerLife();
 		g2.setFont(f_30);
 		g2.setColor(Color.white);
-		g2.drawString("CFU = "+gp.player.hashKey, 200, 40);
+		g2.drawString("CFU = "+gp.player.punteggio, 200, 40);
 	
 	}
 	private void drawPlayerLife() {

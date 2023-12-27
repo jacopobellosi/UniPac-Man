@@ -11,7 +11,7 @@ public class Entity {
 	   public boolean collision=false;
 	   public Rectangle solidArea = new Rectangle(0,0,48,48);
 	   public boolean collisionON = false;
-	   int maxLife,life;
+	    int maxLife,life;
 	   public boolean invincible = false;
 	   public int invincibleCounter=0;
 	   public int actionlockCounter=0;
@@ -34,9 +34,13 @@ public class Entity {
 		   boolean contactPlayer = gp.cCheck.checkPlayer(this);
 		   
 		   if(this.type==1 && contactPlayer==true) {
-			   if(gp.player.invincible==false) {
+			   if(gp.player.invincible==false && gp.player.attacking==false) {
 				   gp.player.life-=1;
 				   gp.player.invincible=true;
+				   gp.player.setDefaultValue();
+			   }else if(gp.player.attacking==true) {
+				   this.life-=1;
+				   gp.ghost[this.hashCode()].killMonster(this.hashCode());
 			   }
 		   }
 
@@ -63,12 +67,23 @@ public class Entity {
 			int y= this.y ;
 			
 
-				g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
-	   }
-
-	public void killa() {
-		// TODO Auto-generated method stub
+				g2.drawImage(imageFantasma_vunerabile, x, y, gp.titleSize, gp.titleSize, null);
+	  }
+	public void drawFantasmaVulnerabile(Graphics2D g2) {
+	   	int x = this.x ;
+		int y= this.y ;
 		
+
+			g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
+   }
+	public void killMonster(int i) {
+		gp.ghost[i]=null;
+		
+	}
+	public void spawnMonster(int i) {
+		gp.ghost[i] = new Ghost(gp,i+1);
+		gp.ghost[i].x = gp.titleSize *9;
+		gp.ghost[i].y = gp.titleSize *4;
 	}
 
 }

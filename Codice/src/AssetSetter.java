@@ -31,6 +31,7 @@ public class AssetSetter {
 		
 		
 	}
+	
 	   public void setObject() {
 	        try {
 	            InputStream is = getClass().getResourceAsStream("/pacman/mappa/mappa01.txt");

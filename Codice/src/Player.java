@@ -14,6 +14,7 @@ public class Player  extends Entity{
 
     InputManager keyH;
     int hashKey = 0;
+    int punteggio =0;
     int pallini_totali;
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
@@ -64,9 +65,7 @@ public class Player  extends Entity{
 
 
     public void update() {
-    	if(attacking==true) {
-    		attacking();
-    	}else if(keyH.upPressed == true) {
+    	 if(keyH.upPressed == true) {
     		direction="up";
 		}else if(keyH.downPressed == true) {
 			direction="down";
@@ -123,11 +122,7 @@ public class Player  extends Entity{
     	 }
 
     }
-    private void attacking() {
-		// TODO Auto-generated method stub
-		speed++;
-		
-	}
+
 
 	private void mangiaPW(int mangiaPW) {
 		// TODO Auto-generated method stub
@@ -136,6 +131,8 @@ public class Player  extends Entity{
     		switch(objectName){
     		case"powerUp":
     			gp.pw[mangiaPW]=null;
+    			punteggio+=12;
+    			hashKey+=6;
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
     			break;
@@ -162,7 +159,8 @@ public class Player  extends Entity{
 				}
 			}else if(attacking==true) {
 				if(gp.ghost[monsterIndex].invincible==false) {
-					gp.ghost[monsterIndex].killa();
+					gp.ghost[monsterIndex].killMonster(monsterIndex);
+					punteggio+=60;
 				}
 					
 			}
@@ -180,6 +178,7 @@ public class Player  extends Entity{
     		switch(objectName){
     		case"CFU":
     			hashKey++;
+    			punteggio+=6;
     			gp.obj[i]=null;
     			System.out.println("Numero pallini: "+ hashKey);
     			break;

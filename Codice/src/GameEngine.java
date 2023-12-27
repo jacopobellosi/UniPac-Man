@@ -111,6 +111,7 @@ public class GameEngine extends JPanel implements Runnable{
 					ghost[i].update();
 				}
 			}
+			
 		}else if(gameState==pauseState) {
 			
 		}
@@ -128,6 +129,13 @@ public class GameEngine extends JPanel implements Runnable{
 			for(int i=0;i< obj.length;i++)		{
 				if(obj[i]!=null) {
 					obj[i].drawCFU(g2,this);
+				}
+			}
+			if(player.attacking==true) {
+				for(int i=0;i<ghost.length;i++) {
+					if(ghost[i]!=null) {
+						ghost[i].drawFantasmaVulnerabile(g2);
+					}
 				}
 			}
 			for(int i=0;i< pw.length;i++)		{
