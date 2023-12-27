@@ -38,7 +38,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public AssetSetter aSetter=new AssetSetter(this);
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
-	public GameObject pw[]=new GameObject[10000];
+	public GameObject pw[]=new GameObject[1000];
 	public Entity ghost[] = new Entity[4];
 	
 	//game state

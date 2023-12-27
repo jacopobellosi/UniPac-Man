@@ -89,7 +89,7 @@ public class Player  extends Entity{
     	int objIndex = gp.cCheck.checkObject(this, true);
     	mangiaPalline(objIndex);
 
-    	int mangiaPW = gp.cCheck.checkObject(this, true);
+    	int mangiaPW = gp.cCheck.checkPW(this, true);
     	mangiaPW(mangiaPW);
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
     	interazioneFanstasma(monsterIndex);
