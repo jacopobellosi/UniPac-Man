@@ -81,35 +81,29 @@ public class UI {
 		
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
-		//title
-		g2.setFont(f_50);
-		String text= "UNI PAC-MAN";
-		int x=getXforCentered(text);
-		int y=gp.screenHeight/2-(gp.titleSize*3);
 		
-		//shadow
+		/*shadow
 		g2.setColor(Color.blue);
 		g2.drawString(text, x+5, y+5);
 		//main color
 		g2.setColor(Color.white);
 		g2.drawString(text, x, y);
-		
+		*/
 		//logo
-		x=gp.screenWidth/2-(gp.titleSize*2)/2;
-		y+=gp.titleSize*2;
-		g2.drawImage(gp.player.logo,x,y,100,100,null);
+		g2.drawImage(gp.player.logo,150,0,450,450,null);
 		
 		//menu
 		g2.setFont(c_30);
-		text=" nuova partita";
-		x=getXforCentered(text);
-		y+=gp.titleSize*4;
+		g2.setColor(Color.white);
+		String text=" nuova partita";
+		int y=gp.screenHeight/2+(gp.titleSize*4);
+		int x=getXforCentered(text);
 		g2.drawString(text,x,y);
 		if(commandNum==0) {
 			g2.setFont(a_20);
 			g2.drawString(">", x-gp.titleSize, y);
 		}
-		g2.setFont(c_30);
+		//g2.setFont(c_30);
 		text=" esci";
 		x=getXforCentered(text);
 		y+=gp.titleSize;
