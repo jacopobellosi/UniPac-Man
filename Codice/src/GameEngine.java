@@ -62,6 +62,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public void setupGame() {
 		aSetter.setMonster();
 		aSetter.setObject();
+		player.setDefaultLife();
 		gameState=titleState;
 	}
 	
@@ -154,6 +155,7 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	public void restart() {
 		player.setDefaultValue();
+		player.setDefaultLife();
 		aSetter.setMonster();
 		aSetter.setObject();
 	}

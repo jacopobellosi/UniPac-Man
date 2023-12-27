@@ -42,6 +42,10 @@ public class Player  extends Entity{
     	y=300;
     	speed = 4;
     	direction="down";
+    	
+    }
+    
+    public void setDefaultLife() {
     	maxLife = 3;
     	life = maxLife;
     }
@@ -140,6 +144,7 @@ public class Player  extends Entity{
 				countLife();
 				restartVita();
 				setDefaultValue();
+				//gp.aSetter.setMonster();
 				invincible=true;
 				if(life==0) {
 					gp.gameState=gp.endState;
