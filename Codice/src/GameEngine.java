@@ -140,6 +140,8 @@ public class GameEngine extends JPanel implements Runnable{
 		}else if(gameState==endState) {
 			ui.draw(g2);
 
+		}else if(gameState==pauseState) {
+			ui.draw(g2);
 		}
 	}
 

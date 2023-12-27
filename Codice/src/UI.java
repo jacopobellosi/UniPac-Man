@@ -38,21 +38,6 @@ public class UI {
 		g2.setFont(c_30);
 		g2.setColor(Color.white);
 		g2.drawString(""+gp.player.hashKey, 300, 45);
-		/*if(gameFinished==true) {
-			drawEndScreen();
-			gp.gameThread=null;
-
-			
-		}else {
-			g2.setFont(f_30);
-			g2.setColor(Color.white);
-			g2.drawString("cfu - ", 200, 50);
-		
-			g2.setFont(c_30);
-			g2.setColor(Color.white);
-			g2.drawString(""+gp.player.hashKey, 300, 45);
-		}*/
-		
 	}
 	private void drawPlayerLife() {
 		// TODO Auto-generated method stub
@@ -68,9 +53,8 @@ public class UI {
 	
 	public void draw(Graphics2D g2) {
 		this.g2=g2;
-		//g2.setFont(c_30);
-		g2.setColor(Color.white);
-		
+		g2.setColor(new Color(20,20,60));
+		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		if(gp.gameState==gp.titleState) {
 			drawTitleScreen();
 		}
@@ -85,10 +69,17 @@ public class UI {
 			drawEndScreen();
 		}
 	}
-	
+	public void drawPauseScreen() {
+		g2.setFont(c_30);
+		String text="paused";
+		g2.setColor(Color.white);
+		int x=getXforCentered(text);
+		int y=gp.screenHeight/2;
+		g2.drawString(text, x, y);
+	}
 	public void drawTitleScreen() {
 		
-		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
+		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		//title
 		g2.setFont(f_50);
@@ -170,11 +161,5 @@ public class UI {
 		
 		return x;
 	}
-	public void drawPauseScreen() {
-		g2.setFont(f_30);
-		String text="PAUSED";
-		int x=getXforCentered(text);
-		int y=gp.screenHeight/2;
-		g2.drawString(text, x, y);
-	}
+
 }
