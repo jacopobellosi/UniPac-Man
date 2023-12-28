@@ -68,7 +68,7 @@ public class Ghost extends Entity {
 		}
 		public void fantasmaVulnerabile() {
 			try {
-				imageFantasma_vunerabile = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/fantasma_vulerabile.gif"));
+				imageFantasma_vunerabile = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/fantasma_vulnerabile.gif"));
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
