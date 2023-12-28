@@ -33,7 +33,7 @@ public class UniPacman  {
 		window.setIconImage(img.getImage());   
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		
+		//set up
 		livello.setupGame();
 		livello.StartGameThread();
 	}
