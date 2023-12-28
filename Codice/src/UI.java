@@ -142,7 +142,7 @@ public class UI {
 		y=gp.screenHeight/2;
 		//shade
 		g2.setColor(Color.green);
-		g2.drawString(text, x+5, y+5);
+		g2.drawString(text, x+3, y+3);
 		//main color
 		g2.setColor(Color.white);
 		g2.drawString(text, x, y);
@@ -175,7 +175,7 @@ public class UI {
 			y=gp.screenHeight/2;
 			//shade
 			g2.setColor(Color.red);
-			g2.drawString(text, x+5, y+5);
+			g2.drawString(text, x+3, y+3);
 			//main color
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
@@ -195,7 +195,7 @@ public class UI {
 			y=gp.screenHeight/2;
 			//shade
 			g2.setColor(Color.green);
-			g2.drawString(text, x+5, y+5);
+			g2.drawString(text, x+3, y+3);
 			//main color
 			g2.setColor(Color.white);
 			g2.drawString(text, x, y);
