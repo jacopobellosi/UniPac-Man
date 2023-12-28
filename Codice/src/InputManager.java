@@ -62,10 +62,16 @@ public class InputManager implements  KeyListener {
 		}
 
 		//fine
+		if(gp.gameState== gp.nextLevelState) {
+			if (code == KeyEvent.VK_SPACE) {
+				gp.gameState=gp.playState;
+				gp.nextLevel();
+			}
+		}
 		if(gp.gameState == gp.endState) {
 			if (code == KeyEvent.VK_SPACE) {
 				gp.gameState=gp.titleState;
-				gp.nextLevel();
+				gp.restart();
 			}
 		}
 

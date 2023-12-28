@@ -53,6 +53,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int playState=1;
 	public final int pauseState=2;
 	public final int endState=3;
+	public final int nextLevelState=4;
 	private Timer invicibilityTimer;
 	 private ArrayList<Integer> numeroFantasmiEliminati = new ArrayList<>();
 	 private int number_ghost;
@@ -193,6 +194,8 @@ public class GameEngine extends JPanel implements Runnable{
 
 		}else if(gameState==pauseState) {
 			ui.draw(g2);
+		}else if(gameState==nextLevelState) {
+			ui.draw(g2);
 		}
 	}
 	public void killMonster(int i) {
@@ -223,18 +226,24 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void restart() {
+		livelloCorrente=1;
+		tileM = new Tilemanger(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
+		aSetter=new AssetSetter(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		player.setDefaultValue();
 		player.setDefaultLife();
 		aSetter.setMonster();
 		aSetter.setObject();
+		
 	}
 	public void nextLevel() {
-		tileM = new Tilemanger(this,"/pacman/mappa/mappa02.txt");
-		aSetter=new AssetSetter(this,"/pacman/mappa/mappa02.txt");
+		livelloCorrente++;
+		tileM = new Tilemanger(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
+		aSetter=new AssetSetter(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		player.setDefaultValue();
 		player.setDefaultLife();
 		aSetter.setMonster();
 		aSetter.setObject();
+		
 	}
 
 

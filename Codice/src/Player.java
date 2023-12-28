@@ -74,8 +74,8 @@ public class Player  extends Entity{
     }
 
     public void setDefaultValue() {
-    	x=150;
-    	y=300;
+    	x=1 * gp.titleSize;
+    	y=6 * gp.titleSize;
     	speed = 4;
     	direction="down";
     	
@@ -227,15 +227,19 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==4) {
-    		gp.gameState=gp.endState;
-
+    	if(hashKey==pallini_totali && gp.livelloCorrente==1 ) {
+    		gp.gameState=gp.nextLevelState;
+    		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
     	}
-    	if(gp.gameState==gp.endState) {
+    	if(gp.livelloCorrente == 2 && hashKey==pallini_totali ) {
+    		//hashKey==pallini_totali 
+    		gp.gameState=gp.endState;
     		hashKey=0;
+    		punteggio=0;
+    		reset();
     	}
     }
     public void draw(Graphics2D g2) {
@@ -263,6 +267,7 @@ public class Player  extends Entity{
     public void reset() {
     	int i=0;
     	setDefaultValue();
+    	setDefaultLife();
     	mangiaPalline(i);
     	hashKey=0;
     }

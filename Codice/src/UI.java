@@ -72,6 +72,9 @@ public class UI {
 		if(gp.gameState==gp.playState) {
 			drawContaPallini(g2);
 		}
+		if(gp.gameState==gp.nextLevelState) {
+			drawNextLevelScreen();
+		}
 		if(gp.gameState==gp.pauseState) {
 			drawPauseScreen();
 		}
@@ -117,6 +120,38 @@ public class UI {
 			g2.setFont(f_35);
 			g2.drawString(">", x-gp.titleSize+5, y);
 		}
+	}
+	public void drawNextLevelScreen() {
+		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
+		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
+		//title
+		String text;
+		int x;
+		int y;
+		text= "Hai raccolto tutti i primi CFU";
+		g2.setFont(f_40);
+		g2.setColor(Color.white);
+		x=getXforCentered(text);
+		y=gp.screenHeight/2-(gp.titleSize*2);
+		g2.drawString(text, x, y);
+		
+		
+		text= "HAI SUPERATO IL PRIMO SEMESTRE!";
+		g2.setFont(f_40);
+		x=getXforCentered(text);
+		y=gp.screenHeight/2;
+		//shade
+		g2.setColor(Color.green);
+		g2.drawString(text, x+5, y+5);
+		//main color
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		text = "premi SPACE per andare al livello successivo";
+		g2.setFont(f_30);
+	    g2.setColor(Color.yellow);
+		x=getXforCentered(text);
+		y=gp.screenHeight/2+(gp.titleSize*3);
+		g2.drawString(text, x, y);
 	}
 	public void drawEndScreen() {
 		
@@ -166,7 +201,7 @@ public class UI {
 			g2.drawString(text, x, y);
 		}			
 			
-			text = "press SPACE to start";
+			text = "Premi SPACE per tornare alla schermata iniziale";
 			g2.setFont(f_30);
 		    g2.setColor(Color.yellow);
 			x=getXforCentered(text);

@@ -5,11 +5,15 @@
 */
 
 import java.util.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.time.*;
 
 //Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
@@ -25,7 +29,8 @@ public class UniPacman  {
 		GameEngine livello = new GameEngine();
 		window.add(livello);
 		window.pack();
-		
+		ImageIcon img = new ImageIcon("/pacman/logo.jpeg"); 
+		window.setIconImage(img.getImage());   
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		
