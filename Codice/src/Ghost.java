@@ -198,8 +198,8 @@ public class Ghost extends Entity {
 			    // Ad esempio, modifica la direzione in base alla posizione del giocatore
 			    if (gp.player != null) {
 			    	
-			    	int diffX = gp.player.x - x;
-			        int diffY = gp.player.y - y;
+			    	int diffX = (gp.player.x - x)/gp.titleSize;
+			        int diffY = (gp.player.y - y)/gp.titleSize;
 					/*
 			        // Determina la direzione in base alle differenze
 			        if (Math.abs(diffX) > Math.abs(diffY)) {
@@ -225,10 +225,10 @@ public class Ghost extends Entity {
 			    	// Se il fantasmino è allineato verticalmente o orizzontalmente con il giocatore,
 			        // mantieni la direzione corrente e non cambiare fino a che non si spostano
 			        
-			        if (diffX == 0 || diffY == 0) {
+			        if ((Math.abs(diffX) ==0) || (Math.abs(diffY)==0)) {
 			        	//System.out.println("Ghost "+this.type+" in posizione");
 			            // Mantieni la direzione corrente
-			        	if(diffY==0) {
+			        	if(Math.abs(diffY)==0) {
 			        		System.out.println("Ghost "+this.type+" in posizione asse Y");
 			        		if(diffX>0) {
 				        		direction="right";
