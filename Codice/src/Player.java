@@ -107,6 +107,7 @@ public class Player  extends Entity{
     	mangiaPW(mangiaPW);
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
     	interazioneFanstasma(monsterIndex);
+    	
     	//check collision
     	//gp.eHandler.checkEvent();
     	

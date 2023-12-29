@@ -44,7 +44,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public GameObject pw[]=new GameObject[1000];
 	public Entity[] ghost = new Entity[7];
 	public Level livello = new Level();
-	Sound sound=new Sound();
+	Sound sound=new Sound(); 
 	Thread gameThread;
 
 	//game state
@@ -74,7 +74,6 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void setupGame() {
-		playMusic(1);
 		aSetter.setMonster();
 		aSetter.setObject();
 		player.setDefaultLife();
@@ -118,8 +117,7 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	
 	public void update() {
-		if(gameState==playState) {
-			
+		if(gameState==playState) {	    	
 			player.update();
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
@@ -128,7 +126,8 @@ public class GameEngine extends JPanel implements Runnable{
 			}
 			
 		}else if(gameState==pauseState) {
-			
+	    	
+
 		}
 		
 	}
@@ -186,7 +185,9 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2);
 
 		}else if(gameState==pauseState) {
+			stopMusic(0);
 			ui.draw(g2);
+			
 		}else if(gameState==nextLevelState) {
 			ui.draw(g2);
 		}
