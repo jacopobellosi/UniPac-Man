@@ -129,6 +129,7 @@ public class UI {
 		String text;
 		int x;
 		int y;
+
 		text= "Hai raccolto tutti i primi CFU";
 		g2.setFont(f_40);
 		g2.setColor(Color.white);

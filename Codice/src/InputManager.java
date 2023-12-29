@@ -90,11 +90,8 @@ public class InputManager implements  KeyListener {
 		//tasto per la pausa
 		if(code == KeyEvent.VK_P) {
 			if(gp.gameState==gp.playState) {
-				gp.stopMusic(0);
-				gp.stopMusic(1);
 				gp.gameState=gp.pauseState;
 			}else if(gp.gameState==gp.pauseState) {
-				gp.stopMusic(0);
 				gp.gameState=gp.playState;
 			}
 		}
