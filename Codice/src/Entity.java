@@ -45,6 +45,11 @@ public class Entity {
 				   gp.player.life-=1;
 				   gp.player.invincible=true;
 				   gp.player.setDefaultValue();
+				   
+				   if(life==0) {
+						gp.gameState=gp.endState;
+						gp.player.hashKey=0;
+					}
 			   }else if(gp.player.attacking==true) {
 				   if(this.invincible==false) {
 						
