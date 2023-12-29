@@ -1,3 +1,4 @@
+import java.awt.Rectangle;
 
 public class CollisionChecker {
 	GameEngine gp;
@@ -245,4 +246,42 @@ public class CollisionChecker {
 				
 				return contractPlayer;
 		}
+	
+	public boolean checkCollisionWithWalls(Entity entity, String direction) {
+	    Rectangle nextPosition = new Rectangle(entity.solidArea);
+
+	    // Simula il movimento nella direzione desiderata
+	    switch (direction) {
+	        case "up":
+	            nextPosition.y -= entity.speed;
+	            break;
+	        case "down":
+	            nextPosition.y += entity.speed;
+	            break;
+	        case "left":
+	            nextPosition.x -= entity.speed;
+	            break;
+	        case "right":
+	            nextPosition.x += entity.speed;
+	            break;
+	        default:
+	            break;
+	    }
+
+	    // Controlla se la nuova posizione colpisce una parete
+	    for (int row = 0; row < gp.maxScreenRow; row++) {
+	        for (int col = 0; col < gp.maxScreenCol; col++) {
+	            if (gp.tileM.getMap(row, col) != 0 && gp.tileM.getMap(row, col) != 20  && gp.tileM.getMap(row, col) != 15  ) {
+	                Rectangle wall = new Rectangle(col * gp.titleSize, row * gp.titleSize, gp.titleSize, gp.titleSize);
+	                if (nextPosition.intersects(wall)) {
+	                    return true; // C'è una collisione con la parete
+	                }
+	            }
+	        }
+	    }
+
+	    return false; // Nessuna collisione con la parete
+	}
+	
+
 }

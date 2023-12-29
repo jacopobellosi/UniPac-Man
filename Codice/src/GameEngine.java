@@ -55,8 +55,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int endState=3;
 	public final int nextLevelState=4;
 	private Timer invicibilityTimer;
-	 private ArrayList<Integer> numeroFantasmiEliminati = new ArrayList<>();
-	 private int number_ghost;
+	public gestoreRipristinoImmunita GRI;
 	 
 	 
 	public GameEngine() {
@@ -67,16 +66,7 @@ public class GameEngine extends JPanel implements Runnable{
 		this.setFocusable(true);
 		
 		
-		invicibilityTimer = new Timer(4000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	int numeroFantasmaRespawn = numeroFantasmiEliminati.remove(0);
-                ghost[numeroFantasmaRespawn].invincible = false;
-                System.out.println("POWER UP SCADUTO");
-                invicibilityTimer.stop();
-            }
-        });
-        invicibilityTimer.setRepeats(false);
+		
 		
 	}
 
@@ -210,14 +200,11 @@ public class GameEngine extends JPanel implements Runnable{
 				ghost[i] = new Ghost(this,tipo);
 				ghost[i].x = titleSize *(7+(tipo));
 				ghost[i].y = titleSize *4;
-				flag=true;
 				ghost[i].invincible = true;
-				System.out.println("UN FANSTASMA E' RINATO");
+				GRI = new gestoreRipristinoImmunita(this,i);
+				GRI.start();
 				//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
-				number_ghost=i;
-				numeroFantasmiEliminati.add(i);
-				//numeroFantasmiEliminati.remove(Integer.valueOf(i));
-				invicibilityTimer.start();
+
 			}
 			
 		}

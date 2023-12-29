@@ -158,5 +158,11 @@ public class Tilemanger {
 		}
 		
 	}
+
+	public int getMap(int row, int col) {
+		// TODO Auto-generated method stub
+		
+		return mapTilenum[col][row];
+	}
 	
 }
