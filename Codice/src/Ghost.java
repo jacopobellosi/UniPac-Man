@@ -78,7 +78,7 @@ public class Ghost extends Entity {
 		}
 		public void setAction() {
 			actionlockCounter++;
-			if (actionlockCounter == 150) {
+			if (actionlockCounter == 50) {
 			     Random random = new Random();
 			     int i = ((Random) random).nextInt(100)+1;
 			     
