@@ -179,11 +179,12 @@ public class Player  extends Entity{
 				countLife();
 				restartVita();
 				setDefaultValue();
-				//gp.aSetter.setMonster();
+				gp.aSetter.setMonster();
 				invincible=true;
 				if(life==0) {
 					gp.gameState=gp.endState;
 					hashKey=0;
+					
 				}
 			}else if(attacking==true) {
 				if(gp.ghost[monsterIndex].invincible==false) {
@@ -221,7 +222,7 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==5 && gp.livelloCorrente==1 ) {
+    	if(hashKey==pallini_totali && gp.livelloCorrente==1 ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
