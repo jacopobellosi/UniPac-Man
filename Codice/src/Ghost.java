@@ -20,7 +20,7 @@ public class Ghost extends Entity {
 			//
 			name="fanstasma";
 			direction="down";
-			speed=1;
+			speed=2;
 			type=i;
 			solidArea.x=3;
 			solidArea.y=7;

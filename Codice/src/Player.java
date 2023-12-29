@@ -23,6 +23,7 @@ public class Player  extends Entity{
     int pallini_totali;
     private Timer powerUpTimer;
     private Timer respawnTimer;
+    private gestoreUccisoni GU;
     private ArrayList<Integer> tipiFantasmiEliminati = new ArrayList<Integer>();
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
@@ -56,19 +57,7 @@ public class Player  extends Entity{
         });
         powerUpTimer.setRepeats(false);
         
-        respawnTimer = new Timer(4000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!tipiFantasmiEliminati.isEmpty()) {
-                    // Prendi il primo tipo di fantasma eliminato
-                    int tipoFantasmaRespawn = tipiFantasmiEliminati.remove(0);
-                    gp.spawnMonster(tipoFantasmaRespawn);
-                }
-                // Puoi anche interrompere il timer se necessario
-                respawnTimer.stop();
-            }
-        });
-        respawnTimer.setRepeats(false);
+       
     	
 
     }
@@ -196,12 +185,14 @@ public class Player  extends Entity{
 				}
 			}else if(attacking==true) {
 				if(gp.ghost[monsterIndex].invincible==false) {
-					int tipoFantasmaEliminato = gp.ghost[monsterIndex].type;
-					gp.killMonster(monsterIndex);
-					punteggio+=60;
 					
-					tipiFantasmiEliminati.add(tipoFantasmaEliminato);
-					respawnTimer.start();
+					punteggio+=60;
+					//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
+					GU = new gestoreUccisoni(gp,gp.ghost[monsterIndex].type);
+					GU.start();
+	                gp.killMonster(monsterIndex);
+					//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
+					//respawnTimer.start();
 				}
 					
 			}

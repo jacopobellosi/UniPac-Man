@@ -208,7 +208,7 @@ public class GameEngine extends JPanel implements Runnable{
 		for(int i=0;i<ghost.length && flag==false;i++) {
 			if(ghost[i] ==null) {
 				ghost[i] = new Ghost(this,tipo);
-				ghost[i].x = titleSize *(9+(tipo*2));
+				ghost[i].x = titleSize *(7+(tipo));
 				ghost[i].y = titleSize *4;
 				flag=true;
 				ghost[i].invincible = true;
