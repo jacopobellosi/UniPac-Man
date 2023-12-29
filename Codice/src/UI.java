@@ -74,7 +74,10 @@ public class UI {
 			drawContaPallini(g2);
 		}
 		if(gp.gameState==gp.nextLevelState) {
-			drawNextLevelScreen();
+			if(gp.livelloCorrente==1)
+				drawFirstLevelScreen();
+			else
+				drawSecondLevelScreen();
 		}
 		if(gp.gameState==gp.pauseState) {
 			drawPauseScreen();
@@ -122,7 +125,7 @@ public class UI {
 			g2.drawString(">", x-gp.titleSize+5, y);
 		}
 	}
-	public void drawNextLevelScreen() {
+	public void drawFirstLevelScreen() {
 		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		//title
@@ -138,7 +141,40 @@ public class UI {
 		g2.drawString(text, x, y);
 		
 		
-		text= "HAI SUPERATO IL PRIMO SEMESTRE!";
+		text= "HAI SUPERATO IL PRIMO ANNO!";
+		g2.setFont(f_40);
+		x=getXforCentered(text);
+		y=gp.screenHeight/2;
+		//shade
+		g2.setColor(Color.green);
+		g2.drawString(text, x+3, y+3);
+		//main color
+		g2.setColor(Color.white);
+		g2.drawString(text, x, y);
+		text = "premi SPACE per andare al livello successivo";
+		g2.setFont(f_30);
+	    g2.setColor(Color.yellow);
+		x=getXforCentered(text);
+		y=gp.screenHeight/2+(gp.titleSize*3);
+		g2.drawString(text, x, y);
+	}
+	public void drawSecondLevelScreen() {
+		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
+		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
+		//title
+		String text;
+		int x;
+		int y;
+
+		text= "Hai raccolto tutti i secondi CFU";
+		g2.setFont(f_40);
+		g2.setColor(Color.white);
+		x=getXforCentered(text);
+		y=gp.screenHeight/2-(gp.titleSize*2);
+		g2.drawString(text, x, y);
+		
+		
+		text= "HAI SUPERATO IL SECONDO ANNO!";
 		g2.setFont(f_40);
 		x=getXforCentered(text);
 		y=gp.screenHeight/2;

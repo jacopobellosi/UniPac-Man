@@ -222,14 +222,19 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==pallini_totali && gp.livelloCorrente==1 ) {
+    	if(hashKey==4 && gp.livelloCorrente==1 ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
     	}
-    	if(gp.livelloCorrente == 2 && hashKey==pallini_totali ) {
+    	if(gp.livelloCorrente == 2 && hashKey==4 ) {
+    		//hashKey==pallini_totali 
+    		gp.gameState=gp.nextLevelState;
+    		hashKey=0;
+    	}
+    	if(gp.livelloCorrente == 3 && hashKey==4 ) {
     		//hashKey==pallini_totali 
     		gp.gameState=gp.endState;
     		hashKey=0;

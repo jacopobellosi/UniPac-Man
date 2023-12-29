@@ -23,7 +23,7 @@ public class Ghost extends Entity {
 			this.gp=gp;
 			name="fanstasma";
 			direction="down";
-			speed=2;
+			speed=3;
 			type=i;
 			solidArea.x=3;
 			solidArea.y=7;
@@ -198,8 +198,8 @@ public class Ghost extends Entity {
 			    // Ad esempio, modifica la direzione in base alla posizione del giocatore
 			    if (gp.player != null) {
 			    	
-			    	int diffX = (gp.player.x - x)/gp.titleSize;
-			        int diffY = (gp.player.y - y)/gp.titleSize;
+			    	int diffX = (gp.player.x - x)/25;
+			        int diffY = (gp.player.y - y)/25;
 					/*
 			        // Determina la direzione in base alle differenze
 			        if (Math.abs(diffX) > Math.abs(diffY)) {
@@ -225,28 +225,29 @@ public class Ghost extends Entity {
 			    	// Se il fantasmino è allineato verticalmente o orizzontalmente con il giocatore,
 			        // mantieni la direzione corrente e non cambiare fino a che non si spostano
 			        
-			        if ((Math.abs(diffX) ==0) || (Math.abs(diffY)==0)) {
+			        if ((Math.abs(diffX)<2) || (Math.abs(diffY)<2)) {
 			        	//System.out.println("Ghost "+this.type+" in posizione");
 			            // Mantieni la direzione corrente
 			        	if(Math.abs(diffY)==0) {
 			        		System.out.println("Ghost "+this.type+" in posizione asse Y");
 			        		if(diffX>0) {
 				        		direction="right";
-				        	}else if(diffX<0){
+				        	}else if(Math.abs(diffX)==0){
 				        		System.out.println("Ghost "+this.type+" in posizione e vado al bersaglio" + diffX);
 				        		direction="left";
 				        		if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
 				        			System.out.println("Ghost "+this.type+" in posizione ma vado giu");
-				        			randomMovement();
+				        			direction="down";
+				        			//randomMovement();
 				        		}
 				        		 
 				        	}else {
 				        		randomMovement();
 				        	}
 			        	}else {
-			        		if(diffY>0){
+			        		if(Math.abs(diffY)>=0){
 				        		direction="up";
-				        	}else if(diffY<0){
+				        	}else if(Math.abs(diffY)<=0){
 				        		direction="down";
 				        		if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
 				        			System.out.println("Ghost "+this.type+" in posizione ma vado giu");
