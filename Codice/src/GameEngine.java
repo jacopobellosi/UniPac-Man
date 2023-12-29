@@ -37,7 +37,6 @@ public class GameEngine extends JPanel implements Runnable{
 	public UI ui = new UI(this);
 	Tilemanger tileM = new Tilemanger(this,"/pacman/mappa/mappa01.txt");
 	public EventHandler eHandler=new EventHandler(this);
-	Thread gameThread;
 	public CollisionChecker cCheck = new CollisionChecker(this);
 	public AssetSetter aSetter=new AssetSetter(this,"/pacman/mappa/mappa01.txt");
 	Player player =new Player(this,keyH);
@@ -45,6 +44,9 @@ public class GameEngine extends JPanel implements Runnable{
 	public GameObject pw[]=new GameObject[1000];
 	public Entity[] ghost = new Entity[7];
 	public Level livello = new Level();
+	Sound sound=new Sound();
+	Thread gameThread;
+
 	//game state
 	int livelloCorrente=1;
 	int livelloMax=2;
@@ -82,6 +84,7 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public void setupGame() {
+		playMusic(1);
 		aSetter.setMonster();
 		aSetter.setObject();
 		player.setDefaultLife();
@@ -105,7 +108,6 @@ public class GameEngine extends JPanel implements Runnable{
 		while(gameThread != null ) {
 			//System.out.print("ciao");
 			//long currentTime = System.nanoTime();
-			 
 			//UPDATE
 			update();
 			//DRAW
@@ -127,6 +129,7 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	public void update() {
 		if(gameState==playState) {
+			
 			player.update();
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
@@ -198,6 +201,25 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 	}
+	
+	//music method
+	public void playMusic(int i) {
+		sound.setFile(i);
+		sound.play();
+		sound.loop();
+		
+	}
+	public void stopMusic(int i) {
+		sound.setFile(i);
+		sound.stop();		
+	}
+	/*
+	public void playSE(int i) {
+		sound.setFile(i);
+		sound.play();
+	}*/
+	
+	
 	public void killMonster(int i) {
 		ghost[i]=null;
 		System.out.println("HAI MANGIATO UN FANSTASMA");

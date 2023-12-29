@@ -66,19 +66,25 @@ public class UI {
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		if(gp.gameState==gp.titleState) {
+			gp.playMusic(1);
 			drawTitleScreen();
 		}
 		
 		if(gp.gameState==gp.playState) {
+			gp.stopMusic(1);
+			//gp.playMusic(0);
 			drawContaPallini(g2);
+
 		}
 		if(gp.gameState==gp.nextLevelState) {
+			gp.playMusic(1);
 			drawNextLevelScreen();
 		}
 		if(gp.gameState==gp.pauseState) {
 			drawPauseScreen();
 		}
 		if(gp.gameState==gp.endState) {
+			gp.playMusic(1);
 			drawEndScreen();
 		}
 		
