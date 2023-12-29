@@ -25,7 +25,7 @@ public class GameObject {
 		int y= this.y ;
 		
 
-			g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
+		g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
 	}
 
 
