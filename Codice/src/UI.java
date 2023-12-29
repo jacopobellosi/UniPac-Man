@@ -71,15 +71,12 @@ public class UI {
 		}
 
 		if(gp.gameState==gp.playState) {
-			gp.playMusic(1);
-			gp.stopMusic(0);
 			drawContaPallini(g2);
 		}
 		if(gp.gameState==gp.nextLevelState) {
 			drawNextLevelScreen();
 		}
 		if(gp.gameState==gp.pauseState) {
-			gp.stopMusic(1);
 			drawPauseScreen();
 		}
 		if(gp.gameState==gp.endState) {

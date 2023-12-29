@@ -38,7 +38,6 @@ public class InputManager implements  KeyListener {
 
 		//titolo
 		if(gp.gameState == gp.titleState) {
-
 			if(code == KeyEvent.VK_W) {
 				gp.ui.commandNum--;
 				if(gp.ui.commandNum<0) {
@@ -54,8 +53,6 @@ public class InputManager implements  KeyListener {
 			if (code == KeyEvent.VK_ENTER) {
 				if(gp.ui.coommandNum==0) {
 					gp.gameState = gp.playState;
-					gp.stopMusic(0);
-					gp.playMusic(1);
 				}
 				if(gp.ui.commandNum==1) {
 					System.exit(0);
@@ -93,8 +90,11 @@ public class InputManager implements  KeyListener {
 		//tasto per la pausa
 		if(code == KeyEvent.VK_P) {
 			if(gp.gameState==gp.playState) {
+				gp.stopMusic(0);
+				gp.stopMusic(1);
 				gp.gameState=gp.pauseState;
 			}else if(gp.gameState==gp.pauseState) {
+				gp.stopMusic(0);
 				gp.gameState=gp.playState;
 			}
 		}
