@@ -185,7 +185,6 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2);
 
 		}else if(gameState==pauseState) {
-			stopMusic(0);
 			ui.draw(g2);
 			
 		}else if(gameState==nextLevelState) {
