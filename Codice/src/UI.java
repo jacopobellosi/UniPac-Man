@@ -67,6 +67,7 @@ public class UI {
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		if(gp.gameState==gp.titleState) {
 			drawTitleScreen();
+			
 		}
 
 		if(gp.gameState==gp.playState) {
