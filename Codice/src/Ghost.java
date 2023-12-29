@@ -14,6 +14,8 @@ import java.io.IOException;
 //fantasmini
 public class Ghost extends Entity {
 		GameEngine gp;
+		int oppMinLastNumber =0;
+		int oppMaxLastNumber =100;
 		static  Player targetPlayer;
 		public Ghost(GameEngine gp, int i) {
 			super(gp);
@@ -78,22 +80,35 @@ public class Ghost extends Entity {
 		}
 		public void setAction() {
 			actionlockCounter++;
+			
 			if (actionlockCounter == 50) {
 			     Random random = new Random();
 			     int i = ((Random) random).nextInt(100)+1;
 			     
-			     if(i <= 25){
+			     while(i<oppMaxLastNumber && i>oppMinLastNumber) {
+			    	 i = ((Random) random).nextInt(100)+1;
+			     }
+			     if(i <= 25 ){
 			        direction = "up";
+			        oppMaxLastNumber = 50;
+			        oppMinLastNumber =25;
 			     }
 			     if (i > 25 && i <= 50) {
 			         direction = "down";
+			         oppMaxLastNumber = 25;
+			         oppMinLastNumber =0;
 			     }
 			     if (i > 50 && i <= 75) {
 			        direction ="left";
+			        oppMaxLastNumber = 100;
+			        oppMinLastNumber =75;
 			     }
 			     if (i > 75 && i <= 100) {
 			         direction = "right";
+			         oppMaxLastNumber = 75;
+				        oppMinLastNumber =50;
 			     }
+			     
 			     actionlockCounter = 0;
 
 			 }
