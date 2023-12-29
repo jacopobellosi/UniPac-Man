@@ -213,9 +213,10 @@ public class GameEngine extends JPanel implements Runnable{
 				flag=true;
 				ghost[i].invincible = true;
 				System.out.println("UN FANSTASMA E' RINATO");
-				int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
+				//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
 				number_ghost=i;
-				numeroFantasmiEliminati.remove(Integer.valueOf(i));
+				numeroFantasmiEliminati.add(i);
+				//numeroFantasmiEliminati.remove(Integer.valueOf(i));
 				invicibilityTimer.start();
 			}
 			
@@ -237,12 +238,14 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	public void nextLevel() {
 		livelloCorrente++;
+		Tilemanger.resetPalliniTotali();
 		tileM = new Tilemanger(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		aSetter=new AssetSetter(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		player.setDefaultValue();
 		player.setDefaultLife();
 		aSetter.setMonster();
 		aSetter.setObject();
+		player.pallini_totali = Tilemanger.getPalliniTotali();
 		
 	}
 

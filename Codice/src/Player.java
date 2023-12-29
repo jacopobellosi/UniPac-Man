@@ -168,7 +168,7 @@ public class Player  extends Entity{
     		case"powerUp":
     			gp.pw[mangiaPW]=null;
     			punteggio+=12;
-    			hashKey+=1;
+    			hashKey++;
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
     			 powerUpTimer.start();
@@ -221,13 +221,13 @@ public class Player  extends Entity{
     			hashKey++;
     			punteggio+=6;
     			gp.obj[i]=null;
-    			System.out.println("Numero pallini: "+ hashKey);
+    			System.out.println("Numero pallini: "+ hashKey+" su "+pallini_totali);
     			break;
     		}
 
     	}
 
-    	if(hashKey==4 && gp.livelloCorrente==1 ) {
+    	if(hashKey==pallini_totali && gp.livelloCorrente==1 ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
@@ -265,10 +265,8 @@ public class Player  extends Entity{
     }
 
     public void reset() {
-    	int i=0;
     	setDefaultValue();
     	setDefaultLife();
-    	mangiaPalline(i);
     	hashKey=0;
     }
 }

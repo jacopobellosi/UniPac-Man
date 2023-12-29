@@ -105,6 +105,10 @@ public class Tilemanger {
 							//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
 							conteggio++;
 						}
+						if(mapTilenum[col][row]==15) {
+							//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
+							conteggio++;
+						}
 						col++;
 					}
 					if(col == gp.maxScreenCol) {
@@ -119,6 +123,9 @@ public class Tilemanger {
 			e.printStackTrace();
 		}
 		
+	}
+	public static void resetPalliniTotali() {
+		conteggio=0;
 	}
 	public static int getPalliniTotali() {
 		
