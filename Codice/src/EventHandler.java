@@ -24,18 +24,18 @@ public class EventHandler {
 		if(hit(-1,6)==true) {
 			tunnelsx();
 		}
-		if(hit(15,6)==true) {
+		if(hit(15.5,6)==true) {
 			tunneldx();
 		}
 	}
 	
 	
-	private boolean hit(int eventCol, int eventRow) {
+	private boolean hit(double eventCol, int eventRow) {
 
 		boolean hit=false;
 		gp.player.solidArea.x=gp.player.x+gp.player.solidArea.x;
 		gp.player.solidArea.y=gp.player.y+gp.player.solidArea.y;
-		eventRect.x=eventCol*gp.titleSize+eventRect.x;
+		eventRect.x=(int) (eventCol*gp.titleSize+eventRect.x);
 		eventRect.y=eventRow*gp.titleSize+eventRect.y;
 
 		if(gp.player.solidArea.intersects(eventRect)) {
@@ -54,11 +54,11 @@ public class EventHandler {
 
 	public void tunnelsx() {
 	    // Aggiorna la posizione del giocatore e del rettangolo solido
-	    gp.player.x = gp.titleSize * 14;
+	    gp.player.x = gp.titleSize * 15;
 	    gp.player.y = gp.titleSize * 6;
 	}
 	public void tunneldx() {
-		gp.player.x=gp.titleSize*1;
+		gp.player.x=gp.titleSize*0;
 		gp.player.y=gp.titleSize*6;
 
 	}
