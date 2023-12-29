@@ -156,6 +156,7 @@ public class Player  extends Entity{
     		String objectName = gp.pw[mangiaPW].name;
     		switch(objectName){
     		case"powerUp":
+    			gp.playSE(3);
     			gp.pw[mangiaPW]=null;
     			punteggio+=12;
     			hashKey++;
@@ -210,6 +211,7 @@ public class Player  extends Entity{
     		String objectName = gp.obj[i].name;
     		switch(objectName){
     		case"CFU":
+    			gp.playSE(2);
     			hashKey++;
     			punteggio+=6;
     			gp.obj[i]=null;
@@ -219,7 +221,7 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==pallini_totali && gp.livelloCorrente==1 ) {
+    	if(hashKey==5 && gp.livelloCorrente==1 ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono

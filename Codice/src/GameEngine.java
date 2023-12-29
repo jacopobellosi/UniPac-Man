@@ -45,6 +45,8 @@ public class GameEngine extends JPanel implements Runnable{
 	public Entity[] ghost = new Entity[7];
 	public Level livello = new Level();
 	Sound sound=new Sound(); 
+	Sound se=new Sound(); 
+
 	Thread gameThread;
 
 	//game state
@@ -203,11 +205,11 @@ public class GameEngine extends JPanel implements Runnable{
 		sound.setFile(i);
 		sound.stop();		
 	}
-	/*
+	
 	public void playSE(int i) {
-		sound.setFile(i);
-		sound.play();
-	}*/
+		se.setFile(i);
+		se.play();
+	}
 	
 	
 	public void killMonster(int i) {
