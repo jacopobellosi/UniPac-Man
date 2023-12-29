@@ -43,7 +43,7 @@ public class GameEngine extends JPanel implements Runnable{
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public GameObject pw[]=new GameObject[1000];
-	public Entity[] ghost = new Entity[4];
+	public Entity[] ghost = new Entity[7];
 	public Level livello = new Level();
 	//game state
 	int livelloCorrente=1;
@@ -208,7 +208,7 @@ public class GameEngine extends JPanel implements Runnable{
 		for(int i=0;i<ghost.length && flag==false;i++) {
 			if(ghost[i] ==null) {
 				ghost[i] = new Ghost(this,tipo);
-				ghost[i].x = titleSize *9+tipo*2;
+				ghost[i].x = titleSize *(9+(tipo*2));
 				ghost[i].y = titleSize *4;
 				flag=true;
 				ghost[i].invincible = true;

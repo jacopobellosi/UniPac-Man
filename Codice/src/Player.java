@@ -30,10 +30,10 @@ public class Player  extends Entity{
     	this.keyH=keyH;
 
 
-    	solidArea = new Rectangle(10,5,15,15);
+    	//solidArea = new Rectangle(10,5,15,15);
 
     	
-    	solidArea = new Rectangle(8,8,12,12);
+    	solidArea = new Rectangle(8,10,20,20);
 
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
