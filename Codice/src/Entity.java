@@ -23,6 +23,7 @@ public class Entity {
 	   boolean attacking =false;
 	   public Rectangle attackArea = new Rectangle(0,0,0,0);
 	   String name;
+	    private gestoreUccisoni GU;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;
 	   	GameEngine gp;
 	   public Entity(GameEngine gp) {
@@ -39,29 +40,27 @@ public class Entity {
 
 		   boolean contactPlayer = gp.cCheck.checkPlayer(this);
 		   
-		   if(this.type==1 && contactPlayer==true) {
+		   if(this.type!=0 && contactPlayer==true) {
 			   if(gp.player.invincible==false && gp.player.attacking==false) {
 				   gp.player.life-=1;
 				   gp.player.invincible=true;
 				   gp.player.setDefaultValue();
 			   }else if(gp.player.attacking==true) {
-				   this.life-=1;
-				   for(int i=0;i<gp.ghost.length;i++) {
-						if(gp.ghost[i]==this) {
-							int tipo = gp.ghost[i].type;
-							gp.killMonster(i);
-							gp.player.punteggio+=60;
-							Timer timer = new Timer(4000, (ActionListener) new ActionListener() {
-					            @Override
-								public void actionPerformed(ActionEvent e) {
-									// TODO Auto-generated method stub
-					            	gp.spawnMonster(tipo);
-								}
-					        });
-					        timer.setRepeats(false); // Imposta il timer su non ripetitivo
-					        timer.start();
+				   if(this.invincible==false) {
+						
+						gp.player.punteggio+=60;
+						//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
+						GU = new gestoreUccisoni(gp,this.type);
+						GU.start();
+						for(int i=0;i<gp.ghost.length;i++) {
+							if(gp.ghost[i]==this) {
+								gp.killMonster(i);
+							}
 						}
-				   }
+		                
+						//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
+						//respawnTimer.start();
+					}
 			   }
 		   }
 

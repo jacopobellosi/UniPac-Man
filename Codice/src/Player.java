@@ -33,7 +33,7 @@ public class Player  extends Entity{
 
     	//solidArea = new Rectangle(10,5,15,15);
 
-    	
+    	type=0;
     	solidArea = new Rectangle(8,10,20,20);
 
     	solidAreaDefaultx= solidArea.x;
