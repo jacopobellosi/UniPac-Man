@@ -36,7 +36,7 @@ public class Entity {
 		   gp.cCheck.checktile(this);
 		   //gp.cCheck.checkObject(this, false);
 		   gp.cCheck.checkEntity(this, gp.ghost);
-		   gp.eHandler.checkEvent();
+		   gp.eHandler.checkEvent(this);
 
 		   boolean contactPlayer = gp.cCheck.checkPlayer(this);
 		   
@@ -45,7 +45,7 @@ public class Entity {
 				   gp.player.life-=1;
 				   gp.player.invincible=true;
 				   gp.player.setDefaultValue();
-				   
+				   gp.aSetter.setMonster();
 				   if(gp.player.life==0) {
 						gp.gameState=gp.endState;
 						gp.player.hashKey=0;

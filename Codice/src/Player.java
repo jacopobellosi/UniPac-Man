@@ -30,7 +30,7 @@ public class Player  extends Entity{
     	this.gp=gp;
     	this.keyH=keyH;
 
-
+    	name="pacman";
     	//solidArea = new Rectangle(10,5,15,15);
 
     	type=0;
@@ -97,7 +97,7 @@ public class Player  extends Entity{
 		}else if(keyH.rightPressed == true) {
 			direction="right";
 		}
-
+    	 gp.eHandler.checkEvent(this);
     	collisionON = false;
     	gp.cCheck.checktile(this);
     	int objIndex = gp.cCheck.checkObject(this, true);
@@ -160,7 +160,7 @@ public class Player  extends Entity{
     			gp.pw[mangiaPW]=null;
     			punteggio+=12;
     			hashKey++;
-    			gp.eHandler.checkEvent();
+    			gp.eHandler.checkEvent(this);
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
     			 powerUpTimer.start();
@@ -223,19 +223,14 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==4 && gp.livelloCorrente==1 ) {
+    	if(hashKey==pallini_totali && gp.livelloCorrente!=gp.livelloMax ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
     	}
-    	if(gp.livelloCorrente == 2 && hashKey==4 ) {
-    		//hashKey==pallini_totali 
-    		gp.gameState=gp.nextLevelState;
-    		hashKey=0;
-    	}
-    	if(gp.livelloCorrente == 3 && hashKey==4 ) {
+    	if(gp.livelloCorrente == gp.livelloMax && hashKey==4 ) {
     		//hashKey==pallini_totali 
     		gp.gameState=gp.endState;
     		hashKey=0;

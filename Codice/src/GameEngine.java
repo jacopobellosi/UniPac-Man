@@ -42,8 +42,8 @@ public class GameEngine extends JPanel implements Runnable{
 	Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public GameObject pw[]=new GameObject[1000];
-	public Entity[] ghost = new Entity[7];
-	public Level livello = new Level();
+	public Entity[] ghost = new Entity[4];
+	//public Level livello = new Level();
 	Sound sound=new Sound(); 
 	Sound se=new Sound(); 
 
@@ -51,7 +51,7 @@ public class GameEngine extends JPanel implements Runnable{
 
 	//game state
 	int livelloCorrente=1;
-	int livelloMax=2;
+	int livelloMax=3;
 	public int gameState;
 	public final int titleState=0;
 	public final int playState=1;
@@ -221,6 +221,7 @@ public class GameEngine extends JPanel implements Runnable{
 		System.out.println("HAI MANGIATO UN FANSTASMA");
 		 
 	}
+	//INUTILE
 	public void spawnMonster(int tipo) {
 		boolean flag=false;
 		for(int i=0;i<ghost.length && flag==false;i++) {

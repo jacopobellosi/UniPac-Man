@@ -14,21 +14,20 @@ import java.io.IOException;
 //fantasmini
 public class Ghost extends Entity {
 		GameEngine gp;
-		int oppMinLastNumber =0;
-		int oppMaxLastNumber =100;
+		String ultimoMovimentoOpposto = null;
 		static  Player targetPlayer;
 		public Ghost(GameEngine gp, int i) {
 			super(gp);
 			//
 			this.gp=gp;
-			name="fanstasma";
-			direction="down";
+			name="fanstasma "+i;
+			direction="left";
 			speed=3;
 			type=i;
 			solidArea.x=3;
 			solidArea.y=7;
-			solidArea.height=42;
-			solidArea.width=30;
+			solidArea.height=35;
+			solidArea.width=35;
 			solidAreaDefaultx = solidArea.x;
 			solidAreaDefaulty = solidArea.y;
 			
@@ -83,28 +82,42 @@ public class Ghost extends Entity {
 			actionlockCounter++;
 			
 			if (actionlockCounter == 50) {
-			     Random random = new Random();
+				Random random = new Random();
 			     int i = ((Random) random).nextInt(100)+1;
 			     
-			     while(i<oppMaxLastNumber && i>oppMinLastNumber) {
+			     do{
 			    	 i = ((Random) random).nextInt(100)+1;
+			    	 if(i <= 25 ){
+					        direction = "up";
+					        
+					       
+					 }
+			    	 if (i > 25 && i <= 50) {
+					        direction ="left";
+					        
+					        
+			    	 }
+			    	 if (i > 50 && i <= 75) {
+					         direction = "right";
+					         
+						     
+					 }
+			    	 if (i > 75 && i <= 100) {
+					         direction = "down";
+					        
+					 }
+			    	 
+					     
+			     }while(direction==ultimoMovimentoOpposto || gp.cCheck.checkCollisionWithWalls(this, direction));
+			     if(direction=="up") {
+			    	 ultimoMovimentoOpposto="down";
+			     }else if(direction=="down"){
+			    	 ultimoMovimentoOpposto="up";
+			     }else if(direction=="left") {
+			    	 ultimoMovimentoOpposto="right";
+			     }else if(direction=="right"){
+			    	 ultimoMovimentoOpposto="left";
 			     }
-			     if(i <= 33 ){
-			        direction = "up";
-			        oppMaxLastNumber = 50;
-			        oppMinLastNumber =25;
-			     }
-			     if (i > 33 && i <= 66) {
-			        direction ="left";
-			        oppMaxLastNumber = 100;
-			        oppMinLastNumber =66;
-			     }
-			     if (i > 66 && i <= 100) {
-			         direction = "right";
-			         oppMaxLastNumber = 66;
-				        oppMinLastNumber =33;
-			     }
-			     
 			     actionlockCounter = 0;
 
 			 }
@@ -187,7 +200,7 @@ public class Ghost extends Entity {
 			    } else {
 			        // Se sono già fuori dalla gabbia, inseguono il giocatore
 			        //chasePlayer();
-			    	chasePlayer();
+			    	randomMovement();
 			    }
 			    
 		}
@@ -224,7 +237,7 @@ public class Ghost extends Entity {
 			        */
 			    	// Se il fantasmino è allineato verticalmente o orizzontalmente con il giocatore,
 			        // mantieni la direzione corrente e non cambiare fino a che non si spostano
-			        
+			        /*
 			        if ((Math.abs(diffX)<2) || (Math.abs(diffY)<2)) {
 			        	//System.out.println("Ghost "+this.type+" in posizione");
 			            // Mantieni la direzione corrente
@@ -246,9 +259,9 @@ public class Ghost extends Entity {
 				        	}
 			        	}else {
 			        		if(Math.abs(diffY)>=0){
-				        		direction="up";
-				        	}else if(Math.abs(diffY)<=0){
 				        		direction="down";
+				        	}else if(Math.abs(diffY)<=0){
+				        		direction="up";
 				        		if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
 				        			//System.out.println("Ghost "+this.type+" in posizione ma vado giu");
 				        			randomMovement();
@@ -280,7 +293,47 @@ public class Ghost extends Entity {
 			                }
 			            }
 			        }
-			        
+			        */
+			        int distanceX = gp.player.x - this.x;
+			        int distanceY = gp.player.y - this.y;
+
+			        // Decide la direzione del movimento basandosi sulla posizione di Pac-Man e il margine di errore
+			        if (Math.abs(distanceX) > 20) {
+			            if (distanceX > 0) {
+			                // Muovi il fantasma a destra
+			                direction="right";
+			                if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
+			                    // Se la prossima mossa colpisce una parete, prova a muoverti lungo l'asse x
+			                    direction = (distanceY > 0) ? "up" : "down";
+			                }
+			            } else {
+			                // Muovi il fantasma a sinistra
+			            	 if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
+				                    // Se la prossima mossa colpisce una parete, prova a muoverti lungo l'asse x
+				                    direction = (distanceY > 0) ? "up" : "down";
+				                }
+			            	direction="left";
+			            }
+			        }
+
+			        if (Math.abs(distanceY) > 20) {
+			            if (distanceY > 0) {
+			                // Muovi il fantasma in basso
+			            	direction="up";
+			            	 if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
+				                    // Se la prossima mossa colpisce una parete, prova a muoverti lungo l'asse x
+				                    direction = (distanceX > 0) ? "left" : "right";
+				                }
+			            } else {
+			                // Muovi il fantasma in alto
+			            	direction="down";
+			            	if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
+			                    // Se la prossima mossa colpisce una parete, prova a muoverti lungo l'asse x
+			                    direction = (distanceX > 0) ? "left" : "right";
+			                }
+			            }
+			        }
+
 			        /*
 			        if (diffX == 0 && diffY == 0) {
 			            // Mantieni la direzione corrente
