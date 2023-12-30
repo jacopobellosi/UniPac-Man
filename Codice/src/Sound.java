@@ -14,6 +14,9 @@ public class Sound {
         soundURL[1] = getClass().getResource("/pacman/sound/saxophone.wav");
         soundURL[2] = getClass().getResource("/pacman/sound/pacman_chomp3.wav");
         soundURL[3] = getClass().getResource("/pacman/sound/pacman_eatfruit.wav");
+        soundURL[4] = getClass().getResource("/pacman/sound/pixel-death.wav");
+        soundURL[5] = getClass().getResource("/pacman/sound/zelda_theme_snes-cut-mp3.wav");
+        
     }
 
     public void setFile(int i) {

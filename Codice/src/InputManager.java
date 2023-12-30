@@ -52,6 +52,7 @@ public class InputManager implements  KeyListener {
 			}
 			if (code == KeyEvent.VK_ENTER) {
 				if(gp.ui.coommandNum==0) {
+					gp.stopMusic(5);
 					gp.gameState = gp.playState;
 				}
 				if(gp.ui.commandNum==1) {

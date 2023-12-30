@@ -68,7 +68,7 @@ public class GameEngine extends JPanel implements Runnable{
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyH);
 		this.setFocusable(true);
-		
+		playSE(5);
 		
 		
 		
@@ -119,7 +119,8 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	
 	public void update() {
-		if(gameState==playState) {	    	
+		if(gameState==playState) {
+			
 			player.update();
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
@@ -132,8 +133,14 @@ public class GameEngine extends JPanel implements Runnable{
 
 		}
 		if(gameState==endState) {
-			sound.setFile(1); 
-			sound.playWin();
+			if(player.life==0) {
+				sound.setFile(4); 
+				sound.playWin();
+			}else {
+				sound.setFile(1); 
+				sound.playWin();
+			}
+			
 		}
 		
 	}
