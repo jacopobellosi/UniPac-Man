@@ -15,8 +15,8 @@ public class Entity {
 	   public boolean collision=false; // NO_UCD (unused code)
 	   public Rectangle solidArea = new Rectangle(0,0,48,48);
 	   public boolean collisionON = false;
-	    int maxLife;
-		public int life;
+	   int maxLife;
+	   public int life;
 	   public boolean invincible = false;
 	   int invincibleCounter=0;
 	   int actionlockCounter=0;
