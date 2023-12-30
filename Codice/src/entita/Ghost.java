@@ -10,8 +10,8 @@ import java.util.*;
 import javax.imageio.ImageIO;
 
 import engineDelGioco.GameEngine;
-import entità.Entity;
-import entità.Player;
+import entita.Entity;
+import entita.Player;
 
 import java.io.IOException;
 

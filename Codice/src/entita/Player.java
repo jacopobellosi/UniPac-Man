@@ -17,8 +17,8 @@ import javax.swing.Timer;
 import engineDelGioco.GameEngine;
 import engineDelGioco.InputManager;
 import engineDelGioco.Tilemanger;
-import entità.Entity;
-import entità.Ghost;
+import entita.Entity;
+import entita.Ghost;
 import thread.gestoreUccisoni;
 
 
