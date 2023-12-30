@@ -9,6 +9,7 @@ public class UI {
 	GameEngine gp;
 	Font f_30;
 	Font f_50;
+	Font f_60;
 	Font f_40;
 	Font f_35;
 	InputManager keyH;
@@ -24,7 +25,9 @@ public class UI {
 		f_50 = new Font("Gill Sans MT Condensed", Font.BOLD,70);
 		f_40 = new Font("Gill Sans MT Condensed", Font.PLAIN,40);
 		f_35= new Font("Gill Sans MT Condensed", Font.BOLD,35);
+		f_60 = new Font("Gill Sans MT Condensed", Font.BOLD,60);
 
+		
 		GameObject vita = new vitaPacMan(gp);
 		pacLife = vita.imageVita;
 	}
@@ -135,7 +138,7 @@ public class UI {
 		int x;
 		int y;
 
-		text= "Hai raccolto tutti i primi CFU";
+		text= "Hai raccolto tutti i CFU";
 		g2.setFont(f_40);
 		g2.setColor(Color.white);
 		x=getXforCentered(text);
@@ -144,7 +147,7 @@ public class UI {
 		
 		
 		text= "HAI SUPERATO IL PRIMO ANNO!";
-		g2.setFont(f_40);
+		g2.setFont(f_60);
 		x=getXforCentered(text);
 		y=gp.screenHeight/2;
 		//shade
@@ -168,7 +171,7 @@ public class UI {
 		int x;
 		int y;
 
-		text= "Hai raccolto tutti i secondi CFU";
+		text= "Hai raccolto tutti i CFU";
 		g2.setFont(f_40);
 		g2.setColor(Color.white);
 		x=getXforCentered(text);
@@ -177,7 +180,7 @@ public class UI {
 		
 		
 		text= "HAI SUPERATO IL SECONDO ANNO!";
-		g2.setFont(f_40);
+		g2.setFont(f_60);
 		x=getXforCentered(text);
 		y=gp.screenHeight/2;
 		//shade
