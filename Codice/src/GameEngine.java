@@ -259,7 +259,6 @@ public class GameEngine extends JPanel implements Runnable{
 		tileM = new Tilemanger(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		aSetter=new AssetSetter(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		player.setDefaultValue();
-		player.setDefaultLife();
 		aSetter.setMonster();
 		aSetter.setObject();
 		player.pallini_totali = Tilemanger.getPalliniTotali();

@@ -12,8 +12,8 @@ public class EventHandler {
 		eventRect=new Rectangle();
 		eventRect.x=7;
 		eventRect.y=2;
-		eventRect.width=20;
-		eventRect.height=20;
+		eventRect.width=30;
+		eventRect.height=35;
 		eventRectDefaultX=eventRect.x;
 		eventRectDefaultY=eventRect.y;	
 	}
