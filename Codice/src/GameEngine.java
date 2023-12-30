@@ -134,11 +134,11 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 		if(gameState==endState) {
 			if(player.life==0) {
-				sound.setFile(4); 
-				sound.playWin();
+				se.setFile(4); 
+				se.playWin();
 			}else {
-				sound.setFile(1); 
-				sound.playWin();
+				se.setFile(1); 
+				se.playWin();
 			}
 			
 		}
