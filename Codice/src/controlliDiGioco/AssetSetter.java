@@ -11,9 +11,9 @@ import oggetti.PowerUp;
 
 public class AssetSetter {
 
-	GameEngine gp;
-	public int mapTilenum[][];
-	String s;
+	private GameEngine gp;
+	private int mapTilenum[][];
+	private String s;
 	public AssetSetter(GameEngine gp, String map) {
 		this.gp=gp;
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];

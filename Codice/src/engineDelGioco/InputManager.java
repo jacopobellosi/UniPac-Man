@@ -5,26 +5,18 @@
 */
 package engineDelGioco;
 
-import java.util.*;
-import javax.swing.*;
-import javax.swing.Timer;
 
-import entita.Player;
-
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.time.*;
+
 
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
 public class InputManager implements  KeyListener {
 	public boolean upPressed, downPressed, leftPressed,rightPressed,spacePressed;
 
-	GameEngine gp;
-	Player pl;
-	public InputManager(GameEngine gp) {
+	private GameEngine gp;
+	
+	InputManager(GameEngine gp) {
 		this.gp=gp;
 	}
 

@@ -5,20 +5,13 @@
 */
 package engineDelGioco;
 
-import java.util.*;
-import java.time.*;
-
 //Rappresenta un singolo livello del gioco, definendo la sua struttura, i personaggi, gli oggetti, ecc.
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.JPanel;
-import javax.swing.Timer;
-
 import controlliDiGioco.AssetSetter;
 import controlliDiGioco.CollisionChecker;
 import controlliDiGioco.EventHandler;
 import entita.Entity;
-import entita.Ghost;
 import entita.Player;
 import funzionalita.Sound;
 import funzionalita.UI;
@@ -28,24 +21,27 @@ import thread.gestoreRipristinoImmunita;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class GameEngine extends JPanel implements Runnable{
  
-	final int originalTitleSize = 16; // 16x16 title
-	final int scale=3;
+	/**
+	 * Classe principale del gioco
+	 * @author Bellosi Jacopo, Lara longhi, Poloni Luca
+	 */
+	private static final long serialVersionUID = 1L;
+	private final int originalTitleSize = 16; // 16x16 title
+	private final int scale=3;
 	public final int titleSize = originalTitleSize * scale;
 	
-	public boolean END = false;
+	
 	public final int maxScreenCol = 16;
 	public final int maxScreenRow = 13;
 	public final int screenWidth = titleSize * maxScreenCol;
 	public final int screenHeight = titleSize * maxScreenRow;
-	int FPS=60;
-	InputManager keyH = new InputManager(this);
-	public UI ui = new UI(this);
+	private int FPS=60;
+	private InputManager keyH = new InputManager(this);
+	UI ui = new UI(this);
 	public Tilemanger tileM = new Tilemanger(this,"/pacman/mappa/mappa01.txt");
 	public EventHandler eHandler=new EventHandler(this);
 	public CollisionChecker cCheck = new CollisionChecker(this);
@@ -58,7 +54,7 @@ public class GameEngine extends JPanel implements Runnable{
 	Sound sound=new Sound(); 
 	Sound se=new Sound(); 
 
-	Thread gameThread;
+	private Thread gameThread;
 
 	//game state
 	public int livelloCorrente=1;
@@ -69,7 +65,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int pauseState=2;
 	public final int endState=3;
 	public int nextLevelState=4;
-	public Timer invicibilityTimer;
+	
 	public gestoreRipristinoImmunita GRI;
 	 
 	 
@@ -98,9 +94,7 @@ public class GameEngine extends JPanel implements Runnable{
 		gameThread.start();
 	}
 	
-	public void StopGameThread() {
-		gameThread.interrupt();
-	}
+	
 	
 	@Override
 	public void run() {
@@ -129,7 +123,7 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 	}
 	
-	public void update() {
+	private void update() {
 		if(gameState==playState) {
 			
 			player.update();
@@ -216,14 +210,8 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 	
 	
-	//music method
-	public void playMusic(int i) {
-		sound.setFile(i);
-		sound.play();
-		sound.loop();
-		
-	}
-	public void stopMusic(int i) {
+	
+	public void stopMusic(int i) { // NO_UCD (unused code)
 		sound.setFile(i);
 		sound.stop();		
 	}
@@ -240,28 +228,29 @@ public class GameEngine extends JPanel implements Runnable{
 		 
 	}
 	//INUTILE
-	public void spawnMonster(int tipo) {
-		boolean flag=false;
-		for(int i=0;i<ghost.length && flag==false;i++) {
-			if(ghost[i] ==null) {
-				ghost[i] = new Ghost(this,tipo);
-				ghost[i].x = titleSize *(7+(tipo));
-				ghost[i].y = titleSize *4;
-				System.out.println("Fantasmino "+i+" eseguito il respawn");
-				ghost[i].invincible = true;
-				GRI = new gestoreRipristinoImmunita(this,i);
-				GRI.start();
-				//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
+// TODO Remove unused code found by UCDetector
+// 	public void spawnMonster(int tipo) {
+// 		boolean flag=false;
+// 		for(int i=0;i<ghost.length && flag==false;i++) {
+// 			if(ghost[i] ==null) {
+// 				ghost[i] = new Ghost(this,tipo);
+// 				ghost[i].x = titleSize *(7+(tipo));
+// 				ghost[i].y = titleSize *4;
+// 				System.out.println("Fantasmino "+i+" eseguito il respawn");
+// 				ghost[i].invincible = true;
+// 				GRI = new gestoreRipristinoImmunita(this,i);
+// 				GRI.start();
+// 				//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
+// 
+// 			}
+// 			
+// 		}
+// 		
+// 	}
 
-			}
-			
-		}
-		
-	}
 
 
-
-	public void restart() {
+	void restart() {
 		livelloCorrente=1;
 		tileM = new Tilemanger(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
 		aSetter=new AssetSetter(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");
@@ -271,7 +260,7 @@ public class GameEngine extends JPanel implements Runnable{
 		aSetter.setObject();
 		
 	}
-	public void nextLevel() {
+	void nextLevel() {
 		livelloCorrente++;
 		Tilemanger.resetPalliniTotali();
 		tileM = new Tilemanger(this,"/pacman/mappa/mappa0"+livelloCorrente+".txt");

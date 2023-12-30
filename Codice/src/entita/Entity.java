@@ -2,11 +2,7 @@ package entita;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
-import javax.swing.Timer;
 
 import engineDelGioco.GameEngine;
 import thread.gestoreUccisoni;
@@ -14,24 +10,24 @@ import thread.gestoreUccisoni;
 public class Entity {
 		public int x,y;
 	   public int speed;
-	   public Image up1,up2, down1,down2,left,right, imageGhost,logo, imageFantasma_vunerabile;
+	   public Image up1,up2, down1,down2,left,right, imageGhost,logo, imageFantasma_vunerabile; // NO_UCD (use default)
 	   public String direction;
-	   public boolean collision=false;
+	   public boolean collision=false; // NO_UCD (unused code)
 	   public Rectangle solidArea = new Rectangle(0,0,48,48);
 	   public boolean collisionON = false;
 	    int maxLife;
 		public int life;
 	   public boolean invincible = false;
-	   public int invincibleCounter=0;
-	   public int actionlockCounter=0;
-	   public int type;
+	   int invincibleCounter=0;
+	   int actionlockCounter=0;
+	   int type;
 	   public boolean attacking =false;
-	   public Rectangle attackArea = new Rectangle(0,0,0,0);
+	   Rectangle attackArea = new Rectangle(0,0,0,0);
 	   String name;
-	   public gestoreUccisoni GU;
+	   private gestoreUccisoni GU;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;
 	   	GameEngine gp;
-	   public Entity(GameEngine gp) {
+	   Entity(GameEngine gp) {
 		   this.gp = gp;
 	   }
 
@@ -90,7 +86,7 @@ public class Entity {
 		// TODO Auto-generated method stub
 		
 	   }
-	public void restartVita() {
+	void restartVita() {
 		
 	}
 	public void draw(Graphics2D g2) {

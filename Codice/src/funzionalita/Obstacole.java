@@ -5,9 +5,9 @@
 */
 package funzionalita;
 
-import java.util.*;
+
 import java.awt.image.BufferedImage;
-import java.time.*;
+
 
 //Rappresenta un ostacolo o un elemento bloccante in un livello
 public class Obstacole  {

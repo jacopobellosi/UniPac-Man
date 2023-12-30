@@ -6,10 +6,10 @@ import entita.Entity;
 
 public class EventHandler {
 
-	GameEngine gp;
-	Rectangle eventRect;
+	private GameEngine gp;
+	private Rectangle eventRect;
 	 
-	int eventRectDefaultX,eventRectDefaultY;
+	private int eventRectDefaultX,eventRectDefaultY;
 	
 	public EventHandler(GameEngine gp) {
 		this.gp=gp;
@@ -27,11 +27,11 @@ public class EventHandler {
 		
 
 		if(hit(-1,6,e)==true) {
-			System.out.println("Tunnel sinistra preso");
+			//System.out.println("Tunnel sinistra preso");
 			tunnelsx(e);
 		}
 		if(hit(15.5,6,e)==true) {
-			System.out.println("Tunnel destra preso");
+			//System.out.println("Tunnel destra preso");
 			tunneldx(e);
 		}
 	}
@@ -59,12 +59,12 @@ public class EventHandler {
 
 	
 
-	public void tunnelsx(Entity e) {
+	private void tunnelsx(Entity e) {
 	    // Aggiorna la posizione del giocatore e del rettangolo solido
 	    e.x = gp.titleSize * 15;
 	    e.y = gp.titleSize * 6;
 	}
-	public void tunneldx(Entity e) {
+	private void tunneldx(Entity e) {
 		e.x=gp.titleSize*0;
 		e.y=gp.titleSize*6;
 

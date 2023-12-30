@@ -3,21 +3,16 @@
 *
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
+/**
+	 * Classe iniziale del gioco
+	 * @author Bellosi Jacopo, Lara longhi, Poloni Luca
+	 */
 
-import java.util.*;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import engineDelGioco.GameEngine;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.time.*;
+
 
 //Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
 public class UniPacman  {

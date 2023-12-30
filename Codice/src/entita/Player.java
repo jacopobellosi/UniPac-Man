@@ -4,35 +4,28 @@ package entita;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.TimerTask;
 
-import javax.imageio.ImageIO;
+
+
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 import engineDelGioco.GameEngine;
 import engineDelGioco.InputManager;
 import engineDelGioco.Tilemanger;
-import entita.Entity;
-import entita.Ghost;
+
 import thread.gestoreUccisoni;
 
 
 
 public class Player  extends Entity{
 
-    InputManager keyH;
+    private InputManager keyH;
     int hashKey = 0;
     public int punteggio =0;
     public int pallini_totali;
     private Timer powerUpTimer;
-    private Timer respawnTimer;
     private gestoreUccisoni GU;
-    private ArrayList<Integer> tipiFantasmiEliminati = new ArrayList<Integer>();
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
     	this.gp=gp;
@@ -51,7 +44,6 @@ public class Player  extends Entity{
     	getPlayerImage();
     	attackArea.width = 36;
     	attackArea.height =36;
-    	Ghost.setTarget(this);
     	
     	powerUpTimer = new Timer(5000, new ActionListener() {
             @Override
@@ -83,7 +75,7 @@ public class Player  extends Entity{
     	life = maxLife;
     }
    
-    public void getPlayerImage()  {
+    private void getPlayerImage()  {
     	up1 =   new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
 		up2 =   new ImageIcon(getClass().getResource("/pacman/su_sx.gif")).getImage();
 		down1 = new ImageIcon(getClass().getResource("/pacman/giu_dx.gif")).getImage();
@@ -217,7 +209,7 @@ public class Player  extends Entity{
 	}
 
 
-	public void mangiaPalline(int i) {
+	private void mangiaPalline(int i) {
     	if(i != 999) {
     		String objectName = gp.obj[i].name;
     		switch(objectName){
@@ -269,7 +261,7 @@ public class Player  extends Entity{
 		
     }
 
-    public void reset() {
+    private void reset() {
     	setDefaultValue();
     	setDefaultLife();
     	hashKey=0;

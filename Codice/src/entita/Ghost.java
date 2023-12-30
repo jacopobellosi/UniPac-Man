@@ -17,9 +17,9 @@ import java.io.IOException;
 
 //fantasmini
 public class Ghost extends Entity {
-		GameEngine gp;
-		String ultimoMovimentoOpposto = null;
-		static  Player targetPlayer;
+		private GameEngine gp;
+		private String ultimoMovimentoOpposto = null;
+		
 		public Ghost(GameEngine gp, int i) {
 			super(gp);
 			//
@@ -38,10 +38,8 @@ public class Ghost extends Entity {
 			getImage(i);
 			fantasmaVulnerabile();
 		}
-		public static void setTarget(Player pacman) {
-			targetPlayer = pacman;
-		}
-		public void getImage(int immagine) {
+
+		private void getImage(int immagine) {
 			if(immagine==1) {
 				try {
 					imageGhost = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/ROSSO.gif"));
@@ -72,7 +70,7 @@ public class Ghost extends Entity {
 			}
 			
 		}
-		public void fantasmaVulnerabile() {
+		private void fantasmaVulnerabile() {
 			try {
 				imageFantasma_vunerabile = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/fantasma_vulnerabile.gif"));
 			}catch(IOException e) {
@@ -82,7 +80,7 @@ public class Ghost extends Entity {
 		public int getType() {
 			return type;
 		}
-		public void randomMovement() {
+		private void randomMovement() {
 			actionlockCounter++;
 			
 			if (actionlockCounter == 50) {
@@ -375,7 +373,7 @@ public class Ghost extends Entity {
 		private boolean isInCage() {
 				boolean isInCage;
 				//System.out.println("Ghost "+this.type+" in posizione y="+y/gp.titleSize+" x="+x/gp.titleSize);
-				 if ((y/gp.titleSize ==  3 ||y/gp.titleSize ==  4)  && (x/gp.titleSize >5 && x/gp.titleSize <=13)  ) {
+				 if ((y/gp.titleSize ==  3 ||y/gp.titleSize ==  4)  && (x/gp.titleSize >7 && x/gp.titleSize <=13)  ) {
 					 	//System.out.println("Ghost "+this.type+" ora usciamo");
 			            
 			            isInCage= true;

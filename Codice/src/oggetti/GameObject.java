@@ -1,11 +1,10 @@
 package oggetti;
 
 
-import java.util.*;
 
 import engineDelGioco.GameEngine;
 
-import java.time.*;
+
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,10 +12,10 @@ import java.awt.image.BufferedImage;
 public class GameObject {
    
 	public int x,y;
-    public BufferedImage imagecfu,imageVita, powerUp;
+    public BufferedImage imagecfu,imageVita, powerUp; // NO_UCD (use default)
 	public String name;
 	public boolean collision=false;
-	public int mapTilenum[][];
+	
 	
    	public Rectangle solidArea = new Rectangle(0,0,25,35);
    	public int solidAreaDefaultx, solidAreaDefaulty;

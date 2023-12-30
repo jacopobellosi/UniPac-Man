@@ -1,6 +1,5 @@
 package engineDelGioco;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,12 +10,12 @@ import javax.imageio.ImageIO;
 import funzionalita.Obstacole;
 
 public class Tilemanger {
-	GameEngine gp;
+	private GameEngine gp;
 	public Obstacole[] tile;
-	public BufferedImage imagecfu , powerUp;
+	
 	public int mapTilenum[][];
-	static int conteggio;
-	public  Tilemanger(GameEngine gp,String map) {
+	private static int conteggio;
+	Tilemanger(GameEngine gp,String map) {
 		this.gp = gp;
 		tile= new Obstacole[25];
 		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
@@ -25,7 +24,7 @@ public class Tilemanger {
 		loadMap(map);
 	}
 	
-	public void getTileImage() {
+	private void getTileImage() {
 		
 		try {
 			tile[0] = new Obstacole();
@@ -90,7 +89,7 @@ public class Tilemanger {
 			e.printStackTrace();
 		}
 	}
-	public void loadMap(String S) {
+	private void loadMap(String S) {
 		try {
 			InputStream is = getClass().getResourceAsStream(S);
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -127,14 +126,14 @@ public class Tilemanger {
 		}
 		
 	}
-	public static void resetPalliniTotali() {
+	static void resetPalliniTotali() {
 		conteggio=0;
 	}
 	public static int getPalliniTotali() {
 		
 		return conteggio;
 	}
-	public void draw(Graphics g2) {
+	void draw(Graphics g2) {
 
 		int col = 0;
 		int row = 0;

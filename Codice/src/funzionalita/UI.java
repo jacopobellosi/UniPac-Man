@@ -1,8 +1,7 @@
 package funzionalita;
 
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
 import java.awt.image.BufferedImage;
 
 import engineDelGioco.GameEngine;
@@ -13,16 +12,16 @@ import oggetti.vitaPacMan;
 import java.awt.Color;
 import java.awt.Font;
 public class UI {
-	GameEngine gp;
-	Font f_30;
-	Font f_50;
-	Font f_60;
-	Font f_40;
-	Font f_35;
-	InputManager keyH;
-	BufferedImage pacLife;
+	private GameEngine gp;
+	private Font f_30;
+	private Font f_50;
+	private Font f_60;
+	private Font f_40;
+	private Font f_35;
+	InputManager keyH; // NO_UCD (unused code)
+	private BufferedImage pacLife;
 	//public boolean gameFinished=false;
-	Graphics2D g2;
+	private Graphics2D g2;
 	public int commandNum=0;
 	public int coommandNum;
 	
@@ -97,7 +96,7 @@ public class UI {
 		}
 		
 	}
-	public void drawPauseScreen() {
+	private void drawPauseScreen() {
 		g2.setFont(f_50);
 		String text="paused";
 		g2.setColor(Color.white);
@@ -105,7 +104,7 @@ public class UI {
 		int y=gp.screenHeight/2;
 		g2.drawString(text, x, y);
 	}
-	public void drawTitleScreen() {
+	private void drawTitleScreen() {
 		
 		
 		g2.setColor(new Color(20,20,60));
@@ -137,7 +136,7 @@ public class UI {
 		}
 		
 	}
-	public void drawFirstLevelScreen() {
+	private void drawFirstLevelScreen() {
 		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		//title
@@ -170,7 +169,7 @@ public class UI {
 		y=gp.screenHeight/2+(gp.titleSize*3);
 		g2.drawString(text, x, y);
 	}
-	public void drawSecondLevelScreen() {
+	private void drawSecondLevelScreen() {
 		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		//title
@@ -203,7 +202,7 @@ public class UI {
 		y=gp.screenHeight/2+(gp.titleSize*3);
 		g2.drawString(text, x, y);
 	}
-	public void drawEndScreen() {
+	private void drawEndScreen() {
 		
 		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);

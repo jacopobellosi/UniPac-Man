@@ -37,15 +37,17 @@ public class Sound {
         }
     }
 
-    public void loopWin() {
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-        isPlaying = true;
-    }
+// TODO Remove unused code found by UCDetector
+//     public void loopWin() {
+//         clip.loop(Clip.LOOP_CONTINUOUSLY);
+//         isPlaying = true;
+//     }
 
-    public void stopWin() {
-        clip.stop();
-        isPlaying = false;
-    }
+// TODO Remove unused code found by UCDetector
+//     public void stopWin() {
+//         clip.stop();
+//         isPlaying = false;
+//     }
 
     public boolean isPlaying() {
         return isPlaying;
@@ -54,9 +56,10 @@ public class Sound {
 		clip.start();
 	}
 	
-	public void loop() {
-		clip.loop(Clip.LOOP_CONTINUOUSLY);
-	}
+// TODO Remove unused code found by UCDetector
+// 	public void loop() {
+// 		clip.loop(Clip.LOOP_CONTINUOUSLY);
+// 	}
 	
 	public void stop() {
 		clip.stop();
