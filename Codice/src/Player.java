@@ -160,6 +160,7 @@ public class Player  extends Entity{
     			gp.pw[mangiaPW]=null;
     			punteggio+=12;
     			hashKey++;
+    			gp.eHandler.checkEvent();
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
     			 powerUpTimer.start();
