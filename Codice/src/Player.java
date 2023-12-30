@@ -160,6 +160,7 @@ public class Player  extends Entity{
     			gp.pw[mangiaPW]=null;
     			punteggio+=12;
     			hashKey++;
+    			gp.eHandler.checkEvent();
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
     			 powerUpTimer.start();
@@ -222,7 +223,7 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==4 && gp.livelloCorrente==1 ) {
+    	if(hashKey==pallini_totali && gp.livelloCorrente==1 ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
