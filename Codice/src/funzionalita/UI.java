@@ -12,7 +12,7 @@ import oggetti.vitaPacMan;
 import java.awt.Color;
 import java.awt.Font;
 public class UI {
-	private GameEngine gp;
+	public GameEngine gp;
 	private Font f_30;
 	private Font f_50;
 	private Font f_60;
