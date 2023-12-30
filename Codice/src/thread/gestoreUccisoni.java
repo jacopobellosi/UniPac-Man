@@ -18,7 +18,7 @@ public class gestoreUccisoni extends Thread{
 			for(int i=0;i<gp.ghost.length && flag==false;i++) {
 				if(gp.ghost[i] ==null) {
 					gp.ghost[i] = new Ghost(gp,index);
-					gp.ghost[i].x = gp.titleSize *(7+(i));
+					gp.ghost[i].x = gp.titleSize *(9+(i+1));
 					gp.ghost[i].y = gp.titleSize *4;
 					//System.out.println("Fantasmino "+i+" eseguito il respawn");
 					flag=true;
