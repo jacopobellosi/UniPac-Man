@@ -192,7 +192,7 @@ public class Ghost extends Entity {
 			    
 		}
 			
-
+		
 		private void chasePlayer() {
 			    // Implementa il comportamento per inseguire il giocatore
 			    // Ad esempio, modifica la direzione in base alla posizione del giocatore

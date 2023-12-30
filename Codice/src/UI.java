@@ -97,6 +97,7 @@ public class UI {
 	}
 	public void drawTitleScreen() {
 		
+		
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
 		
@@ -124,6 +125,7 @@ public class UI {
 			g2.setFont(f_35);
 			g2.drawString(">", x-gp.titleSize+5, y);
 		}
+		
 	}
 	public void drawFirstLevelScreen() {
 		g2.setColor(new Color(20,20,60));//new Color(70,120,80) per scegliere una propria gradazione
@@ -226,7 +228,6 @@ public class UI {
 			y=gp.screenHeight/2-(gp.titleSize*2);
 			g2.drawString(text, x, y);
 			
-			
 			text= "TI SEI LAUREATO!";
 			g2.setFont(f_50);
 			x=getXforCentered(text);
@@ -245,9 +246,7 @@ public class UI {
 			x=getXforCentered(text);
 			y=gp.screenHeight/2+(gp.titleSize*3);
 			g2.drawString(text, x, y);
-		
 	}
-	
 	private int getXforCentered(String text) {
 		// TODO Auto-generated method stub
 		int x;
@@ -256,5 +255,4 @@ public class UI {
 		
 		return x;
 	}
-
 }

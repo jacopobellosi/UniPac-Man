@@ -60,6 +60,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public int nextLevelState=4;
 	private Timer invicibilityTimer;
 	public gestoreRipristinoImmunita GRI;
+	public int checkwin=0;
 	 
 	 
 	public GameEngine() {
@@ -185,7 +186,7 @@ public class GameEngine extends JPanel implements Runnable{
 			g2.dispose();
 		}else if(gameState==endState) {
 			ui.draw(g2);
-
+			checkwin=1;
 		}else if(gameState==pauseState) {
 			ui.draw(g2);
 			
@@ -193,6 +194,12 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2);
 		}
 		}
+	
+	public void playWIn() {
+		if(checkwin==1)
+			playSE(1);
+			
+	}
 	
 	//music method
 	public void playMusic(int i) {

@@ -45,7 +45,7 @@ public class Player  extends Entity{
     	attackArea.height =36;
     	Ghost.setTarget(this);
     	
-    	powerUpTimer = new Timer(8000, new ActionListener() {
+    	powerUpTimer = new Timer(5000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Azioni da eseguire quando il timer scade
