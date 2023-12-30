@@ -49,6 +49,7 @@ public class Entity {
 				   if(gp.player.life==0) {
 						gp.gameState=gp.endState;
 						gp.player.hashKey=0;
+						gp.player.punteggio=0;
 					}
 			   }else if(gp.player.attacking==true) {
 				   if(this.invincible==false) {

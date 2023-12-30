@@ -185,6 +185,7 @@ public class Player  extends Entity{
 				if(life==0) {
 					gp.gameState=gp.endState;
 					hashKey=0;
+					punteggio=0;
 					
 				}
 			}else if(attacking==true) {

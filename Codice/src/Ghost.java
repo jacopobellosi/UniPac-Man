@@ -109,6 +109,8 @@ public class Ghost extends Entity {
 			    	 
 					     
 			     }while(direction==ultimoMovimentoOpposto || gp.cCheck.checkCollisionWithWalls(this, direction));
+
+			     
 			     if(direction=="up") {
 			    	 ultimoMovimentoOpposto="down";
 			     }else if(direction=="down"){
@@ -118,6 +120,8 @@ public class Ghost extends Entity {
 			     }else if(direction=="right"){
 			    	 ultimoMovimentoOpposto="left";
 			     }
+			     
+			     
 			     actionlockCounter = 0;
 
 			 }
