@@ -4,4 +4,4 @@
  * - Sound gestisce la riproduzione dei suoni di gioco.
  * - UI gestisce l'interfaccia utente e la visualizzazione di informazioni di gioco.
  */
-package funzionalità;
+package funzionalita;

@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
-import funzionalità.Obstacole;
+import funzionalita.Obstacole;
 
 public class Tilemanger {
 	GameEngine gp;

@@ -20,8 +20,8 @@ import controlliDiGioco.EventHandler;
 import entità.Entity;
 import entità.Ghost;
 import entità.Player;
-import funzionalità.Sound;
-import funzionalità.UI;
+import funzionalita.Sound;
+import funzionalita.UI;
 import oggetti.GameObject;
 import thread.gestoreRipristinoImmunita;
 

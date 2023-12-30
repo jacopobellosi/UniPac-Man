@@ -1,4 +1,4 @@
-package funzionalità;
+package funzionalita;
 
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
