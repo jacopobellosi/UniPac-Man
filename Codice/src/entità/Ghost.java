@@ -3,11 +3,13 @@
 *
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
-
+package entità;
 
 import java.util.*;
 
 import javax.imageio.ImageIO;
+
+import engineDelGioco.GameEngine;
 
 import java.io.IOException;
 

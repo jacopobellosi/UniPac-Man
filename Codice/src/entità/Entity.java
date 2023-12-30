@@ -1,3 +1,4 @@
+package entità;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -7,6 +8,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.Timer;
 
+import engineDelGioco.GameEngine;
+import thread.gestoreUccisoni;
+
 public class Entity {
 		public int x,y;
 	   public int speed;
@@ -15,15 +19,16 @@ public class Entity {
 	   public boolean collision=false;
 	   public Rectangle solidArea = new Rectangle(0,0,48,48);
 	   public boolean collisionON = false;
-	    int maxLife,life;
+	    int maxLife;
+		public int life;
 	   public boolean invincible = false;
 	   public int invincibleCounter=0;
 	   public int actionlockCounter=0;
 	   public int type;
-	   boolean attacking =false;
+	   public boolean attacking =false;
 	   public Rectangle attackArea = new Rectangle(0,0,0,0);
 	   String name;
-	    private gestoreUccisoni GU;
+	   public gestoreUccisoni GU;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;
 	   	GameEngine gp;
 	   public Entity(GameEngine gp) {
@@ -81,7 +86,7 @@ public class Entity {
 	    	}
 		   
 	   }
-	   void setAction() {
+	   public void setAction() {
 		// TODO Auto-generated method stub
 		
 	   }

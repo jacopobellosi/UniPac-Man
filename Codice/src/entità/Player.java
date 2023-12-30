@@ -1,4 +1,5 @@
 // Aggiornamento della classe Player
+package entità;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,14 +14,19 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
+import engineDelGioco.GameEngine;
+import engineDelGioco.InputManager;
+import engineDelGioco.Tilemanger;
+import thread.gestoreUccisoni;
+
 
 
 public class Player  extends Entity{
 
     InputManager keyH;
     int hashKey = 0;
-    int punteggio =0;
-    int pallini_totali;
+    public int punteggio =0;
+    public int pallini_totali;
     private Timer powerUpTimer;
     private Timer respawnTimer;
     private gestoreUccisoni GU;

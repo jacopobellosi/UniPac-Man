@@ -1,7 +1,13 @@
+package controlliDiGioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import engineDelGioco.GameEngine;
+import entità.Ghost;
+import oggetti.ObjCFU;
+import oggetti.PowerUp;
 
 public class AssetSetter {
 

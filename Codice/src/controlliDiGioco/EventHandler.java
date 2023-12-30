@@ -1,4 +1,8 @@
+package controlliDiGioco;
 import java.awt.Rectangle;
+
+import engineDelGioco.GameEngine;
+import entità.Entity;
 
 public class EventHandler {
 

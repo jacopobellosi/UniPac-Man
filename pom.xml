@@ -16,4 +16,11 @@
     </plugins>
   </build>
  
+  <dependencies>
+  	<dependency>
+  		<groupId>UniPacManGame</groupId>
+  		<artifactId>UniPacManGame</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

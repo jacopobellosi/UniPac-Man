@@ -1,3 +1,4 @@
+package engineDelGioco;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -7,9 +8,11 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
+import funzionalità.Obstacole;
+
 public class Tilemanger {
 	GameEngine gp;
-	Obstacole[] tile;
+	public Obstacole[] tile;
 	public BufferedImage imagecfu , powerUp;
 	public int mapTilenum[][];
 	static int conteggio;

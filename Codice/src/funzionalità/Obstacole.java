@@ -3,11 +3,17 @@
 *
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
+package funzionalità;
 
 import java.util.*;
+import java.awt.image.BufferedImage;
 import java.time.*;
 
-// Gestisce il punteggio del giocatore.
-public class ScoreManager {
+//Rappresenta un ostacolo o un elemento bloccante in un livello
+public class Obstacole  {
+
+	public BufferedImage image;
+	public boolean collision = false;
+	
 
 }

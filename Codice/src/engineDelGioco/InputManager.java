@@ -3,10 +3,13 @@
 *
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
+package engineDelGioco;
 
 import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
+
+import entità.Player;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

@@ -1,3 +1,5 @@
+package thread;
+import engineDelGioco.GameEngine;
 
 public class gestoreRipristinoImmunita extends Thread{
 	GameEngine gp;

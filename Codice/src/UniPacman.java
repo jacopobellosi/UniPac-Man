@@ -8,6 +8,9 @@ import java.util.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import engineDelGioco.GameEngine;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

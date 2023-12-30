@@ -1,6 +1,9 @@
+package oggetti;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+
+import engineDelGioco.GameEngine;
 
 public class vitaPacMan extends GameObject {
 	GameEngine gp;

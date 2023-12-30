@@ -1,6 +1,10 @@
+package oggetti;
 
 
 import java.util.*;
+
+import engineDelGioco.GameEngine;
+
 import java.time.*;
 
 import java.awt.*;

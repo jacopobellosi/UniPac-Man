@@ -1,8 +1,15 @@
+package funzionalità;
 
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+
+import engineDelGioco.GameEngine;
+import engineDelGioco.InputManager;
+import oggetti.GameObject;
+import oggetti.vitaPacMan;
+
 import java.awt.Color;
 import java.awt.Font;
 public class UI {

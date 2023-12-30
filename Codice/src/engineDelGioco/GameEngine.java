@@ -3,7 +3,7 @@
 *
 * Drop us a line or two at feedback@archetypesoftware.com: we would love to hear from you!
 */
-
+package engineDelGioco;
 
 import java.util.*;
 import java.time.*;
@@ -13,6 +13,17 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import controlliDiGioco.AssetSetter;
+import controlliDiGioco.CollisionChecker;
+import controlliDiGioco.EventHandler;
+import entità.Entity;
+import entità.Ghost;
+import entità.Player;
+import funzionalità.Sound;
+import funzionalità.UI;
+import oggetti.GameObject;
+import thread.gestoreRipristinoImmunita;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -35,11 +46,11 @@ public class GameEngine extends JPanel implements Runnable{
 	int FPS=60;
 	InputManager keyH = new InputManager(this);
 	public UI ui = new UI(this);
-	Tilemanger tileM = new Tilemanger(this,"/pacman/mappa/mappa01.txt");
+	public Tilemanger tileM = new Tilemanger(this,"/pacman/mappa/mappa01.txt");
 	public EventHandler eHandler=new EventHandler(this);
 	public CollisionChecker cCheck = new CollisionChecker(this);
 	public AssetSetter aSetter=new AssetSetter(this,"/pacman/mappa/mappa01.txt");
-	Player player =new Player(this,keyH);
+	public Player player =new Player(this,keyH);
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public GameObject pw[]=new GameObject[1000];
 	public Entity[] ghost = new Entity[4];
@@ -50,15 +61,15 @@ public class GameEngine extends JPanel implements Runnable{
 	Thread gameThread;
 
 	//game state
-	int livelloCorrente=1;
-	int livelloMax=3;
+	public int livelloCorrente=1;
+	public int livelloMax=3;
 	public int gameState;
 	public final int titleState=0;
 	public final int playState=1;
 	public final int pauseState=2;
 	public final int endState=3;
 	public int nextLevelState=4;
-	private Timer invicibilityTimer;
+	public Timer invicibilityTimer;
 	public gestoreRipristinoImmunita GRI;
 	 
 	 
