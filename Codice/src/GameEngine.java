@@ -228,6 +228,7 @@ public class GameEngine extends JPanel implements Runnable{
 				ghost[i] = new Ghost(this,tipo);
 				ghost[i].x = titleSize *(7+(tipo));
 				ghost[i].y = titleSize *4;
+				System.out.println("Fantasmino "+i+" eseguito il respawn");
 				ghost[i].invincible = true;
 				GRI = new gestoreRipristinoImmunita(this,i);
 				GRI.start();
