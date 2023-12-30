@@ -229,14 +229,14 @@ public class Ghost extends Entity {
 			        	//System.out.println("Ghost "+this.type+" in posizione");
 			            // Mantieni la direzione corrente
 			        	if(Math.abs(diffY)==0) {
-			        		System.out.println("Ghost "+this.type+" in posizione asse Y");
+			        		//System.out.println("Ghost "+this.type+" in posizione asse Y");
 			        		if(diffX>0) {
 				        		direction="right";
 				        	}else if(Math.abs(diffX)==0){
-				        		System.out.println("Ghost "+this.type+" in posizione e vado al bersaglio" + diffX);
+				        		//System.out.println("Ghost "+this.type+" in posizione e vado al bersaglio" + diffX);
 				        		direction="left";
 				        		if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
-				        			System.out.println("Ghost "+this.type+" in posizione ma vado giu");
+				        			//System.out.println("Ghost "+this.type+" in posizione ma vado giu");
 				        			direction="down";
 				        			//randomMovement();
 				        		}
@@ -250,7 +250,7 @@ public class Ghost extends Entity {
 				        	}else if(Math.abs(diffY)<=0){
 				        		direction="down";
 				        		if (gp.cCheck.checkCollisionWithWalls(this, direction)) {
-				        			System.out.println("Ghost "+this.type+" in posizione ma vado giu");
+				        			//System.out.println("Ghost "+this.type+" in posizione ma vado giu");
 				        			randomMovement();
 				        		}
 				        	}else {
