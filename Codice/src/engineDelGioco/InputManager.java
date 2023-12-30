@@ -9,7 +9,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
-import entità.Player;
+import entita.Player;
 
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

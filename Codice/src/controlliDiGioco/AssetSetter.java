@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import engineDelGioco.GameEngine;
-import entità.Ghost;
+import entita.Ghost;
 import oggetti.ObjCFU;
 import oggetti.PowerUp;
 

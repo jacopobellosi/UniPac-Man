@@ -1,5 +1,5 @@
 // Aggiornamento della classe Player
-package entità;
+package entita;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,6 +17,8 @@ import javax.swing.Timer;
 import engineDelGioco.GameEngine;
 import engineDelGioco.InputManager;
 import engineDelGioco.Tilemanger;
+import entità.Entity;
+import entità.Ghost;
 import thread.gestoreUccisoni;
 
 

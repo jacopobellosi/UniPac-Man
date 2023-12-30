@@ -1,6 +1,6 @@
 package thread;
 import engineDelGioco.GameEngine;
-import entità.Ghost;
+import entita.Ghost;
 
 public class gestoreUccisoni extends Thread{
 	GameEngine gp;

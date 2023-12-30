@@ -4,4 +4,4 @@
  * - Ghost rappresenta i fantasmi nel gioco.
  * - Player rappresenta il personaggio giocante controllato dall'utente.
  */
-package entità;
+package entita;

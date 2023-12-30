@@ -2,7 +2,7 @@ package controlliDiGioco;
 import java.awt.Rectangle;
 
 import engineDelGioco.GameEngine;
-import entità.Entity;
+import entita.Entity;
 
 public class CollisionChecker {
 	GameEngine gp;
