@@ -224,14 +224,14 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==pallini_totali && gp.livelloCorrente!=gp.livelloMax ) {
+    	if(hashKey==4 && gp.livelloCorrente!=gp.livelloMax ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			//ui.stopMusic(); in caso metteremo il suono
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
     	}
-    	if(gp.livelloCorrente == gp.livelloMax && hashKey==4 ) {
+    	if(gp.livelloCorrente == gp.livelloMax && hashKey==4) {
     		//hashKey==pallini_totali 
     		gp.gameState=gp.endState;
     		hashKey=0;

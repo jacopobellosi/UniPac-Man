@@ -67,7 +67,7 @@ public class InputManager implements  KeyListener {
 		if(gp.gameState == gp.endState) {
 			if (code == KeyEvent.VK_SPACE) {
 				gp.se.stop();
-				gp.sound.stop();
+				//gp.sound.stop();
 				gp.gameState=gp.titleState;
 				gp.restart();
 			}
