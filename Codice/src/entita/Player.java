@@ -231,7 +231,7 @@ public class Player  extends Entity{
 			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
 
     	}
-    	if(gp.livelloCorrente == gp.livelloMax && hashKey==4 ) {
+    	if(gp.livelloCorrente == gp.livelloMax && hashKey==pallini_totali) {
     		//hashKey==pallini_totali 
     		gp.gameState=gp.endState;
     		hashKey=0;
