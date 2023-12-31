@@ -1,8 +1,11 @@
 package funzionalita;
 
 import java.awt.Graphics2D;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+
+import javax.swing.Timer;
 
 import engineDelGioco.GameEngine;
 import engineDelGioco.InputManager;
@@ -14,7 +17,7 @@ import java.awt.Font;
 public class UI {
 	public GameEngine gp;
 	private Font f_30;
-	private Font f_50;
+	private Font f_70;
 	private Font f_60;
 	private Font f_40;
 	private Font f_35;
@@ -25,15 +28,27 @@ public class UI {
 	public int commandNum=0;
 	public int coommandNum;
 	
+	private Timer blinkTimer;
+	private boolean textVisible = true;
+	
 	public UI(GameEngine gp) {
 		this.gp = gp;
 		f_30 = new Font("Gill Sans MT Condensed", Font.PLAIN,30);
-		f_50 = new Font("Gill Sans MT Condensed", Font.BOLD,70);
+		f_70 = new Font("Gill Sans MT Condensed", Font.BOLD,70);
 		f_40 = new Font("Gill Sans MT Condensed", Font.PLAIN,40);
 		f_35= new Font("Gill Sans MT Condensed", Font.BOLD,35);
-		f_60 = new Font("Gill Sans MT Condensed", Font.BOLD,60);
+		f_60 = new Font("Gill Sans MT Condensed", Font.BOLD,50);
 
-		
+		blinkTimer = new Timer(600, (ActionListener) new ActionListener() {		        
+
+		@Override
+		 public void actionPerformed(ActionEvent e) {
+	            textVisible = !textVisible;
+	            gp.repaint();  // Ridisegna il componente quando cambia la visibilità del testo
+	        }			
+		  });
+
+		blinkTimer.start();
 		GameObject vita = new vitaPacMan(gp);
 		pacLife = vita.imageVita;
 	}
@@ -97,7 +112,7 @@ public class UI {
 		
 	}
 	private void drawPauseScreen() {
-		g2.setFont(f_50);
+		g2.setFont(f_70);
 		String text="paused";
 		g2.setColor(Color.white);
 		int x=getXforCentered(text);
@@ -133,6 +148,14 @@ public class UI {
 		if(commandNum==1) {
 			g2.setFont(f_35);
 			g2.drawString(">", x-gp.titleSize+5, y);
+		}
+		text = "premi ENTER per iniziare";
+		g2.setFont(f_30);
+		 if (textVisible) {
+		     g2.setColor(Color.yellow);
+		     x = getXforCentered(text);
+		     y = gp.screenHeight / 2 + (gp.titleSize * 6);
+		     g2.drawString(text, x, y);
 		}
 		
 	}
@@ -219,7 +242,7 @@ public class UI {
 			g2.drawString(text, x, y);
 			
 			text= "NON TI SEI LAUREATO!";
-			g2.setFont(f_50);
+			g2.setFont(f_60);
 			x=getXforCentered(text);
 			y=gp.screenHeight/2;
 			//shade
@@ -238,7 +261,7 @@ public class UI {
 			g2.drawString(text, x, y);
 			
 			text= "TI SEI LAUREATO!";
-			g2.setFont(f_50);
+			g2.setFont(f_60);
 			x=getXforCentered(text);
 			y=gp.screenHeight/2;
 			//shade
