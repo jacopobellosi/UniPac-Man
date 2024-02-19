@@ -23,7 +23,7 @@ public class Player  extends Entity{
     public int punteggio =0;
     public int pallini_totali;
     private Timer powerUpTimer;
-    private gestoreUccisoni GU;
+    private GestoreUccisoni GU;
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
     	this.gp=gp;
@@ -105,28 +105,7 @@ public class Player  extends Entity{
     	mangiaPW(mangiaPW);
     	int monsterIndex = gp.cCheck.checkEntity(this, gp.ghost);
     	interazioneFanstasma(monsterIndex);
-    	
-    	//check collision
-    	//gp.eHandler.checkEvent();
-    	
-    	/*
-    	if( collisionON == false) {
-    		switch(direction){
-    		case"up":
-    			y -=speed;
-    			break;
-    		case"down":
-    			y +=speed;
-    			break;
-    		case"right":
-    			x +=speed;
-    			break;
-    		case"left":
-    			x -=speed;
-    			break;
-    		}
-    	}
-    	*/
+    
     	if(keyH.upPressed == true && collisionON == false) {
     		y -=speed;
     	}else if(keyH.downPressed == true && collisionON == false) {
@@ -190,12 +169,10 @@ public class Player  extends Entity{
 				if(gp.ghost[monsterIndex].invincible==false) {
 					
 					punteggio+=60;
-					//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
-					GU = new gestoreUccisoni(gp,gp.ghost[monsterIndex].type);
+					GU = new GestoreUccisoni(gp,gp.ghost[monsterIndex].type);
 					GU.start();
 	                gp.killMonster(monsterIndex);
-					//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
-					//respawnTimer.start();
+
 				}
 					
 			}
@@ -225,12 +202,9 @@ public class Player  extends Entity{
     	if(hashKey==pallini_totali && gp.livelloCorrente!=gp.livelloMax ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
-			//ui.stopMusic(); in caso metteremo il suono
-			//hashKey==pallini_totali  hashKey==3 per prove veloci di termine
-
+			
     	}
     	if(gp.livelloCorrente == gp.livelloMax && hashKey==pallini_totali) {
-    		//hashKey==pallini_totali 
     		gp.gameState=gp.endState;
     		hashKey=0;
     		punteggio=0;
@@ -238,8 +212,7 @@ public class Player  extends Entity{
     	}
     }
     public void draw(Graphics2D g2) {
-    	//g2.setColor(Color.white);
-		//g2.fillRect(x, y, gp.titleSize, gp.titleSize);
+
 		Image image = null;
 		switch(direction) {
 			case"up":

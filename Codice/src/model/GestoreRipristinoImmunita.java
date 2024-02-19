@@ -1,10 +1,10 @@
 package model;
 import view.GameEngine;
 
-public class gestoreRipristinoImmunita extends Thread{
+public class GestoreRipristinoImmunita extends Thread{
 	GameEngine gp;
 	int i;
-	public gestoreRipristinoImmunita(GameEngine gp, int index) {
+	public GestoreRipristinoImmunita(GameEngine gp, int index) {
 		this.gp=gp;
 		this.i = index;
 	}

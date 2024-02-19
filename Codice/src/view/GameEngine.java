@@ -15,7 +15,7 @@ import controller.InputManager;
 import model.AssetSetter;
 import model.Entity;
 import model.Player;
-import model.gestoreRipristinoImmunita;
+import model.GestoreRipristinoImmunita;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -65,7 +65,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int endState=3;
 	public int nextLevelState=4;
 	
-	public gestoreRipristinoImmunita GRI;
+	public GestoreRipristinoImmunita GRI;
 	 
 	 
 	public GameEngine() {
@@ -83,6 +83,7 @@ public class GameEngine extends JPanel implements Runnable{
 
 	public void setupGame() {
 		aSetter.setMonster();
+		drawGhost.
 		aSetter.setObject();
 		player.setDefaultLife();
 		gameState=titleState;
@@ -226,27 +227,6 @@ public class GameEngine extends JPanel implements Runnable{
 		System.out.println("HAI MANGIATO UN FANSTASMA");
 		 
 	}
-	//INUTILE
-// TODO Remove unused code found by UCDetector
-// 	public void spawnMonster(int tipo) {
-// 		boolean flag=false;
-// 		for(int i=0;i<ghost.length && flag==false;i++) {
-// 			if(ghost[i] ==null) {
-// 				ghost[i] = new Ghost(this,tipo);
-// 				ghost[i].x = titleSize *(7+(tipo));
-// 				ghost[i].y = titleSize *4;
-// 				System.out.println("Fantasmino "+i+" eseguito il respawn");
-// 				ghost[i].invincible = true;
-// 				GRI = new gestoreRipristinoImmunita(this,i);
-// 				GRI.start();
-// 				//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
-// 
-// 			}
-// 			
-// 		}
-// 		
-// 	}
-
 
 
 	public void restart() {

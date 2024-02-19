@@ -22,7 +22,7 @@ public class Entity {
 	   public boolean attacking =false;
 	   Rectangle attackArea = new Rectangle(0,0,0,0);
 	   String name;
-	   private gestoreUccisoni GU;
+	   private GestoreUccisoni GU;
 	   	public int solidAreaDefaultx, solidAreaDefaulty;
 	   	GameEngine gp;
 	   Entity(GameEngine gp) {
@@ -55,7 +55,7 @@ public class Entity {
 						
 						gp.player.punteggio+=60;
 						//tipiFantasmiEliminati.add(tipoFantasmaEliminato);
-						GU = new gestoreUccisoni(gp,this.type);
+						GU = new GestoreUccisoni(gp,this.type);
 						GU.start();
 						for(int i=0;i<gp.ghost.length;i++) {
 							if(gp.ghost[i]==this) {

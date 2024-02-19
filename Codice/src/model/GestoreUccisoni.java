@@ -1,10 +1,10 @@
 package model;
 import view.GameEngine;
 
-public class gestoreUccisoni extends Thread{
+public class GestoreUccisoni extends Thread{
 	GameEngine gp;
 	int index;
-	public gestoreUccisoni(GameEngine gp,int index) {
+	public GestoreUccisoni(GameEngine gp,int index) {
 		this.gp=gp;
 		this.index=index;
 	}
@@ -22,7 +22,7 @@ public class gestoreUccisoni extends Thread{
 					//System.out.println("Fantasmino "+i+" eseguito il respawn");
 					flag=true;
 					gp.ghost[i].invincible = true;
-					gp.GRI = new gestoreRipristinoImmunita(gp,i);
+					gp.GRI = new GestoreRipristinoImmunita(gp,i);
 					gp.GRI.start();
 					//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
 
