@@ -20,7 +20,7 @@ import model.GestoreRipristinoImmunita;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
+import java.awt.Image;
 
 public class GameEngine extends JPanel implements Runnable{
  
@@ -83,7 +83,7 @@ public class GameEngine extends JPanel implements Runnable{
 
 	public void setupGame() {
 		aSetter.setMonster();
-		drawGhost.
+		//drawGhost.
 		aSetter.setObject();
 		player.setDefaultLife();
 		gameState=titleState;
@@ -173,21 +173,21 @@ public class GameEngine extends JPanel implements Runnable{
 			if(player.attacking==true) {
 				for(int i=0;i<ghost.length;i++) {
 					if(ghost[i]!=null && ghost[i].invincible==false) {
-						ghost[i].drawFantasmaVulnerabile(g2);
+						g2.drawImage(ghost[i].imageFantasma_vunerabile, ghost[i].x, ghost[i].y, titleSize, titleSize, null);
 						ghost[i].setAction();
 					}
 				}
 				for(int i=0;i<ghost.length;i++) {
 					if(ghost[i]!=null && ghost[i].invincible==true) {
 						ghost[i].setAction();
-						ghost[i].draw(g2);
+						g2.drawImage(ghost[i].imageGhost, ghost[i].x, ghost[i].y, titleSize, titleSize, null);
 					}
 				}
 			}else {
 				for(int i=0;i<ghost.length;i++) {
 					if(ghost[i]!=null) {
 						ghost[i].setAction();
-						ghost[i].draw(g2);
+						g2.drawImage(ghost[i].imageGhost, ghost[i].x, ghost[i].y, titleSize, titleSize, null);
 					}
 				}
 			}

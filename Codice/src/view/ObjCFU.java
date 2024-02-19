@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 public class ObjCFU extends GameObject{
 
 	public ObjCFU() {
-		name="CFU";
+		super("CFU");
 		try {
 			imagecfu=ImageIO.read(getClass().getResourceAsStream("/pacman/objects/cfpic.png"));
 		}catch(IOException e) {

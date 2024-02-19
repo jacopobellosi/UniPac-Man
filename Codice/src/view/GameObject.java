@@ -15,8 +15,9 @@ public class GameObject {
 	
    	public Rectangle solidArea = new Rectangle(0,0,25,35);
    	public int solidAreaDefaultx, solidAreaDefaulty;
-   	
-   	
+   	public GameObject(String name){
+   		this.name=name;
+   	}
    	
 	public void drawCFU(Graphics2D g2,GameEngine gp) {
 

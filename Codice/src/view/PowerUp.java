@@ -19,7 +19,7 @@ import java.time.*;
 public class PowerUp extends GameObject {
 
 	public PowerUp() {
-		name="powerUp";
+		super("powerUp");
 		try {
 			powerUp=ImageIO.read(getClass().getResourceAsStream("/pacman/powerup/haivinto.png"));
 		}catch(IOException e) {
