@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import controller.Ghost;
 import view.GameEngine;
 import view.ObjCFU;
 import view.PowerUp;

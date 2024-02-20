@@ -1,4 +1,4 @@
-package model;
+package controller;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -87,20 +87,6 @@ public class Entity {
 	void restartVita() {
 		
 	}
-	public void draw(Graphics2D g2) {
-		   	int x = this.x ;
-			int y= this.y ;
-			
 
-				g2.drawImage(imageGhost, x, y, gp.titleSize, gp.titleSize, null);
-	  }
-	public void drawFantasmaVulnerabile(Graphics2D g2) {
-	   	int x = this.x ;
-		int y= this.y ;
-		
-
-		g2.drawImage(imageFantasma_vunerabile, x, y, gp.titleSize, gp.titleSize, null);
-   }
-	
 
 }

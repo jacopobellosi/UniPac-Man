@@ -1,5 +1,5 @@
 // Aggiornamento della classe Player
-package model;
+package controller;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,9 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
-import controller.InputManager;
+import model.Tilemanger;
 import view.GameEngine;
-import view.Tilemanger;
 
 
 

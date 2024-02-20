@@ -1,4 +1,4 @@
-package model;
+package controller;
 import view.GameEngine;
 
 public class GestoreRipristinoImmunita extends Thread{

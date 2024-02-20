@@ -10,12 +10,13 @@ import java.awt.*;
 import javax.swing.JPanel;
 
 import controller.CollisionChecker;
+import controller.Entity;
 import controller.EventHandler;
+import controller.GestoreRipristinoImmunita;
 import controller.InputManager;
+import controller.Player;
 import model.AssetSetter;
-import model.Entity;
-import model.Player;
-import model.GestoreRipristinoImmunita;
+import model.Tilemanger;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -149,7 +150,31 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 		
 	}
-	
+	private void printMappa(Graphics g2) {
+		int col = 0;
+		int row = 0;
+		int x =0;
+		int y=0;
+
+		
+		while(col < maxScreenCol && row < maxScreenRow) {
+			int tileNum = tileM.mapTilenum[col][row];
+			g2.drawImage(tileM.tile[tileNum].image, x, y, titleSize, titleSize, null);
+			
+			
+			
+			col++;
+			x +=titleSize;
+			
+			if(col==maxScreenCol){
+				col =0;
+				x=0;
+				row++;
+				y +=titleSize;
+				
+			}
+		}
+	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
@@ -157,7 +182,8 @@ public class GameEngine extends JPanel implements Runnable{
 		if(gameState==titleState) {
 			ui.draw(g2);
 		}else if(gameState==playState){
-			tileM.draw(g2);
+			//tileM.draw(g2);
+			printMappa(g2);
 			for(int i=0;i< obj.length;i++)		{
 				if(obj[i]!=null) {
 					obj[i].drawCFU(g2,this);

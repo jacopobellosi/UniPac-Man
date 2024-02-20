@@ -1,7 +1,6 @@
 package controller;
 import java.awt.Rectangle;
 
-import model.Entity;
 import view.GameEngine;
 
 public class EventHandler {
