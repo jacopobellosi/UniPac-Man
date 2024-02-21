@@ -1,4 +1,5 @@
-package controller;
+package model;
+
 import view.GameEngine;
 
 public class GestoreUccisoni extends Thread{

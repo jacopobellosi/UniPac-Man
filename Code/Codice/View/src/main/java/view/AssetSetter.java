@@ -1,17 +1,15 @@
-package model;
+package view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import controller.Ghost;
-import view.GameEngine;
-import view.ObjCFU;
-import view.PowerUp;
+import model.Ghost;
+
 
 public class AssetSetter {
 
-	private GameEngine gp;
+	public GameEngine gp;
 	private int mapTilenum[][];
 	private String s;
 	public AssetSetter(GameEngine gp, String map) {
@@ -84,11 +82,7 @@ public class AssetSetter {
 	            e.printStackTrace();
 	        }
 	        
-	        /*
-	        gp.obj[1]=new ObjCFU();
-	        gp.obj[1].X=23*gp.titleSize;
-	        gp.obj[1].Y=40*gp.titleSize;
-	        */
+	        
 	    }
 }
 	

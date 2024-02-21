@@ -7,28 +7,24 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.Timer;
 
-import controller.InputManager;
-
 import java.awt.Color;
 import java.awt.Font;
 public class UI {
-	public GameEngine gp;
+	final GameEngine gp;
 	private Font f_30;
 	private Font f_70;
 	private Font f_60;
 	private Font f_40;
 	private Font f_35;
-	InputManager keyH; // NO_UCD (unused code)
 	private BufferedImage pacLife;
-	//public boolean gameFinished=false;
 	private Graphics2D g2;
-	public int commandNum=0;
+	public static int commandNum=0;
 	public int coommandNum;
 	
 	private Timer blinkTimer;
 	private boolean textVisible = true;
 	
-	public UI(GameEngine gp) {
+	public UI(final GameEngine gp) {
 		this.gp = gp;
 		f_30 = new Font("Gill Sans MT Condensed", Font.PLAIN,30);
 		f_70 = new Font("Gill Sans MT Condensed", Font.BOLD,70);

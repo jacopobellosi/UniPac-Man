@@ -1,4 +1,4 @@
-package model;
+package view;
 import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,8 +7,7 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
-import view.GameEngine;
-import view.Obstacole;
+
 
 public class Tilemanger {
 	private GameEngine gp;
@@ -134,35 +133,7 @@ public class Tilemanger {
 		
 		return conteggio;
 	}
-	/*
-	void draw(Graphics g2) {
-
-		int col = 0;
-		int row = 0;
-		int x =0;
-		int y=0;
-
-		
-		while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
-			int tileNum = mapTilenum[col][row];
-			g2.drawImage(tile[tileNum].image, x, y, gp.titleSize, gp.titleSize, null);
-			
-			
-			
-			col++;
-			x +=gp.titleSize;
-			
-			if(col==gp.maxScreenCol){
-				col =0;
-				x=0;
-				row++;
-				y +=gp.titleSize;
-				
-			}
-		}
-		
-	}
-	*/
+	
 
 	public int getMap(int row, int col) {
 		// TODO Auto-generated method stub

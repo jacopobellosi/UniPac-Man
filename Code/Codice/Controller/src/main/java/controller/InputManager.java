@@ -8,8 +8,7 @@ package controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import view.GameEngine;
+import view.*;
 
 
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
@@ -33,9 +32,33 @@ public class InputManager implements  KeyListener {
 		// TODO Auto-generated method stub
 		int code = e.getKeyCode();
 
-		//titolo
 		if(gp.gameState == gp.titleState) {
 			if(code == KeyEvent.VK_W) {
+				UI.commandNum--;
+				if(UI.commandNum<0) {
+					UI.commandNum=1;
+				}
+			}
+			if(code == KeyEvent.VK_S) {
+				UI.commandNum++;
+				if(UI.commandNum>1) {
+					UI.commandNum=0;
+				}
+			}
+			if (code == KeyEvent.VK_ENTER) {
+				if(UI.commandNum==0) {
+					//gp.se.stop();
+					gp.gameState = gp.playState;
+				}
+				if(UI.commandNum==1) {
+					System.exit(0);
+				}
+			}
+		}
+		/*titolo
+		if(gp.gameState == gp.titleState) {
+			if(code == KeyEvent.VK_W) {
+				UI.commandNum--;
 				gp.ui.commandNum--;
 				if(gp.ui.commandNum<0) {
 					gp.ui.commandNum=1;
@@ -50,14 +73,13 @@ public class InputManager implements  KeyListener {
 			if (code == KeyEvent.VK_ENTER) {
 				if(gp.ui.coommandNum==0) {
 					gp.se.stop();
-					//gp.stopMusic(5);
 					gp.gameState = gp.playState;
 				}
 				if(gp.ui.commandNum==1) {
 					System.exit(0);
 				}
 			}
-		}
+		}*/
 
 		//fine
 		if(gp.gameState== gp.nextLevelState) {
@@ -68,8 +90,7 @@ public class InputManager implements  KeyListener {
 		}
 		if(gp.gameState == gp.endState) {
 			if (code == KeyEvent.VK_SPACE) {
-				gp.se.stop();
-				//gp.sound.stop();
+				//gp.se.stop();
 				gp.gameState=gp.titleState;
 				gp.restart();
 			}

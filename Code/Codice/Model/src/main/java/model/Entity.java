@@ -1,9 +1,10 @@
-package controller;
+package model;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 
 import view.GameEngine;
+
 
 public class Entity {
 		public int x,y;

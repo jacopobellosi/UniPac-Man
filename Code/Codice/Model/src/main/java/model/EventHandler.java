@@ -1,7 +1,8 @@
-package controller;
+package model;
 import java.awt.Rectangle;
 
 import view.GameEngine;
+
 
 public class EventHandler {
 
