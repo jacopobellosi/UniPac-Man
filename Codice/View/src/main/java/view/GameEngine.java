@@ -9,12 +9,14 @@ package view;
 import java.awt.*;
 import javax.swing.JPanel;
 
+import controller.CollisionChecker;
+import controller.Entity;
+import controller.EventHandler;
+import controller.GestoreRipristinoImmunita;
 import controller.InputManager;
 import controller.Player;
-import model.CollisionChecker;
-import model.Entity;
-import model.EventHandler;
-import model.GestoreRipristinoImmunita;
+import model.AssetSetter;
+import model.Tilemanger;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
