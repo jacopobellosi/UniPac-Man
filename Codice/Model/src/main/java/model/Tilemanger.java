@@ -7,24 +7,25 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
-import view.GameEngine;
-import view.Obstacole;
+
 
 
 
 public class Tilemanger {
-	private GameEngine gp;
 	public Obstacole[] tile;
 	
-	public int mapTilenum[][];
-	private static int conteggio;
-	public Tilemanger(GameEngine gp,String map) {
-		this.gp = gp;
+	
+	public int maxScreenCol;
+	public int maxScreenRow;
+	//private static int conteggio;
+	public Tilemanger(String map, int maxScreenCol, int maxScreenRow) {
 		tile= new Obstacole[25];
-		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
+		this.maxScreenCol = maxScreenCol;
+		this.maxScreenRow = maxScreenRow;
+		//mapTilenum = new int[maxScreenCol][maxScreenRow];
 		getTileImage();
-		conteggio=0;
-		loadMap(map);
+		//conteggio=0;
+		//loadMap(map);
 	}
 	
 	private void getTileImage() {
@@ -92,7 +93,7 @@ public class Tilemanger {
 			e.printStackTrace();
 		}
 	}
-	private void loadMap(String S) {
+	/*private void loadMap(String S) {
 		try {
 			InputStream is = getClass().getResourceAsStream(S);
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -129,19 +130,10 @@ public class Tilemanger {
 		}
 		
 	}
-	public static void resetPalliniTotali() {
-		conteggio=0;
-	}
-	public static int getPalliniTotali() {
-		
-		return conteggio;
-	}
+	*/
+
 	
 
-	public int getMap(int row, int col) {
-		// TODO Auto-generated method stub
-		
-		return mapTilenum[col][row];
-	}
+
 	
 }

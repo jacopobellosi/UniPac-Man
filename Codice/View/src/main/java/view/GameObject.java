@@ -5,6 +5,7 @@ package view;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+
 public class GameObject {
    
 	public int x,y;
@@ -19,23 +20,23 @@ public class GameObject {
    		this.name=name;
    	}
    	
-	public void drawCFU(Graphics2D g2,GameEngine gp) {
+	public void drawCFU(Graphics2D g2,int titleSize) {
 
 		int x = this.x ;
 		int y= this.y ;
 		
 
-		g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
+		g2.drawImage(imagecfu, x, y,titleSize,titleSize, null);
 	}
 
 
 
-	public void drawPW(Graphics2D g2, GameEngine gameEngine) {
+	public void drawPW(Graphics2D g2, int titleSize) {
 		// TODO Auto-generated method stub
 		int x = this.x ;
 		int y= this.y ;
 		
 
-			g2.drawImage(powerUp, x, y, gameEngine.titleSize, gameEngine.titleSize, null);
+			g2.drawImage(powerUp, x, y, titleSize, titleSize, null);
 	}
 }

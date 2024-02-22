@@ -32,33 +32,10 @@ public class InputManager implements  KeyListener {
 		// TODO Auto-generated method stub
 		int code = e.getKeyCode();
 
+		
 		if(gp.gameState == gp.titleState) {
 			if(code == KeyEvent.VK_W) {
-				UI.commandNum--;
-				if(UI.commandNum<0) {
-					UI.commandNum=1;
-				}
-			}
-			if(code == KeyEvent.VK_S) {
-				UI.commandNum++;
-				if(UI.commandNum>1) {
-					UI.commandNum=0;
-				}
-			}
-			if (code == KeyEvent.VK_ENTER) {
-				if(UI.commandNum==0) {
-					//gp.se.stop();
-					gp.gameState = gp.playState;
-				}
-				if(UI.commandNum==1) {
-					System.exit(0);
-				}
-			}
-		}
-		/*titolo
-		if(gp.gameState == gp.titleState) {
-			if(code == KeyEvent.VK_W) {
-				UI.commandNum--;
+				
 				gp.ui.commandNum--;
 				if(gp.ui.commandNum<0) {
 					gp.ui.commandNum=1;
@@ -79,7 +56,7 @@ public class InputManager implements  KeyListener {
 					System.exit(0);
 				}
 			}
-		}*/
+		}
 
 		//fine
 		if(gp.gameState== gp.nextLevelState) {

@@ -3,8 +3,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 
-import view.GameEngine;
-
 
 public class Entity {
 		public int x,y;
@@ -44,8 +42,9 @@ public class Entity {
 			   if(gp.player.invincible==false && gp.player.attacking==false) {
 				   gp.player.life-=1;
 				   gp.player.invincible=true;
+				  
 				   gp.player.setDefaultValue();
-				   gp.aSetter.setMonster();
+				   gp.setMonster();
 				   if(gp.player.life==0) {
 						gp.gameState=gp.endState;
 						gp.player.hashKey=0;
@@ -72,6 +71,7 @@ public class Entity {
 
 		   if(direction=="up" && collisionON == false) {
 	    		y -=speed;
+	    		
 	    	}else if(direction=="down" && collisionON == false) {
 	    		y +=speed;
 	    	}else if(direction=="left" && collisionON == false) {
@@ -79,6 +79,8 @@ public class Entity {
 	    	}else if(direction=="right" && collisionON == false) {
 	    		x +=speed;
 	    	}
+		   System.out.println(type);
+		   
 		   
 	   }
 	   public void setAction() {

@@ -1,8 +1,6 @@
 package controller;
 import java.awt.Rectangle;
 
-import view.GameEngine;
-
 
 
 public class CollisionChecker {
@@ -27,32 +25,32 @@ public class CollisionChecker {
 		switch(entity.direction) {
 		case"up":
 			entityTopRow = (entityTopWorldY - entity.speed)/gp.titleSize;
-			tileNum1 = gp.tileM.mapTilenum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTilenum[entityRightCol][entityTopRow];
+			tileNum1 = gp.mapTilenum[entityLeftCol][entityTopRow];
+			tileNum2 = gp.mapTilenum[entityRightCol][entityTopRow];
 			if(gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true) {
 				entity.collisionON = true;
 			}
 			break;
 		case"down":
 			entityBottomRow = (entityBottomWorldX + entity.speed)/gp.titleSize;
-			tileNum1 = gp.tileM.mapTilenum[entityLeftCol][entityBottomRow];
-			tileNum2 = gp.tileM.mapTilenum[entityRightCol][entityBottomRow];
+			tileNum1 = gp.mapTilenum[entityLeftCol][entityBottomRow];
+			tileNum2 = gp.mapTilenum[entityRightCol][entityBottomRow];
 			if(gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true) {
 				entity.collisionON = true;
 			}
 			break;
 		case"left":
 			entityLeftCol = (entityLeftWorldX - entity.speed)/gp.titleSize;
-			tileNum1 = gp.tileM.mapTilenum[entityLeftCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTilenum[entityLeftCol][entityBottomRow];
+			tileNum1 = gp.mapTilenum[entityLeftCol][entityTopRow];
+			tileNum2 = gp.mapTilenum[entityLeftCol][entityBottomRow];
 			if(gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true) {
 				entity.collisionON = true;
 			}
 			break;
 		case"right":
 			entityRightCol = (entityRightWorldX + entity.speed)/gp.titleSize;
-			tileNum1 = gp.tileM.mapTilenum[entityRightCol][entityTopRow];
-			tileNum2 = gp.tileM.mapTilenum[entityRightCol][entityBottomRow];
+			tileNum1 = gp.mapTilenum[entityRightCol][entityTopRow];
+			tileNum2 = gp.mapTilenum[entityRightCol][entityBottomRow];
 			if(gp.tileM.tile[tileNum1].collision == true || gp.tileM.tile[tileNum2].collision == true) {
 				entity.collisionON = true;
 			}
@@ -276,7 +274,7 @@ public class CollisionChecker {
 	    // Controlla se la nuova posizione colpisce una parete
 	    for (int row = 0; row < gp.maxScreenRow; row++) {
 	        for (int col = 0; col < gp.maxScreenCol; col++) {
-	            if (gp.tileM.getMap(row, col) != 0 && gp.tileM.getMap(row, col) != 20  && gp.tileM.getMap(row, col) != 15  ) {
+	            if (gp.getMap(row, col) != 0 && gp.getMap(row, col) != 20  && gp.getMap(row, col) != 15  ) {
 	                Rectangle wall = new Rectangle(col * gp.titleSize, row * gp.titleSize, gp.titleSize, gp.titleSize);
 	                if (nextPosition.intersects(wall)) {
 	                    return true; // C'è una collisione con la parete

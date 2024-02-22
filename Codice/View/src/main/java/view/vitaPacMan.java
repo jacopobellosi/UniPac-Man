@@ -3,9 +3,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
 public class vitaPacMan extends GameObject {
 	
-	public vitaPacMan(GameEngine gp) {
+	public vitaPacMan() {
 		super("pacLife");
 		try {
 			imageVita=ImageIO.read(getClass().getResourceAsStream("/pacman/heart.png"));

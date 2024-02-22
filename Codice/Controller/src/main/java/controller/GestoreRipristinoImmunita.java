@@ -1,7 +1,5 @@
 package controller;
 
-import view.GameEngine;
-
 public class GestoreRipristinoImmunita extends Thread{
 	GameEngine gp;
 	int i;
@@ -13,6 +11,7 @@ public class GestoreRipristinoImmunita extends Thread{
 		try {
 			Thread.sleep(3000);
 			gp.ghost[i].invincible = false;
+			 gp.dg[i].invincible = true;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

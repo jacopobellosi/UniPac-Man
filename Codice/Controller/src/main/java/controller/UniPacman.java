@@ -7,7 +7,7 @@
 	 * Classe iniziale del gioco
 	 * @author Bellosi Jacopo, Lara longhi, Poloni Luca
 	 */
-package view;
+package controller;
 
 import javax.swing.*;
 

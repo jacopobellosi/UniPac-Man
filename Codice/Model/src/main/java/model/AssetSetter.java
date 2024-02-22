@@ -4,20 +4,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import controller.Ghost;
-import view.GameEngine;
+
 
 
 public class AssetSetter {
 
-	public GameEngine gp;
 	private int mapTilenum[][];
 	private String s;
-	public AssetSetter(GameEngine gp, String map) {
-		this.gp=gp;
-		mapTilenum = new int[gp.maxScreenCol][gp.maxScreenRow];
-		this.s=map;
+	public int mappaSpawnFantasmi [][] = { 
+            { 9, 4, }, 
+            { 10, 4,  }, 
+            { 11, 4,  },
+            { 12, 4,  } 
+        }; 
+	public AssetSetter() {
+	
 	}
+	public int spawnPointGhost(int i,int j) {
+		return mappaSpawnFantasmi[i][j];
+	}
+	/*
 	public void setMonster() {
 		gp.ghost[0] = new Ghost(gp,1);
 		gp.ghost[0].x = gp.titleSize *9;
@@ -39,7 +45,7 @@ public class AssetSetter {
 		
 	}
 	
-	   public void setObject() {
+	 public void setObject() {
 	        try {
 	            InputStream is = getClass().getResourceAsStream(s);
 	            BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -85,5 +91,6 @@ public class AssetSetter {
 	        
 	        
 	    }
+	    */
 }
 	

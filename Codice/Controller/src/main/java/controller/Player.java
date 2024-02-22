@@ -10,8 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
-import view.GameEngine;
-
 
 
 
@@ -37,7 +35,7 @@ public class Player  extends Entity{
 
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
-    	pallini_totali = Tilemanger.getPalliniTotali();
+    	pallini_totali = gp.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
     	attackArea.width = 36;
@@ -157,7 +155,7 @@ public class Player  extends Entity{
 				countLife();
 				restartVita();
 				setDefaultValue();
-				gp.aSetter.setMonster();
+				gp.setMonster();
 				invincible=true;
 				if(life==0) {
 					gp.gameState=gp.endState;
