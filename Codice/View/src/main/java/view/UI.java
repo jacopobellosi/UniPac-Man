@@ -44,7 +44,6 @@ public class UI {
 		f_60 = new Font("Gill Sans MT Condensed", Font.BOLD,50);
 
 		blinkTimer = new Timer(600, (ActionListener) new ActionListener() {		        
-		Image  logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
 		
 		@Override
 		 public void actionPerformed(ActionEvent e) {
@@ -57,6 +56,7 @@ public class UI {
 		GameObject vita = new vitaPacMan();
 		pacLife = vita.imageVita;
 	}
+	
 	public void drawContaPallini(Graphics2D g2,int punteggio,int titleSize,int numVite) {
 		this.g2=g2;
 		drawPlayerLife(titleSize,numVite);
@@ -89,7 +89,9 @@ public class UI {
 		
 		
 	}
-	
+	public Image getImage() {
+		return logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
+	}
 		public void draw(Graphics2D g2,int screenWidth, int screenHeight,int gameState,int punteggio,int titleSize,int numVite,int livelloCorrente) {
 		this.g2=g2;
 		g2.setColor(new Color(20,20,60));
@@ -124,14 +126,14 @@ public class UI {
 		int y=screenHeight/2;
 		g2.drawString(text, x, y);
 	}
-	private void drawTitleScreen(int screenHeight, int screenWidth, int titleSize) {
+	private void drawTitleScreen(int screenWidth,int screenHeight, int titleSize) {
 		
 		
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,screenWidth,screenHeight);
 		
 		//logo
-		g2.drawImage(logo,150,0,450,450,null);
+		g2.drawImage(getImage(),150,0,450,450,null);
 		
 		//menu
 		g2.setFont(f_40);
