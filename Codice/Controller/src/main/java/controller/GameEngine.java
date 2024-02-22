@@ -55,7 +55,7 @@ public class GameEngine extends JPanel implements Runnable{
 	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	public GameObject pw[]=new GameObject[1000];
 	public Entity[] ghost = new Entity[4];
-	public DatiGhost[] dg = new DatiGhost[5];
+	public DatiGhost[] dg = new DatiGhost[4];
 	public GamePanel gp = new GamePanel();
 	public UI ui = new UI(gp);
 	//public Level livello = new Level();
@@ -85,8 +85,8 @@ public class GameEngine extends JPanel implements Runnable{
 		this.setFocusable(true);
 		playSE(5);
 		conteggio=0;
-		loadMap("/pacman/mappa/mappa0"+livelloCorrente+".txt");
-		setupGame();
+		loadMap("/pacman/mappa/mappa01.txt");
+		//setupGame();
 	}
 	
 
@@ -139,10 +139,14 @@ public class GameEngine extends JPanel implements Runnable{
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
 					ghost[i].update();
+					int type= ghost[i].type;
+					System.out.println("ghost i="+i+" type="+ghost[i].type);
 					for(int j=0;j<dg.length;j++) {
-						if(ghost[i].type == dg[j].i) {
-							dg[i].x = ghost[i].x;
-							dg[i].y = ghost[i].y;
+						if(dg[j]!=null) {
+							if(type == dg[j].i) {
+								dg[j].x = ghost[i].x;
+								dg[j].y = ghost[i].y;
+							}
 						}
 					}
 					
@@ -351,8 +355,17 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	
 	public void killMonster(int i) {
-		ghost[i]=null;
-		dg[i]=null;
+		int type= ghost[i].type;
+		for(int j=0;j<dg.length;j++) {
+			if(dg[j]!=null) {
+				//System.out.println("ghost i="+i+" type="+ghost[i].type+" mentre nei dati i="+dg[j].i);
+				if(dg[j].i==type) {
+					ghost[i]=null;
+					dg[j]=null;
+				}
+			}
+		}
+		
 		System.out.println("HAI MANGIATO UN FANSTASMA");
 		 
 	}

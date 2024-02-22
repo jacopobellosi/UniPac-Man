@@ -35,7 +35,7 @@ public class Player  extends Entity{
 
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
-    	pallini_totali = gp.getPalliniTotali();
+    	pallini_totali = GameEngine.getPalliniTotali();
     	setDefaultValue();
     	getPlayerImage();
     	attackArea.width = 36;

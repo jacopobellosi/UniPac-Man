@@ -14,19 +14,27 @@ public class GestoreUccisoni extends Thread{
 			Thread.sleep(4000);
 			//System.out.println("Fantasmino "+i+" dato ordine di respawn");
 			boolean flag=false;
+			boolean flag2=false;
 			//gp.spawnMonster(i);
 			for(int i=0;i<gp.ghost.length && flag==false;i++) {
 				if(gp.ghost[i] ==null) {
 					gp.ghost[i] = new Ghost(gp,index);
 					gp.ghost[i].x = gp.titleSize *(9+(i+1));
 					gp.ghost[i].y = gp.titleSize *4;
-					gp.dg[i] = new DatiGhost(index);
-					gp.dg[i].x = gp.ghost[i].x;
-					gp.dg[i].y = gp.ghost[i].y;
+					for(int j=0;j<gp.ghost.length && flag2==false;j++) {
+						if(gp.dg[j] ==null) {
+							gp.dg[j] = new DatiGhost(index);
+							gp.dg[j].x = gp.ghost[i].x;
+							gp.dg[j].y = gp.ghost[i].y;
+							gp.dg[j].invincible = true;
+						}
+						flag2=true;
+					}
+					
 					//System.out.println("Fantasmino "+i+" eseguito il respawn");
 					flag=true;
 					gp.ghost[i].invincible = true;
-					 gp.dg[i].invincible = true;
+					 
 					gp.GRI = new GestoreRipristinoImmunita(gp,i);
 					gp.GRI.start();
 					//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
