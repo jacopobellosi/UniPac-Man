@@ -11,7 +11,7 @@ public class GestoreRipristinoImmunita extends Thread{
 		try {
 			Thread.sleep(3000);
 			gp.ghost[i].invincible = false;
-			 gp.dg[i].invincible = true;
+			 gp.dg[i].invincible = false;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

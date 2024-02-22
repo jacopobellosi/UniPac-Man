@@ -131,15 +131,12 @@ public class Ghost extends Entity {
 			    	 ultimoMovimentoOpposto="left";
 			     }
 			     
-			     
 			     actionlockCounter = 0;
 
 			 }
 		}
 		public void setAction() {
 	    	randomMovement();
-			gp.dg[type].x=x;
-			gp.dg[type].y=y;
 			
 		}
 			

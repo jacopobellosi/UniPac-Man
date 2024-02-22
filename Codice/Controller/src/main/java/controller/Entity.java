@@ -79,9 +79,7 @@ public class Entity {
 	    	}else if(direction=="right" && collisionON == false) {
 	    		x +=speed;
 	    	}
-		   System.out.println(type);
-		   
-		   
+		  
 	   }
 	   public void setAction() {
 		// TODO Auto-generated method stub

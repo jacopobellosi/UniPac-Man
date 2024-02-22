@@ -1,5 +1,7 @@
 package controller;
 
+import view.DatiGhost;
+
 public class GestoreUccisoni extends Thread{
 	GameEngine gp;
 	int index;
@@ -18,6 +20,9 @@ public class GestoreUccisoni extends Thread{
 					gp.ghost[i] = new Ghost(gp,index);
 					gp.ghost[i].x = gp.titleSize *(9+(i+1));
 					gp.ghost[i].y = gp.titleSize *4;
+					gp.dg[i] = new DatiGhost(index);
+					gp.dg[i].x = gp.ghost[i].x;
+					gp.dg[i].y = gp.ghost[i].y;
 					//System.out.println("Fantasmino "+i+" eseguito il respawn");
 					flag=true;
 					gp.ghost[i].invincible = true;

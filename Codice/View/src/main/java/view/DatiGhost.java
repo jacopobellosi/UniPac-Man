@@ -7,11 +7,10 @@ import javax.imageio.ImageIO;
 
 public class DatiGhost {
 		public int x=0;
-		public int y=0;
+		public int y=0,i=0;
 		public Image imageGhost;
 		public Boolean invincible = false;
 		Image imageFantasma_vunerabile;
-		int i;
 	public DatiGhost(int i) {
 		getImage(i);
 		this.i=i;
@@ -54,6 +53,7 @@ public class DatiGhost {
 			}
 		}
 	}
+	/*
 	public DatiGhost(int i,int x, int y, Image imageGhost, Boolean invincible) {
 		// TODO Auto-generated constructor stub
 		this.x = x;
@@ -67,5 +67,5 @@ public class DatiGhost {
 		this.invincible=invincible;
 		getImage(i);
 	}
-
+	*/
 }

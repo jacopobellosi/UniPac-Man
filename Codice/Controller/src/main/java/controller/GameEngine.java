@@ -86,6 +86,7 @@ public class GameEngine extends JPanel implements Runnable{
 		playSE(5);
 		conteggio=0;
 		loadMap("/pacman/mappa/mappa0"+livelloCorrente+".txt");
+		setupGame();
 	}
 	
 
@@ -138,6 +139,14 @@ public class GameEngine extends JPanel implements Runnable{
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
 					ghost[i].update();
+					for(int j=0;j<dg.length;j++) {
+						if(ghost[i].type == dg[j].i) {
+							dg[i].x = ghost[i].x;
+							dg[i].y = ghost[i].y;
+						}
+					}
+					
+					
 				}
 			}
 			
@@ -169,7 +178,10 @@ public class GameEngine extends JPanel implements Runnable{
 			gp.paintComponent(g2,obj,titleSize,pw,player.attacking,tileM,mapTilenum,dg);
 			player.draw(g2);
 			for(int i=0;i<ghost.length;i++) {
-				ghost[i].setAction();
+				if(ghost[i]!=null) {
+					ghost[i].setAction();
+				}
+				
 			}
 			//tileM.draw(g2);
 			/*
@@ -340,6 +352,7 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	public void killMonster(int i) {
 		ghost[i]=null;
+		dg[i]=null;
 		System.out.println("HAI MANGIATO UN FANSTASMA");
 		 
 	}
