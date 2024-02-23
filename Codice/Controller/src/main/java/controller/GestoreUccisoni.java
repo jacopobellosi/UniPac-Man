@@ -5,17 +5,17 @@ import view.DatiGhost;
 public class GestoreUccisoni extends Thread{
 	GameEngine gp;
 	int index;
+	
 	public GestoreUccisoni(GameEngine gp,int index) {
 		this.gp=gp;
 		this.index=index;
 	}
+	
 	public void run() {
 		try {
 			Thread.sleep(4000);
-			//System.out.println("Fantasmino "+i+" dato ordine di respawn");
 			boolean flag=false;
 			boolean flag2=false;
-			//gp.spawnMonster(i);
 			for(int i=0;i<gp.ghost.length && flag==false;i++) {
 				if(gp.ghost[i] ==null) {
 					gp.ghost[i] = new Ghost(gp,index);
@@ -31,13 +31,11 @@ public class GestoreUccisoni extends Thread{
 						flag2=true;
 					}
 					
-					//System.out.println("Fantasmino "+i+" eseguito il respawn");
 					flag=true;
 					gp.ghost[i].invincible = true;
 					 
 					gp.GRI = new GestoreRipristinoImmunita(gp,i);
 					gp.GRI.start();
-					//int ultimoFantasmaEliminato = numeroFantasmiEliminati.remove(0);
 
 				}
 				

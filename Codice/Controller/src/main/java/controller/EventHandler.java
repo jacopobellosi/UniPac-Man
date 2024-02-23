@@ -22,14 +22,10 @@ public class EventHandler {
 	
 	  
 	public void checkEvent(Entity e) {
-		
-
 		if(hit(-1,6,e)==true) {
-			//System.out.println("Tunnel sinistra preso");
 			tunnelsx(e);
 		}
 		if(hit(15.5,6,e)==true) {
-			//System.out.println("Tunnel destra preso");
 			tunneldx(e);
 		}
 	}
@@ -58,7 +54,6 @@ public class EventHandler {
 	
 
 	private void tunnelsx(Entity e) {
-	    // Aggiorna la posizione del giocatore e del rettangolo solido
 	    e.x = gp.titleSize * 15;
 	    e.y = gp.titleSize * 6;
 	}

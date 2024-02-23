@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 public class GameObject {
    
 	public int x,y;
-    public BufferedImage imagecfu,imageVita, powerUp; // NO_UCD (use default)
+    public BufferedImage imagecfu,imageVita, powerUp; 
 	public String name;
 	public boolean collision=false;
 	
@@ -25,7 +25,6 @@ public class GameObject {
 		int x = this.x ;
 		int y= this.y ;
 		
-
 		g2.drawImage(imagecfu, x, y,titleSize,titleSize, null);
 	}
 
@@ -35,8 +34,6 @@ public class GameObject {
 		// TODO Auto-generated method stub
 		int x = this.x ;
 		int y= this.y ;
-		
-
-			g2.drawImage(powerUp, x, y, titleSize, titleSize, null);
+		g2.drawImage(powerUp, x, y, titleSize, titleSize, null);
 	}
 }

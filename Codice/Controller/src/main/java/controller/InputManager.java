@@ -8,7 +8,6 @@ package controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import view.*;
 
 
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.

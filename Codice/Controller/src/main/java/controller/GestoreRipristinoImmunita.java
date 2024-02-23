@@ -7,6 +7,7 @@ public class GestoreRipristinoImmunita extends Thread{
 		this.gp=gp;
 		this.i = index;
 	}
+	
 	public void run() {
 		try {
 			Thread.sleep(3000);

@@ -1,17 +1,12 @@
 package view;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
-import javax.swing.Timer;
-
-
-import java.awt.Color;
-import java.awt.Font;
 public class UI {
 	GamePanel gp;
 	private Font f_30;
@@ -44,7 +39,6 @@ public class UI {
 		f_60 = new Font("Gill Sans MT Condensed", Font.BOLD,50);
 
 		blinkTimer = new Timer(600, (ActionListener) new ActionListener() {		        
-		
 		@Override
 		 public void actionPerformed(ActionEvent e) {
 	            textVisible = !textVisible;
@@ -63,8 +57,8 @@ public class UI {
 		g2.setFont(f_30);
 		g2.setColor(Color.white);
 		g2.drawString("CFU = "+punteggio, 200, 40);
-	
 	}
+	
 	private void drawPlayerLife(int titleSize, int numVite) {
 		// TODO Auto-generated method stub
 		int x = titleSize/2;
@@ -92,7 +86,8 @@ public class UI {
 	public Image getImage() {
 		return logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
 	}
-		public void draw(Graphics2D g2,int screenWidth, int screenHeight,int gameState,int punteggio,int titleSize,int numVite,int livelloCorrente) {
+		
+	public void draw(Graphics2D g2,int screenWidth, int screenHeight,int gameState,int punteggio,int titleSize,int numVite,int livelloCorrente) {
 		this.g2=g2;
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,screenWidth,screenHeight);
@@ -126,8 +121,8 @@ public class UI {
 		int y=screenHeight/2;
 		g2.drawString(text, x, y);
 	}
+	
 	private void drawTitleScreen(int screenWidth,int screenHeight, int titleSize) {
-		
 		
 		g2.setColor(new Color(20,20,60));
 		g2.fillRect(0,0,screenWidth,screenHeight);

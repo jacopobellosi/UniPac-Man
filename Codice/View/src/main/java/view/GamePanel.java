@@ -6,9 +6,7 @@ import java.awt.Graphics2D;
 import model.Tilemanger;
 
 public class GamePanel {
-	public GamePanel() {
-		
-	}
+	
 	public void paintComponent(Graphics2D g2,GameObject obj[],int titleSize,GameObject pw[],boolean attacking,Tilemanger tileM,int mapTilenum[][], DatiGhost ghost[]){
 		printMappa(g2,titleSize,tileM,mapTilenum);
 		for(int i=0;i< obj.length;i++)		{
@@ -22,7 +20,7 @@ public class GamePanel {
 				pw[i].drawPW(g2,titleSize);
 			}
 		}
-		//player.draw(g2);
+
 		if(attacking==true) {
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null && ghost[i].invincible==false) {
@@ -31,7 +29,6 @@ public class GamePanel {
 			}
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null && ghost[i].invincible==true) {
-					
 					g2.drawImage(ghost[i].imageGhost, ghost[i].x, ghost[i].y, titleSize, titleSize, null);
 				}
 			}
@@ -44,6 +41,7 @@ public class GamePanel {
 			}
 		}
 	}
+	
 	public void printMappa(Graphics g2, int titleSize, Tilemanger tileM, int mapTilenum[][]) {
 		int col = 0;
 		int row = 0;
@@ -52,8 +50,7 @@ public class GamePanel {
 		
 		while(col < tileM.maxScreenCol && row < tileM.maxScreenRow) {
 			int tileNum = mapTilenum[col][row];
-			g2.drawImage(tileM.tile[tileNum].image, x, y, titleSize, titleSize, null);
-			
+			g2.drawImage(tileM.tile[tileNum].image, x, y, titleSize, titleSize, null);	
 			
 			col++;
 			x +=titleSize;

@@ -1,31 +1,21 @@
 package model;
-import java.awt.Graphics;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
+import java.io.*;
 import javax.imageio.ImageIO;
-
-
-
 
 
 public class Tilemanger {
 	public Obstacole[] tile;
 	
-	
 	public int maxScreenCol;
 	public int maxScreenRow;
-	//private static int conteggio;
+
 	public Tilemanger(String map, int maxScreenCol, int maxScreenRow) {
 		tile= new Obstacole[25];
 		this.maxScreenCol = maxScreenCol;
 		this.maxScreenRow = maxScreenRow;
-		//mapTilenum = new int[maxScreenCol][maxScreenRow];
+		
 		getTileImage();
-		//conteggio=0;
-		//loadMap(map);
 	}
 	
 	private void getTileImage() {
@@ -85,55 +75,11 @@ public class Tilemanger {
 			tile[20].image = ImageIO.read(getClass().getResourceAsStream("/pacman/tile/sfondo.jpg"));
 			
 			
-			
-			
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	/*private void loadMap(String S) {
-		try {
-			InputStream is = getClass().getResourceAsStream(S);
-			BufferedReader br = new BufferedReader(new InputStreamReader(is));
-			int col =0;
-			int row=0;
-			while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
-				
-					String line = br.readLine();
-					while(col < gp.maxScreenCol) {
-						
-						String numbers[] = line.split(" ");
-						int num = Integer.parseInt(numbers[col]);
-						mapTilenum[col][row] = num;
-						if(mapTilenum[col][row]==0) {
-							//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
-							conteggio++;
-						}
-						if(mapTilenum[col][row]==15) {
-							//g2.drawImage(imagecfu, x, y, gp.titleSize, gp.titleSize, null);
-							conteggio++;
-						}
-						col++;
-					}
-					if(col == gp.maxScreenCol) {
-						col =0;
-						row++;
-					}
-				
-			}
-			br.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	*/
-
 	
-
-
 	
 }

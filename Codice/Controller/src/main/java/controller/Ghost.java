@@ -6,27 +6,15 @@
 package controller;
 
 import java.util.*;
-
 import javax.imageio.ImageIO;
-
-//import controller.Entity;
-//import controller.GameEngine;
-
 import java.io.IOException;
 
 //fantasmini
 public class Ghost extends Entity {
 		private String ultimoMovimentoOpposto = null;
-		//public Image  imageGhost,imageFantasma_vunerabile; // NO_UCD (use default)
-		// public String direction;
-		// public int speed,x,y,type,solidAreaDefaultx,solidAreaDefaulty, actionlockCounter=0;
-		// public Rectangle solidArea = new Rectangle(0,0,48,48);
-		//public boolean collision=false;
-		//public boolean attacking =false;
-		//  public boolean invincible = false;
 		private GameEngine gp;
+		
 		public Ghost(GameEngine gp, int i) {
-			//
 			super(gp);
 			this.gp=gp;
 			name="fanstasma "+i;

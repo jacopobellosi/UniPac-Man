@@ -4,14 +4,7 @@ package controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
-
-import javax.swing.ImageIcon;
-import javax.swing.Timer;
-
-
-
+import javax.swing.*;
 
 
 public class Player  extends Entity{
@@ -22,13 +15,13 @@ public class Player  extends Entity{
     public int pallini_totali;
     private Timer powerUpTimer;
     private GestoreUccisoni GU;
+    
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
     	this.gp=gp;
     	this.keyH=keyH;
 
     	name="pacman";
-    	//solidArea = new Rectangle(10,5,15,15);
 
     	type=0;
     	solidArea = new Rectangle(8,10,20,20);
@@ -51,11 +44,9 @@ public class Player  extends Entity{
                 powerUpTimer.stop();
             }
         });
-        powerUpTimer.setRepeats(false);
-        
-       
-    	
+        powerUpTimer.setRepeats(false);	
 
+        
     }
 
     public void setDefaultValue() {
@@ -78,7 +69,6 @@ public class Player  extends Entity{
 		down2 = new ImageIcon(getClass().getResource("/pacman/giu_sx.gif")).getImage();
 		right =  new ImageIcon(getClass().getResource("/pacman/destra.gif")).getImage();
 		left =  new ImageIcon(getClass().getResource("/pacman/sinistra.gif")).getImage();
-		logo =  new ImageIcon(getClass().getResource("/pacman/logo.jpeg")).getImage();
 
     }
 
@@ -93,9 +83,9 @@ public class Player  extends Entity{
 		}else if(keyH.rightPressed == true) {
 			direction="right";
 		}
-    	 
-    	pallini_totali = gp.getPalliniTotali();
-    	 
+    	
+    	pallini_totali = gp.getPalliniTotali();       
+    	
     	gp.eHandler.checkEvent(this);
     	collisionON = false;
     	gp.cCheck.checktile(this);
@@ -168,22 +158,18 @@ public class Player  extends Entity{
 				}
 			}else if(attacking==true) {
 				if(gp.ghost[monsterIndex].invincible==false) {
-					
 					punteggio+=60;
 					GU = new GestoreUccisoni(gp,gp.ghost[monsterIndex].type);
 					GU.start();
 	                gp.killMonster(monsterIndex);
-
-				}
-					
+				}	
 			}
-			
 		}
 	}
+	
 	public int countLife() {
 		return life;
 	}
-
 
 	private void mangiaPalline(int i) {
     	if(i != 999) {
@@ -200,11 +186,9 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==pallini_totali && gp.livelloCorrente!=gp.livelloMax ) {
-    		System.out.println("hash "+hashKey+" pallini"+pallini_totali);
+    	if(hashKey==10/*pallini_totali*/ && gp.livelloCorrente!=gp.livelloMax ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
-			
     	}
     	if(gp.livelloCorrente == gp.livelloMax && hashKey==pallini_totali) {
     		gp.gameState=gp.endState;
@@ -213,6 +197,7 @@ public class Player  extends Entity{
     		reset();
     	}
     }
+	
     public void draw(Graphics2D g2) {
 
 		Image image = null;

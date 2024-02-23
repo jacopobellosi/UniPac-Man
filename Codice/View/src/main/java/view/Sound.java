@@ -37,30 +37,15 @@ public class Sound {
         }
     }
 
-// TODO Remove unused code found by UCDetector
-//     public void loopWin() {
-//         clip.loop(Clip.LOOP_CONTINUOUSLY);
-//         isPlaying = true;
-//     }
-
-// TODO Remove unused code found by UCDetector
-//     public void stopWin() {
-//         clip.stop();
-//         isPlaying = false;
-//     }
 
     public boolean isPlaying() {
         return isPlaying;
     }
+    
     public void play() {
 		clip.start();
 	}
-	
-// TODO Remove unused code found by UCDetector
-// 	public void loop() {
-// 		clip.loop(Clip.LOOP_CONTINUOUSLY);
-// 	}
-	
+    
 	public void stop() {
 		clip.stop();
 	}

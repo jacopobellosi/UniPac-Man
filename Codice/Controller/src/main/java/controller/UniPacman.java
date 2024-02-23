@@ -11,9 +11,6 @@ package controller;
 
 import javax.swing.*;
 
-
-
-//Gestisce la logica di gioco, inclusi il movimento dei personaggi, le collisioni e le interazioni di gioco.
 public class UniPacman  {
 
 	public static void main(String[] args) {
@@ -35,19 +32,5 @@ public class UniPacman  {
 		livello.StartGameThread();
 	}
 	
-	
-	/*
-	 * public void init() {
-	 
-		setLayout( new GridLayout(1,1,0,0));
-		setLocationRelativeTo(null);
-		InputManager s = new InputManager();
-		setVisible(true);
-		
-	}
-	*/
 
-	
-	
-	
 }
