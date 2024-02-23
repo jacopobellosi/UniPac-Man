@@ -139,12 +139,13 @@ public class GameEngine extends JPanel implements Runnable{
 			player.update();
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
+					System.out.println("ghost i="+i);
 					ghost[i].update();
-					int type= ghost[i].type;
-					System.out.println("ghost i="+i+" type="+ghost[i].type);
+					//int type= ghost[i].type;
+					//System.out.println("ghost i="+i+" type="+ghost[i].type);
 					for(int j=0;j<dg.length;j++) {
 						if(dg[j]!=null) {
-							if(type == dg[j].i) {
+							if(ghost[i].type == dg[j].i) {
 								dg[j].x = ghost[i].x;
 								dg[j].y = ghost[i].y;
 							}
