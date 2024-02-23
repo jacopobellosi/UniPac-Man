@@ -12,7 +12,15 @@ import java.awt.event.KeyListener;
 
 //Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
 public class InputManager implements  KeyListener {
-	public boolean upPressed, downPressed, leftPressed,rightPressed,spacePressed;
+	public static boolean upPressed;
+
+	public static boolean downPressed;
+
+	public static boolean leftPressed;
+
+	public static boolean rightPressed;
+
+	public static boolean spacePressed;
 
 	private GameEngine gp;
 	
