@@ -12,8 +12,6 @@ import javax.imageio.ImageIO;
 //import controller.Entity;
 //import controller.GameEngine;
 
-import java.awt.Image;
-import java.awt.Rectangle;
 import java.io.IOException;
 
 //fantasmini

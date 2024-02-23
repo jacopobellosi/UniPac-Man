@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>UniPacMan</groupId>
-  <artifactId>Model</artifactId>
+  <artifactId>UniPacMan-model</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>Model</name>
+  <name>UniPacMan-model</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

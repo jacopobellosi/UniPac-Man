@@ -1,5 +1,4 @@
 package controller;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -82,7 +81,6 @@ public class Entity {
 		  
 	   }
 	   public void setAction() {
-		// TODO Auto-generated method stub
 		
 	   }
 	void restartVita() {
