@@ -15,7 +15,7 @@ public class Player  extends Entity{
     public int pallini_totali;
     private Timer powerUpTimer;
     private GestoreUccisoni GU;
-    
+
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
     	this.gp=gp;
@@ -46,10 +46,11 @@ public class Player  extends Entity{
         });
         powerUpTimer.setRepeats(false);	
 
-        
+
     }
 
     public void setDefaultValue() {
+
     	x=1 * gp.titleSize;
     	y=6 * gp.titleSize;
     	speed = 4;
@@ -84,8 +85,8 @@ public class Player  extends Entity{
 			direction="right";
 		}
     	
-    	pallini_totali = gp.getPalliniTotali();       
-    	
+ 
+    	 
     	gp.eHandler.checkEvent(this);
     	collisionON = false;
     	gp.cCheck.checktile(this);
@@ -186,9 +187,10 @@ public class Player  extends Entity{
 
     	}
 
-    	if(hashKey==10/*pallini_totali*/ && gp.livelloCorrente!=gp.livelloMax ) {
+    	if(hashKey==pallini_totali && gp.livelloCorrente!=gp.livelloMax ) {
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
+
     	}
     	if(gp.livelloCorrente == gp.livelloMax && hashKey==pallini_totali) {
     		gp.gameState=gp.endState;

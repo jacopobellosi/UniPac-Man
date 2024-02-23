@@ -61,10 +61,12 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	public GestoreRipristinoImmunita GRI;
 	 
-	public static int  conteggio =0;
+	public int conteggio=0;
 	
 	public GameEngine() {
 		loadMap("/pacman/mappa/mappa01.txt");
+		System.out.println("ho caricato la mappa");
+		player.pallini_totali=getPalliniTotali();
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
@@ -82,6 +84,7 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	
 	public void StartGameThread() {
+		
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
@@ -313,11 +316,11 @@ public class GameEngine extends JPanel implements Runnable{
 		tileM = new Tilemanger("/pacman/mappa/mappa0"+livelloCorrente+".txt",maxScreenCol, maxScreenRow);
 		aSetter=new AssetSetter();
 		loadMap("/pacman/mappa/mappa0"+livelloCorrente+".txt");
+		player.pallini_totali = getPalliniTotali();
 		player.setDefaultValue();
 		setMonster();
 		setObject();
-		player.pallini_totali = getPalliniTotali();
-		System.out.println("i pallini tot sono "+player.pallini_totali);
+	
 	}
 
 
