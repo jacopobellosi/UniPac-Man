@@ -78,14 +78,15 @@ public class GameEngine extends JPanel implements Runnable{
 	 
 	public static int  conteggio =0;
 	public GameEngine() {
+		loadMap("/pacman/mappa/mappa01.txt");
+
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.black);
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyH);
 		this.setFocusable(true);
 		playSE(5);
-		conteggio=0;
-		loadMap("/pacman/mappa/mappa01.txt");
+		//conteggio=0;
 		//setupGame();
 	}
 	
@@ -178,7 +179,6 @@ public class GameEngine extends JPanel implements Runnable{
 		if(gameState==titleState) {
 			ui.draw(g2,screenWidth,screenHeight,gameState,player.punteggio,titleSize,player.countLife(),livelloCorrente);
 		}else if(gameState==playState){
-
 			gp.paintComponent(g2,obj,titleSize,pw,player.attacking,tileM,mapTilenum,dg);
 			player.draw(g2);
 			for(int i=0;i<ghost.length;i++) {
@@ -240,7 +240,7 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2,screenWidth,screenHeight,gameState,player.punteggio,titleSize,player.countLife(),livelloCorrente);
 		}
 	}
-	private void loadMap(String S) {
+	public void loadMap(String S) {
 		try {
 			InputStream is = getClass().getResourceAsStream(S);
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -270,6 +270,8 @@ public class GameEngine extends JPanel implements Runnable{
 					}
 				
 			}
+			System.out.println("load map "+conteggio);
+			getPalliniTotali();
 			br.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -369,14 +371,16 @@ public class GameEngine extends JPanel implements Runnable{
 		System.out.println("HAI MANGIATO UN FANSTASMA");
 		 
 	}
-	public static void resetPalliniTotali() {
-		conteggio=0;
-	}
-	public static int getPalliniTotali() {
-		
+
+	public int getPalliniTotali() {
+		System.out.println("getpallini "+conteggio);
 		return conteggio;
 	}
+	public void resetPalliniTotali() {
+		System.out.println("reset conteggio "+conteggio);
 
+		conteggio=0;
+	}
 	public void restart() {
 		livelloCorrente=1;
 		tileM = new Tilemanger("/pacman/mappa/mappa0"+livelloCorrente+".txt",maxScreenCol, maxScreenRow );

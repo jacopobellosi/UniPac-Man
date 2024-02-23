@@ -35,7 +35,7 @@ public class Player  extends Entity{
 
     	solidAreaDefaultx= solidArea.x;
     	solidAreaDefaulty = solidArea.y;
-    	pallini_totali = GameEngine.getPalliniTotali();
+    	
     	setDefaultValue();
     	getPlayerImage();
     	attackArea.width = 36;
@@ -93,7 +93,10 @@ public class Player  extends Entity{
 		}else if(keyH.rightPressed == true) {
 			direction="right";
 		}
-    	 gp.eHandler.checkEvent(this);
+    	 
+    	pallini_totali = gp.getPalliniTotali();
+    	 
+    	gp.eHandler.checkEvent(this);
     	collisionON = false;
     	gp.cCheck.checktile(this);
     	int objIndex = gp.cCheck.checkObject(this, true);
@@ -198,6 +201,7 @@ public class Player  extends Entity{
     	}
 
     	if(hashKey==pallini_totali && gp.livelloCorrente!=gp.livelloMax ) {
+    		System.out.println("hash "+hashKey+" pallini"+pallini_totali);
     		gp.gameState=gp.nextLevelState;
     		hashKey=0;
 			

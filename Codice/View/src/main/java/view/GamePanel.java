@@ -44,7 +44,7 @@ public class GamePanel {
 			}
 		}
 	}
-	private void printMappa(Graphics g2, int titleSize, Tilemanger tileM, int mapTilenum[][]) {
+	public void printMappa(Graphics g2, int titleSize, Tilemanger tileM, int mapTilenum[][]) {
 		int col = 0;
 		int row = 0;
 		int x =0;
@@ -53,7 +53,6 @@ public class GamePanel {
 		while(col < tileM.maxScreenCol && row < tileM.maxScreenRow) {
 			int tileNum = mapTilenum[col][row];
 			g2.drawImage(tileM.tile[tileNum].image, x, y, titleSize, titleSize, null);
-			
 			
 			
 			col++;

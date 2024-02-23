@@ -53,7 +53,7 @@ public class UI {
 		  });
 		
 		blinkTimer.start();
-		GameObject vita = new vitaPacMan();
+		GameObject vita = new VitaPacMan();
 		pacLife = vita.imageVita;
 	}
 	
