@@ -11,17 +11,17 @@ public class DatiGhost {
 		public Image imageGhost;
 		public Boolean invincible = false;
 		Image imageFantasma_vunerabile;
-	public DatiGhost(int i) {
-		getImage(i);
-		this.i=i;
-		x=0;
-		y=0;
-		try {
-			 imageFantasma_vunerabile = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/fantasma_vulnerabile.gif"));
-		}catch(IOException e) {
-			e.printStackTrace();
+		public DatiGhost(int i) {
+			getImage(i);
+			this.i=i;
+			x=0;
+			y=0;
+			try {
+				imageFantasma_vunerabile = ImageIO.read(getClass().getResourceAsStream("/pacman/fanstasmi/fantasma_vulnerabile.gif"));
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
-	}
 	private void getImage(int immagine) {
 		// TODO Auto-generated method stub
 		if(immagine==1) {
