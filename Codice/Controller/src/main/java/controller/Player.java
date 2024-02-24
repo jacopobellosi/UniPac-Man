@@ -172,7 +172,7 @@ public class Player  extends Entity{
 		return life;
 	}
 
-	private void mangiaPalline(int i) {
+	public void mangiaPalline(int i) {
     	if(i != 999) {
     		String objectName = gp.obj[i].name;
     		switch(objectName){
@@ -226,4 +226,14 @@ public class Player  extends Entity{
     	setDefaultLife();
     	hashKey=0;
     }
+
+	public Object getPunteggio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getHashKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
