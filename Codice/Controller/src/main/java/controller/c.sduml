@@ -1,0 +1,4 @@
+title This is a title
+
+Alice->Bob:Click and drag to create a request or\ntype it in the source area to the left
+Alice<--Bob:drag to move
