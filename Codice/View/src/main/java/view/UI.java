@@ -23,12 +23,13 @@ public class UI {
 	private boolean textVisible = true;
 	
 	//
-	public final int titleState=0;
-	public final int playState=1;
-	public final int pauseState=2;
-	public final int endState=3;
-	public int nextLevelState=4;
-	public Image logo;
+	private final int titleState=0;
+	private final int playState=1;
+	private final int pauseState=2;
+	private final int endState=3;
+	private int nextLevelState=4;
+// TODO Remove unused code found by UCDetector
+ 	public Image logo;
 	//
 	public UI(GamePanel gp) {
 		this.gp = gp;

@@ -4,12 +4,12 @@ import java.awt.Rectangle;
 
 
 public class CollisionChecker {
-	GameEngine gp;
+	private GameEngine gp;
 	public CollisionChecker(GameEngine gp) {
 		this.gp = gp;
 		
 	}
-	public void checktile(Entity entity) {
+	public void checkTile(Entity entity) {
 		int entityLeftWorldX = entity.x + entity.solidArea.x;
 		int entityRightWorldX = entity.x + entity.solidArea.x + entity.solidArea.width;
 		int entityTopWorldY = entity.y + entity.solidArea.y;
@@ -60,7 +60,7 @@ public class CollisionChecker {
 	
 	
 	
-	public int checkObject(Entity entity, boolean player){
+	int checkObject(Entity entity, boolean player){
 		int index = 999;
 		for(int i =0;i<gp.obj.length;i++) {
 			if(gp.obj[i]!=null) {
@@ -111,7 +111,7 @@ public class CollisionChecker {
 	
 	}
 	
-	public int checkPW(Entity entity, boolean player){
+	int checkPW(Entity entity, boolean player){
 		int index = 999;
 		for(int i =0;i<gp.pw.length;i++) {
 			if(gp.pw[i]!=null) {
@@ -165,7 +165,7 @@ public class CollisionChecker {
 	
 	
 	
-	public int checkEntity(Entity entity,Entity[] target) {
+	int checkEntity(Entity entity,Entity[] target) {
 		int index = 999;
 		for(int i =0;i<target.length;i++) {
 			if(target[i]!=null) {
@@ -209,7 +209,7 @@ public class CollisionChecker {
 		}
 		return index;
 	}
-	public boolean checkPlayer(Entity entity) {
+	boolean checkPlayer(Entity entity) {
 				boolean contractPlayer = false;
 				entity.solidArea.x += entity.x ;
 				entity.solidArea.y += entity.y ;
@@ -250,7 +250,7 @@ public class CollisionChecker {
 				return contractPlayer;
 		}
 	
-	public boolean checkCollisionWithWalls(Entity entity, String direction) {
+	boolean checkCollisionWithWalls(Entity entity, String direction) {
 	    Rectangle nextPosition = new Rectangle(entity.solidArea);
 
 	    // Simula il movimento nella direzione desiderata

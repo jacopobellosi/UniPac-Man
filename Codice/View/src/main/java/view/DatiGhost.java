@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 public class DatiGhost {
 		public int x=0;
 		public int y=0,i=0;
-		public Image imageGhost;
+		Image imageGhost;
 		public Boolean invincible = false;
 		Image imageFantasma_vunerabile;
 		

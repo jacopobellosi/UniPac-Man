@@ -11,8 +11,8 @@ public class Player  extends Entity{
 
     private InputManager keyH;
     int hashKey = 0;
-    public int punteggio =0;
-    public int pallini_totali;
+    int punteggio =0;
+    int pallini_totali;
     private Timer powerUpTimer;
     private GestoreUccisoni GU;
 
@@ -49,7 +49,7 @@ public class Player  extends Entity{
 
     }
 
-    public void setDefaultValue() {
+    void setDefaultValue() {
 
     	x=1 * gp.titleSize;
     	y=6 * gp.titleSize;
@@ -58,7 +58,7 @@ public class Player  extends Entity{
     	
     }
     
-    public void setDefaultLife() {
+    void setDefaultLife() {
     	maxLife = 3;
     	life = maxLife;
     }
@@ -89,7 +89,7 @@ public class Player  extends Entity{
     	 
     	gp.eHandler.checkEvent(this);
     	collisionON = false;
-    	gp.cCheck.checktile(this);
+    	gp.cCheck.checkTile(this);
     	int objIndex = gp.cCheck.checkObject(this, true);
     	mangiaPalline(objIndex);
 
@@ -168,7 +168,7 @@ public class Player  extends Entity{
 		}
 	}
 	
-	public int countLife() {
+	int countLife() {
 		return life;
 	}
 
@@ -200,7 +200,7 @@ public class Player  extends Entity{
     	}
     }
 	
-    public void draw(Graphics2D g2) {
+    void draw(Graphics2D g2) {
 
 		Image image = null;
 		switch(direction) {

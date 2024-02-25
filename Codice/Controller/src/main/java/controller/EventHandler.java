@@ -9,7 +9,7 @@ public class EventHandler {
 	 
 	private int eventRectDefaultX,eventRectDefaultY;
 	
-	public EventHandler(GameEngine gp) {
+	public EventHandler(GameEngine gp) { // NO_UCD (use default)
 		this.gp=gp;
 		eventRect=new Rectangle();
 		eventRect.x=7;
@@ -21,12 +21,12 @@ public class EventHandler {
 	}
 	
 	  
-	public void checkEvent(Entity e) {
+	void checkEvent(Entity e) {
 		if(hit(-1,6,e)==true) {
-			tunnelsx(e);
+			tunnelSX(e);
 		}
 		if(hit(15.5,6,e)==true) {
-			tunneldx(e);
+			tunnelDX(e);
 		}
 	}
 	
@@ -53,11 +53,11 @@ public class EventHandler {
 
 	
 
-	private void tunnelsx(Entity e) {
+	private void tunnelSX(Entity e) {
 	    e.x = gp.titleSize * 15;
 	    e.y = gp.titleSize * 6;
 	}
-	private void tunneldx(Entity e) {
+	private void tunnelDX(Entity e) {
 		e.x=gp.titleSize*0;
 		e.y=gp.titleSize*6;
 

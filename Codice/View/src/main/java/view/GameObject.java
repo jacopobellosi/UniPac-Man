@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 public class GameObject {
    
 	public int x,y;
-    public BufferedImage imagecfu,imageVita, powerUp; 
+    BufferedImage imagecfu,imageVita, powerUp; 
 	public String name;
 	public boolean collision=false;
 	
@@ -20,7 +20,7 @@ public class GameObject {
    		this.name=name;
    	}
    	
-	public void drawCFU(Graphics2D g2,int titleSize) {
+	void drawCFU(Graphics2D g2,int titleSize) {
 
 		int x = this.x ;
 		int y= this.y ;
@@ -30,7 +30,7 @@ public class GameObject {
 
 
 
-	public void drawPW(Graphics2D g2, int titleSize) {
+	void drawPW(Graphics2D g2, int titleSize) {
 		// TODO Auto-generated method stub
 		int x = this.x ;
 		int y= this.y ;

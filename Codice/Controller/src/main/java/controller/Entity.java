@@ -4,24 +4,24 @@ import java.awt.Rectangle;
 
 
 public class Entity {
-	   public int x,y;
-	   public int speed;
+	   int x,y;
+	   int speed;
 	   public Image up1,up2, down1,down2,left,right, imageGhost,logo, imageFantasma_vunerabile; // NO_UCD (use default)
-	   public String direction;
+	   String direction;
 	   public boolean collision=false; // NO_UCD (unused code)
-	   public Rectangle solidArea = new Rectangle(0,0,48,48);
-	   public boolean collisionON = false;
+	   Rectangle solidArea = new Rectangle(0,0,48,48);
+	   boolean collisionON = false;
 	   int maxLife;
-	   public int life;
-	   public boolean invincible = false;
+	   int life;
+	   boolean invincible = false;
 	   int invincibleCounter=0;
 	   int actionlockCounter=0;
 	   int type;
-	   public boolean attacking =false;
+	   boolean attacking =false;
 	   Rectangle attackArea = new Rectangle(0,0,0,0);
-	   String name;
+	   String name; // NO_UCD (unused code)
 	   private GestoreUccisoni GU;
-	   public int solidAreaDefaultx, solidAreaDefaulty;
+	   int solidAreaDefaultx, solidAreaDefaulty;
 	   GameEngine gp;
 	   
 	   
@@ -32,7 +32,7 @@ public class Entity {
 	   public void update() {
 		   setAction();
 		   collisionON = false;
-		   gp.cCheck.checktile(this);
+		   gp.cCheck.checkTile(this);
 		   gp.cCheck.checkEntity(this, gp.ghost);
 		   gp.eHandler.checkEvent(this);
 

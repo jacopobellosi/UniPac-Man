@@ -42,7 +42,7 @@ public class GamePanel {
 		}
 	}
 	
-	public void printMappa(Graphics g2, int titleSize, Tilemanger tileM, int mapTilenum[][]) {
+	private void printMappa(Graphics g2, int titleSize, Tilemanger tileM, int mapTilenum[][]) {
 		int col = 0;
 		int row = 0;
 		int x =0;

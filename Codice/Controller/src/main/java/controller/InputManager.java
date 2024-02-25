@@ -9,18 +9,24 @@ package controller;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/*
+ * Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
+ * 
+ */
 
-//Gestisce l'input dell'utente, come le pressioni dei tasti o i movimenti del mouse.
+
+
 public class InputManager implements  KeyListener {
-	public static boolean upPressed;
+	static boolean upPressed;
 
-	public static boolean downPressed;
+	static boolean downPressed;
 
-	public static boolean leftPressed;
+	static boolean leftPressed;
 
-	public static boolean rightPressed;
+	static boolean rightPressed;
 
-	public static boolean spacePressed;
+// TODO Remove unused code found by UCDetector
+// 	public static boolean spacePressed;
 
 	private GameEngine gp;
 	

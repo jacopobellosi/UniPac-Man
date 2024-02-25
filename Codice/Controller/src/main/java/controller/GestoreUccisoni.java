@@ -3,8 +3,8 @@ package controller;
 import view.DatiGhost;
 
 public class GestoreUccisoni extends Thread{
-	GameEngine gp;
-	int index;
+	private GameEngine gp;
+	private int index;
 	
 	public GestoreUccisoni(GameEngine gp,int index) {
 		this.gp=gp;

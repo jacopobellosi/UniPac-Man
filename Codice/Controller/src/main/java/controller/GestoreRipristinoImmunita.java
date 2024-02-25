@@ -1,8 +1,8 @@
 package controller;
 
 public class GestoreRipristinoImmunita extends Thread{
-	GameEngine gp;
-	int i;
+	private GameEngine gp;
+	private int i;
 	public GestoreRipristinoImmunita(GameEngine gp, int index) {
 		this.gp=gp;
 		this.i = index;
