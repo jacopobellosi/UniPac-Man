@@ -14,7 +14,7 @@ public class Player  extends Entity{
     public static int punteggio =0;
     int pallini_totali;
     private Timer powerUpTimer;
-    private GestoreUccisoni GU;
+    public  GestoreUccisoni GU;
 
     public Player(GameEngine gp,InputManager keyH) {
     	super(gp);
@@ -143,7 +143,7 @@ public class Player  extends Entity{
 		if(monsterIndex!=999) {
 			if(invincible==false && attacking ==false) {
 				life-=1;
-				System.out.println("Un fantasma ti ha colpito");
+				System.out.println("Hai colpito il fantasma"+gp.ghost[monsterIndex].type+"");
 				System.out.println("ti sono rimaste: "+life +" vite");
 				countLife();
 				restartVita();

@@ -18,15 +18,15 @@ import view.*;
 
 
 public class GameEngine extends JPanel implements Runnable{
- 
-	
+
+
 	private static final long serialVersionUID = 1L;
 	public static final Object[] PLAY_STATE = null;
 	private final int originalTitleSize = 16; // 16x16 title
 	private final int scale=3;
 	public final int titleSize = originalTitleSize * scale;
-	
-	
+
+
 	public final int maxScreenCol = 16;
 	public final int maxScreenRow = 13;
 	private final int screenWidth = titleSize * maxScreenCol;
@@ -46,7 +46,7 @@ public class GameEngine extends JPanel implements Runnable{
 	private GamePanel gp = new GamePanel();
 	UI ui = new UI(gp);
 	Sound sound=new Sound();  // NO_UCD (unused code)
-	Sound se=new Sound(); 
+	Sound se=new Sound();
 	int mapTilenum[][] = new int[maxScreenCol][maxScreenRow];
 	private Thread gameThread;
 
@@ -59,11 +59,11 @@ public class GameEngine extends JPanel implements Runnable{
 	public final static int pauseState=2;
 	final int endState=3;
 	int nextLevelState=4;
-	
+
 	GestoreRipristinoImmunita GRI;
-	 
+
 	private int conteggio=0;
-	
+
 	public GameEngine() {
 		loadMap("/pacman/mappa/mappa01.txt");
 		System.out.println("ho caricato la mappa");
@@ -75,7 +75,7 @@ public class GameEngine extends JPanel implements Runnable{
 		this.setFocusable(true);
 		playSE(5);
 	}
-	
+
 
 	public void setupGame() {
 		setMonster();
@@ -83,15 +83,15 @@ public class GameEngine extends JPanel implements Runnable{
 		player.setDefaultLife();
 		gameState=titleState;
 	}
-	
+
 	void startGameThread() {
-		
+
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
-	
-	
-	
+
+
+
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -116,7 +116,7 @@ public class GameEngine extends JPanel implements Runnable{
 			}
 		}
 	}
-	
+
 	private void update() {
 		if(gameState==playState) {
 			player.update();
@@ -128,29 +128,30 @@ public class GameEngine extends JPanel implements Runnable{
 							if(ghost[i] != null && ghost[i].type == dg[j].i) {
 								dg[j].x = ghost[i].x;
 								dg[j].y = ghost[i].y;
+								//System.out.println("il fantasma "+dg[i].i+" si è mosso x="+dg[j].x+ " y="+dg[j].y);
 							}
 						}
 					}
 				}
 			}
-			
+
 		}else if(gameState==pauseState) {
-	    	
+
 
 		}
 		if(gameState==endState) {
 			if(player.life==0) {
-				se.setFile(4); 
+				se.setFile(4);
 				se.playWin();
 			}else {
-				se.setFile(1); 
+				se.setFile(1);
 				se.playWin();
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
@@ -163,9 +164,9 @@ public class GameEngine extends JPanel implements Runnable{
 				if(ghost[i]!=null) {
 					ghost[i].setAction();
 				}
-				
+
 			}
-			
+
 			//UI
 			ui.drawContaPallini(g2,player.punteggio,titleSize,player.countLife());
 			g2.dispose();
@@ -177,7 +178,7 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2,screenWidth,screenHeight,gameState,player.punteggio,titleSize,player.countLife(),livelloCorrente);
 		}
 	}
-	
+
 	public void loadMap(String S) {
 		try {
 			InputStream is = getClass().getResourceAsStream(S);
@@ -186,7 +187,7 @@ public class GameEngine extends JPanel implements Runnable{
 			int row=0;
 			while(col < maxScreenCol && row < maxScreenRow) {
 					String line = br.readLine();
-					
+
 					while(col < maxScreenCol) {
 						String numbers[] = line.split(" ");
 						int num = Integer.parseInt(numbers[col]);
@@ -210,48 +211,48 @@ public class GameEngine extends JPanel implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int getMap(int row, int col) {
 		// TODO Auto-generated method stub
 		return mapTilenum[col][row];
 	}
-	
+
 	public void setMonster() {
 		ghost[0] = new Ghost(this,1);
 		ghost[0].x = titleSize * aSetter.mappaSpawnFantasmi[0][0];
 		ghost[0].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		ghost[1] = new Ghost(this,2);
 		ghost[1].x = titleSize * aSetter.mappaSpawnFantasmi[1][0];
 		ghost[1].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		ghost[2] = new Ghost(this,3);
 		ghost[2].x = titleSize * aSetter.mappaSpawnFantasmi[2][0];
 		ghost[2].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		ghost[3] = new Ghost(this,4);
 		ghost[3].x = titleSize * aSetter.mappaSpawnFantasmi[3][0];
 		ghost[3].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		//Clono i dati
 		dg[0] = new DatiGhost(1);
 		dg[0].x = titleSize * aSetter.mappaSpawnFantasmi[0][0];
 		dg[0].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		dg[1] = new DatiGhost(2);
 		dg[1].x = titleSize * aSetter.mappaSpawnFantasmi[1][0];
 		dg[1].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		dg[2] = new DatiGhost(3);
 		dg[2].x = titleSize * aSetter.mappaSpawnFantasmi[2][0];
 		dg[2].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 		dg[3] = new DatiGhost(4);
 		dg[3].x = titleSize * aSetter.mappaSpawnFantasmi[3][0];
 		dg[3].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
-		
+
 	}
-	
+
 	 private void setObject() {
 		 	int contatore = 0;
 	           for(int i=0;i<maxScreenCol;i++) {
@@ -261,24 +262,25 @@ public class GameEngine extends JPanel implements Runnable{
 	                        obj[contatore].x=i * titleSize; //riga della mappa
 	                        obj[contatore].y=j * titleSize; //colonna della mappa
 	                        contatore++;
-	                     }                  
+	                     }
 	                    if(mapTilenum[i][j]==15) {
 	                    	pw[contatore]=new PowerUp(); //il numero � un indice per l'elemento
 	                        pw[contatore].x=i * titleSize; //riga della mappa
 	                        pw[contatore].y=j * titleSize; //colonna della mappa
 	                        contatore++;
 	                    }
-		           }  
+		           }
 	    }
 	}
-	 
+
 	void playSE(int i) {
 		se.setFile(i);
 		se.play();
 	}
-	
-	
-	public void killMonster(int i) {
+
+
+	void killMonster(int i) {
+		System.out.println("HAI MANGIATO IL FANTASMA"+ghost[i].type);
 		int type= ghost[i].type;
 		for(int j=0;j<dg.length;j++) {
 			if(dg[j]!=null) {
@@ -288,18 +290,18 @@ public class GameEngine extends JPanel implements Runnable{
 				}
 			}
 		}
-		System.out.println("HAI MANGIATO UN FANSTASMA");
+
 	}
 
 	public int getPalliniTotali() {
 		return conteggio;
 	}
-	
+
 	private void resetPalliniTotali() {
 		conteggio=0;
 		System.out.println("reset conteggio "+conteggio);
 	}
-	
+
 	void restart() {
 		livelloCorrente=1;
 		tileM = new Tilemanger("/pacman/mappa/mappa0"+livelloCorrente+".txt",maxScreenCol, maxScreenRow );
@@ -309,7 +311,7 @@ public class GameEngine extends JPanel implements Runnable{
 		player.setDefaultLife();
 		setMonster();
 		setObject();
-		
+
 	}
 	public void nextLevel() {
 		livelloCorrente++;
@@ -321,7 +323,7 @@ public class GameEngine extends JPanel implements Runnable{
 		player.setDefaultValue();
 		setMonster();
 		setObject();
-	
+
 	}
 
 
