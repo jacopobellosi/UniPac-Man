@@ -40,7 +40,7 @@ public class AppTest
         inputManager = null;
         player = null;
     }
-    /*
+    
     //test per controllare il numero di vite al momento di spawn che deve essere uguale a 3
     @Test
     public void testDefaultLife() {
@@ -123,5 +123,5 @@ public class AppTest
         assertNotNull(gameEngine.ghost[2]);
         assertNotNull(gameEngine.ghost[3]);
     }
-	*/
+	
 }
