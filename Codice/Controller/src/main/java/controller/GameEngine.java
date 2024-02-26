@@ -279,7 +279,7 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 
 
-	void killMonster(int i) {
+	public void killMonster(int i) {
 		System.out.println("HAI MANGIATO IL FANTASMA"+ghost[i].type);
 		int type= ghost[i].type;
 		for(int j=0;j<dg.length;j++) {

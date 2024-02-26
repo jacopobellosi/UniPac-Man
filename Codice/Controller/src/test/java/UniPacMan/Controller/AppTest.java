@@ -56,7 +56,7 @@ public class AppTest
         player.setDefaultLife(); 
         player.setInvincible(false);
         player.setAttacking(false);
-        player.interazioneFanstasma(0); // Supponiamo che il fantasma sia il primo nell'array dei fantasmi
+        player.interazioneFanstasma(0); //Supponiamo che il fantasma sia il primo nell'array dei fantasmi
 
         // Verifichiamo che il giocatore abbia perso una vita
         assertEquals(2, player.countLife());
@@ -79,17 +79,11 @@ public class AppTest
     public void testRun() throws InterruptedException {
         gameEngine.ghost[0] = new Ghost(gameEngine, 0);
         gameEngine.ghost[0].invincible = true;
-        
-        // Eseguiamo il thread per il ripristino dell'immunità
         gestoreRipristinoImmunita.run();
-        
         // Aspettiamo 3000 millisecondi per far sì che il thread completi l'esecuzione
         Thread.sleep(2000);
-        
-        // Verifichiamo che lo stato di invincibilità del fantasma sia stato ripristinato a false
         assertFalse(gameEngine.ghost[0].invincible);
-        
-        // Aggiungi altri test se necessario per verificare ulteriori comportamenti del thread
+       
     }
 
     //Test per mangiare il fantasma quando vulnerabile
@@ -123,5 +117,4 @@ public class AppTest
         assertNotNull(gameEngine.ghost[2]);
         assertNotNull(gameEngine.ghost[3]);
     }
-	
 }
