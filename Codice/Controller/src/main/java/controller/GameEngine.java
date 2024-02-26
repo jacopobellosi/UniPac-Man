@@ -217,7 +217,7 @@ public class GameEngine extends JPanel implements Runnable{
 		return mapTilenum[col][row];
 	}
 
-	void setMonster() {
+	public void setMonster() {
 		ghost[0] = new Ghost(this,1);
 		ghost[0].x = titleSize * aSetter.mappaSpawnFantasmi[0][0];
 		ghost[0].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
