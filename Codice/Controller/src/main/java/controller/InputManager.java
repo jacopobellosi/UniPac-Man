@@ -19,11 +19,11 @@ import java.awt.event.KeyListener;
 public class InputManager implements  KeyListener {
 	public static boolean upPressed;
 
-	static boolean downPressed;
+	public static boolean downPressed;
 
-	static boolean leftPressed;
+	public static boolean leftPressed;
 
-	static boolean rightPressed;
+	public static boolean rightPressed;
 
 // TODO Remove unused code found by UCDetector
 // 	public static boolean spacePressed;

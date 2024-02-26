@@ -27,8 +27,8 @@ public class GameEngine extends JPanel implements Runnable{
 	public final int titleSize = originalTitleSize * scale;
 	
 	
-	final int maxScreenCol = 16;
-	final int maxScreenRow = 13;
+	public final int maxScreenCol = 16;
+	public final int maxScreenRow = 13;
 	private final int screenWidth = titleSize * maxScreenCol;
 	private final int screenHeight = titleSize * maxScreenRow;
 	private int FPS=60;
@@ -39,7 +39,7 @@ public class GameEngine extends JPanel implements Runnable{
 	CollisionChecker cCheck = new CollisionChecker(this);
 	private AssetSetter aSetter=new AssetSetter();
 	Player player =new Player(this,keyH);
-	GameObject obj[]=new GameObject[10000];//numero massimo oggetti
+	public GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	GameObject pw[]=new GameObject[1000];
 	public Entity[] ghost = new Entity[4];
 	DatiGhost[] dg = new DatiGhost[4];
@@ -51,12 +51,12 @@ public class GameEngine extends JPanel implements Runnable{
 	private Thread gameThread;
 
 	//game state
-	int livelloCorrente=1;
+	public int livelloCorrente=1;
 	int livelloMax=3;
-	int gameState;
+	public int gameState;
 	final int titleState=0;
-	final int playState=1;
-	final int pauseState=2;
+	public final static int playState=1;
+	public final static int pauseState=2;
 	final int endState=3;
 	int nextLevelState=4;
 	
@@ -77,7 +77,7 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	
 
-	void setupGame() {
+	public void setupGame() {
 		setMonster();
 		setObject();
 		player.setDefaultLife();
@@ -178,7 +178,7 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 	}
 	
-	private void loadMap(String S) {
+	public void loadMap(String S) {
 		try {
 			InputStream is = getClass().getResourceAsStream(S);
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -211,12 +211,12 @@ public class GameEngine extends JPanel implements Runnable{
 		}
 	}
 	
-	int getMap(int row, int col) {
+	public int getMap(int row, int col) {
 		// TODO Auto-generated method stub
 		return mapTilenum[col][row];
 	}
 	
-	void setMonster() {
+	public void setMonster() {
 		ghost[0] = new Ghost(this,1);
 		ghost[0].x = titleSize * aSetter.mappaSpawnFantasmi[0][0];
 		ghost[0].y = titleSize * aSetter.mappaSpawnFantasmi[0][1];
@@ -278,7 +278,7 @@ public class GameEngine extends JPanel implements Runnable{
 	}
 	
 	
-	void killMonster(int i) {
+	public void killMonster(int i) {
 		int type= ghost[i].type;
 		for(int j=0;j<dg.length;j++) {
 			if(dg[j]!=null) {
@@ -311,7 +311,7 @@ public class GameEngine extends JPanel implements Runnable{
 		setObject();
 		
 	}
-	void nextLevel() {
+	public void nextLevel() {
 		livelloCorrente++;
 		resetPalliniTotali();
 		tileM = new Tilemanger("/pacman/mappa/mappa0"+livelloCorrente+".txt",maxScreenCol, maxScreenRow);
@@ -326,6 +326,12 @@ public class GameEngine extends JPanel implements Runnable{
 
 
 	public Object[] getGameState() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public Object getConteggio() {
 		// TODO Auto-generated method stub
 		return null;
 	}

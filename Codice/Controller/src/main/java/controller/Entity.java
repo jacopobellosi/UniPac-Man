@@ -4,13 +4,13 @@ import java.awt.Rectangle;
 
 
 public class Entity {
-	   int x;
-	   public int y;
+	   public static int x;
+	   public static int y;
 	   int speed;
 	   public Image up1,up2, down1,down2,left,right, imageGhost,logo, imageFantasma_vunerabile; // NO_UCD (use default)
-	   String direction;
+	   public static String direction;
 	   public boolean collision=false; // NO_UCD (unused code)
-	   Rectangle solidArea = new Rectangle(0,0,48,48);
+	   public static Rectangle solidArea = new Rectangle(0,0,48,48);
 	   boolean collisionON = false;
 	   int maxLife;
 	   int life;
@@ -18,7 +18,7 @@ public class Entity {
 	   int invincibleCounter=0;
 	   int actionlockCounter=0;
 	   int type;
-	   boolean attacking =false;
+	   public static boolean attacking =false;
 	   Rectangle attackArea = new Rectangle(0,0,0,0);
 	   String name; // NO_UCD (unused code)
 	   private GestoreUccisoni GU;

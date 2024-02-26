@@ -10,7 +10,7 @@ import javax.swing.*;
 public class Player  extends Entity{
 
     private InputManager keyH;
-    int hashKey = 0;
+    public static int hashKey = 0;
     public static int punteggio =0;
     int pallini_totali;
     private Timer powerUpTimer;
@@ -132,7 +132,7 @@ public class Player  extends Entity{
     			gp.eHandler.checkEvent(this);
     			System.out.println("HAI MANGIATO UN POWER UP");
     			attacking=true;
-    			 powerUpTimer.start();
+    			powerUpTimer.start();
     			break;
     		}
     	}
