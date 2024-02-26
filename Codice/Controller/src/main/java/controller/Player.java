@@ -11,7 +11,7 @@ public class Player  extends Entity{
 
     private InputManager keyH;
     int hashKey = 0;
-    int punteggio =0;
+    public static int punteggio =0;
     int pallini_totali;
     private Timer powerUpTimer;
     private GestoreUccisoni GU;
@@ -49,7 +49,7 @@ public class Player  extends Entity{
 
     }
 
-    void setDefaultValue() {
+    public void setDefaultValue() {
 
     	x=1 * gp.titleSize;
     	y=6 * gp.titleSize;
@@ -58,7 +58,7 @@ public class Player  extends Entity{
     	
     }
     
-    void setDefaultLife() {
+    public void setDefaultLife() {
     	maxLife = 3;
     	life = maxLife;
     }
@@ -119,7 +119,7 @@ public class Player  extends Entity{
     }
 
 
-	private void mangiaPW(int mangiaPW) {
+	public void mangiaPW(int mangiaPW) {
 		// TODO Auto-generated method stub
     	if(mangiaPW != 999) {
     		String objectName = gp.pw[mangiaPW].name;
@@ -135,11 +135,10 @@ public class Player  extends Entity{
     			 powerUpTimer.start();
     			break;
     		}
-
     	}
 	}
 
-	private void interazioneFanstasma(int monsterIndex) {
+	public void interazioneFanstasma(int monsterIndex) {
 		// TODO Auto-generated method stub
 		if(monsterIndex!=999) {
 			if(invincible==false && attacking ==false) {
@@ -168,7 +167,7 @@ public class Player  extends Entity{
 		}
 	}
 	
-	int countLife() {
+	public int countLife() {
 		return life;
 	}
 
@@ -227,13 +226,35 @@ public class Player  extends Entity{
     	hashKey=0;
     }
 
-	public Object getPunteggio() {
+	public Object getMaxLife() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Object getHashKey() {
+	public boolean isAttacking() {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
+
+	public void setLife(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setInvincible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAttacking(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isInvincible() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 }

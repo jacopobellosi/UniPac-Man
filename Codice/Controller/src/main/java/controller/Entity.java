@@ -4,7 +4,8 @@ import java.awt.Rectangle;
 
 
 public class Entity {
-	   int x,y;
+	   int x;
+	   public int y;
 	   int speed;
 	   public Image up1,up2, down1,down2,left,right, imageGhost,logo, imageFantasma_vunerabile; // NO_UCD (use default)
 	   String direction;
@@ -13,7 +14,7 @@ public class Entity {
 	   boolean collisionON = false;
 	   int maxLife;
 	   int life;
-	   boolean invincible = false;
+	   public boolean invincible = false;
 	   int invincibleCounter=0;
 	   int actionlockCounter=0;
 	   int type;

@@ -17,7 +17,7 @@ import java.awt.event.KeyListener;
 
 
 public class InputManager implements  KeyListener {
-	static boolean upPressed;
+	public static boolean upPressed;
 
 	static boolean downPressed;
 

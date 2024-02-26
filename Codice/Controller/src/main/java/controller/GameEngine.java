@@ -21,9 +21,10 @@ public class GameEngine extends JPanel implements Runnable{
  
 	
 	private static final long serialVersionUID = 1L;
+	public static final Object[] PLAY_STATE = null;
 	private final int originalTitleSize = 16; // 16x16 title
 	private final int scale=3;
-	final int titleSize = originalTitleSize * scale;
+	public final int titleSize = originalTitleSize * scale;
 	
 	
 	final int maxScreenCol = 16;
@@ -40,7 +41,7 @@ public class GameEngine extends JPanel implements Runnable{
 	Player player =new Player(this,keyH);
 	GameObject obj[]=new GameObject[10000];//numero massimo oggetti
 	GameObject pw[]=new GameObject[1000];
-	Entity[] ghost = new Entity[4];
+	public Entity[] ghost = new Entity[4];
 	DatiGhost[] dg = new DatiGhost[4];
 	private GamePanel gp = new GamePanel();
 	UI ui = new UI(gp);
@@ -321,6 +322,12 @@ public class GameEngine extends JPanel implements Runnable{
 		setMonster();
 		setObject();
 	
+	}
+
+
+	public Object[] getGameState() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
