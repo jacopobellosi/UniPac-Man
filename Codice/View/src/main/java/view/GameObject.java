@@ -21,10 +21,8 @@ public class GameObject {
    	}
    	
 	void drawCFU(Graphics2D g2,int titleSize) {
-
 		int x = this.x ;
-		int y= this.y ;
-		
+		int y= this.y;
 		g2.drawImage(imagecfu, x, y,titleSize,titleSize, null);
 	}
 
