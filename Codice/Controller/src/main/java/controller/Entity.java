@@ -45,6 +45,7 @@ public class Entity {
 				   gp.player.invincible=true;
 				   gp.player.setDefaultValue();
 				   gp.setMonster();
+				   System.out.println("Il fantasma "+this.type+" ti ha colpito");
 				   if(gp.player.life==0) {
 						gp.gameState=gp.endState;
 						gp.player.hashKey=0;
@@ -52,15 +53,17 @@ public class Entity {
 					}
 				   
 			   }else if(gp.player.attacking==true) {
-				   if(this.invincible==false) {			
+				   if(this.invincible==false) {	
+					   int type =this.type;
 						gp.player.punteggio+=60;
-						GU = new GestoreUccisoni(gp,this.type);
-						GU.start();
+						
 						for(int i=0;i<gp.ghost.length;i++) {
 							if(gp.ghost[i]==this) {
 								gp.killMonster(i);
 							}
 						}
+						GU = new GestoreUccisoni(gp,type);
+						GU.start();
 					}
 			   }
 		   }
@@ -74,6 +77,7 @@ public class Entity {
 	    	}else if(direction=="right" && collisionON == false) {
 	    		x +=speed;
 	    	}
+		   
 		  
 	   }
 	   

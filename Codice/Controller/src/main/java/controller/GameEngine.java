@@ -128,6 +128,7 @@ public class GameEngine extends JPanel implements Runnable{
 							if(ghost[i] != null && ghost[i].type == dg[j].i) {
 								dg[j].x = ghost[i].x;
 								dg[j].y = ghost[i].y;
+								//System.out.println("il fantasma "+dg[i].i+" si è mosso x="+dg[j].x+ " y="+dg[j].y);
 							}
 						}
 					}
@@ -279,6 +280,7 @@ public class GameEngine extends JPanel implements Runnable{
 	
 	
 	void killMonster(int i) {
+		System.out.println("HAI MANGIATO IL FANTASMA"+ghost[i].type);
 		int type= ghost[i].type;
 		for(int j=0;j<dg.length;j++) {
 			if(dg[j]!=null) {
@@ -288,7 +290,7 @@ public class GameEngine extends JPanel implements Runnable{
 				}
 			}
 		}
-		System.out.println("HAI MANGIATO UN FANSTASMA");
+		
 	}
 
 	public int getPalliniTotali() {
