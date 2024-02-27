@@ -3,7 +3,7 @@
   <property name="show-as-module" value="false" />
   <property name="force-classpath" value="false" />
   <property name="enabled-optional-measures" value="" />
-  <property name="root-file" value="..\.." />
+  <property name="root-file" value="..\..\Codice" />
   <property name="project-type" value="eclipse_workspace" />
   <property name="hide-externals" value="true" />
   <property name="parse-archive-in-archive" value="false" />
@@ -16,8 +16,12 @@
   <property name="project-excluded" />
   <property name="show-needs-to-compile" value="false" />
   <classpath>
-    <classpathentry kind="lib" path="../../target/classes" module="ProgettoIngegneriaDelSoftware" displaymodule="ProgettoIngegneriaDelSoftware" />
-    <classpathentry kind="lib" path="../../target/test-classes" module="ProgettoIngegneriaDelSoftware" displaymodule="ProgettoIngegneriaDelSoftware" />
+    <classpathentry kind="lib" path="../../Codice/Controller/target/classes" module="Controller" displaymodule="Controller" />
+    <classpathentry kind="lib" path="../../Codice/Controller/target/test-classes" module="Controller" displaymodule="Controller" />
+    <classpathentry kind="lib" path="../../Codice/Model/target/classes" module="Model" displaymodule="Model" />
+    <classpathentry kind="lib" path="../../Codice/Model/target/test-classes" module="Model" displaymodule="Model" />
+    <classpathentry kind="lib" path="../../Codice/View/target/classes" module="View" displaymodule="View" />
+    <classpathentry kind="lib" path="../../Codice/View/target/test-classes" module="View" displaymodule="View" />
   </classpath>
   <pom-root-files />
   <modules-in-scope />
@@ -28,8 +32,12 @@
     <set version="3" name="Action list 1" hiview="Codemap" active="true" todo="false" list="0" />
   </restructuring>
   <sourcepaths>
-    <pathentry type="file" path="..\..\Codice\src" />
-    <pathentry type="file" path="..\..\src\test\java" />
+    <pathentry type="file" path="..\..\Codice\Controller\src\main\java" />
+    <pathentry type="file" path="..\..\Codice\Controller\src\test\java" />
+    <pathentry type="file" path="..\..\Codice\Model\src\main\java" />
+    <pathentry type="file" path="..\..\Codice\Model\src\test\java" />
+    <pathentry type="file" path="..\..\Codice\View\src\main\java" />
+    <pathentry type="file" path="..\..\Codice\View\src\test\java" />
   </sourcepaths>
   <grid-set sep="." version="6.1.23194" />
 </local-project>
