@@ -16,19 +16,17 @@ import controller.Ghost;
 import controller.InputManager;
 import controller.Player;
 
-public class TestMoviemntoRight
+public class TestMovimentoRight
 {
     private InputManager inputManager;
     private Player player;
     private GameEngine gameEngine;
-    private GestoreRipristinoImmunita gestoreRipristinoImmunita;
     
     @Before
     public void setUp() {
         gameEngine = new GameEngine();
         inputManager = new InputManager(gameEngine);
         player = new Player(gameEngine, inputManager);
-        gestoreRipristinoImmunita = new GestoreRipristinoImmunita(gameEngine, 0);
         
     }
     @After

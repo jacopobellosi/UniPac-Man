@@ -21,14 +21,12 @@ public class TestMoviemntoLeft
     private InputManager inputManager;
     private Player player;
     private GameEngine gameEngine;
-    private GestoreRipristinoImmunita gestoreRipristinoImmunita;
     
     @Before
     public void setUp() {
         gameEngine = new GameEngine();
         inputManager = new InputManager(gameEngine);
         player = new Player(gameEngine, inputManager);
-        gestoreRipristinoImmunita = new GestoreRipristinoImmunita(gameEngine, 0);
         
     }
     @After
