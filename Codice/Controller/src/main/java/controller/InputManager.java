@@ -47,14 +47,14 @@ public class InputManager implements  KeyListener {
 
 		
 		if(gp.gameState == gp.titleState) {
-			if(code == KeyEvent.VK_W) {
+			if(code == KeyEvent.VK_UP) {
 				
 				gp.ui.commandNum--;
 				if(gp.ui.commandNum<0) {
 					gp.ui.commandNum=1;
 				}
 			}
-			if(code == KeyEvent.VK_S) {
+			if(code == KeyEvent.VK_LEFT) {
 				gp.ui.commandNum++;
 				if(gp.ui.commandNum>1) {
 					gp.ui.commandNum=0;
@@ -87,16 +87,16 @@ public class InputManager implements  KeyListener {
 		}
 
 
-		if(code == KeyEvent.VK_W) {
+		if(code == KeyEvent.VK_UP) {
 			upPressed = true;
 		}
-		if(code == KeyEvent.VK_S) {
+		if(code == KeyEvent.VK_DOWN) {
 			downPressed = true;
 		}
-		if(code == KeyEvent.VK_A) {
+		if(code == KeyEvent.VK_LEFT) {
 			leftPressed = true;
 		}
-		if(code == KeyEvent.VK_D) {
+		if(code == KeyEvent.VK_RIGHT) {
 			rightPressed = true;
 		}
 		//tasto per la pausa
@@ -115,16 +115,16 @@ public class InputManager implements  KeyListener {
 		// TODO Auto-generated method stub
 		int code = e.getKeyCode();
 
-		if(code == KeyEvent.VK_W) {
+		if(code == KeyEvent.VK_UP) {
 			upPressed = false;
 		}
-		if(code == KeyEvent.VK_S) {
+		if(code == KeyEvent.VK_DOWN) {
 			downPressed = false;
 		}
-		if(code == KeyEvent.VK_A) {
+		if(code == KeyEvent.VK_LEFT) {
 			leftPressed = false;
 		}
-		if(code == KeyEvent.VK_D) {
+		if(code == KeyEvent.VK_RIGHT) {
 			rightPressed = false;
 		}
 	}
