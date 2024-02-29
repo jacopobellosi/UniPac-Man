@@ -60,7 +60,7 @@ public class GameEngine extends JPanel implements Runnable{
 	final int endState=3;
 	int nextLevelState=4;
 
-	GestoreRipristinoImmunita GRI;
+	public GestoreRipristinoImmunita GRI;
 
 	private int conteggio=0;
 

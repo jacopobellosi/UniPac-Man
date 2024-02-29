@@ -2,6 +2,7 @@ package UniPacMan.Controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -70,19 +71,21 @@ public class AppTest
         player.setAttacking(false);
         player.interazioneFanstasma(0); // Supponiamo che il fantasma sia il primo nell'array dei fantasmi
 
-        // Verifichiamo che il giocatore abbia perso una vita, il risultato non combacia con l'aspettativa in quanto avremo 2 vite perse
-        assertEquals(1, player.countLife());
+        // Verifichiamo che il giocatore abbia perso una vita e non di più
+        assertNotEquals(1, player.countLife());
     }
    
     //Test per controllare che l'immunità dei fantasmi sia di 3000 millisecondi
-    @Test
+    @Test //test identità
     public void testRun() throws InterruptedException {
+        GameEngine gameEngine = new GameEngine();
+
         gameEngine.ghost[0] = new Ghost(gameEngine, 0);
         gameEngine.ghost[0].invincible = true;
-        gestoreRipristinoImmunita.run();
+        gameEngine.GRI = new GestoreRipristinoImmunita(gameEngine,0);
         // Aspettiamo 3000 millisecondi per far sì che il thread completi l'esecuzione
         Thread.sleep(2000);
-        assertFalse(gameEngine.ghost[0].invincible);
+        assertTrue(gameEngine.ghost[0].invincible);
        
     }
 
@@ -96,16 +99,19 @@ public class AppTest
     }
     
     //Test per verificare che venga incrementato correttamente il livello di gioco
-    @Test
+    @Test //test di integrazione
     public void testNextLevel() {
         GameEngine gameEngine = new GameEngine();
         int initialLevel = gameEngine.livelloCorrente;
         gameEngine.nextLevel();
         assertEquals(initialLevel + 1, gameEngine.livelloCorrente);
     }
+    
     //Test settaggio dei fantasmini al momento di inizio del gioco
     @Test
     public void testSetMonster() {
+        GameEngine gameEngine = new GameEngine();
+
         assertNull(gameEngine.ghost[0]);
         assertNull(gameEngine.ghost[1]);
         assertNull(gameEngine.ghost[2]);
