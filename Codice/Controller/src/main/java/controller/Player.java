@@ -30,7 +30,7 @@ public class Player  extends Entity{
     	solidAreaDefaulty = solidArea.y;
     	
     	setDefaultValue();
-    	getPlayerImage();
+    	//getPlayerImage();
     	attackArea.width = 36;
     	attackArea.height =36;
     	
@@ -62,7 +62,7 @@ public class Player  extends Entity{
     	maxLife = 3;
     	life = maxLife;
     }
-   
+   /*
     private void getPlayerImage()  {
     	up1 =   new ImageIcon(getClass().getResource("/pacman/su_dx.gif")).getImage();
 		up2 =   new ImageIcon(getClass().getResource("/pacman/su_sx.gif")).getImage();
@@ -73,7 +73,7 @@ public class Player  extends Entity{
 
     }
 
-
+	*/
     public void update() {
     	 if(keyH.upPressed == true) {
     		direction="up";
@@ -86,6 +86,7 @@ public class Player  extends Entity{
 		}
     	
  
+    	 
     	 
     	gp.eHandler.checkEvent(this);
     	collisionON = false;
@@ -198,7 +199,7 @@ public class Player  extends Entity{
     		reset();
     	}
     }
-	
+	/*
     void draw(Graphics2D g2) {
 
 		Image image = null;
@@ -219,7 +220,7 @@ public class Player  extends Entity{
 		g2.drawImage(image, x, y, gp.titleSize, gp.titleSize, null);
 		
     }
-
+	*/
     private void reset() {
     	setDefaultValue();
     	setDefaultLife();

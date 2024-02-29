@@ -159,7 +159,8 @@ public class GameEngine extends JPanel implements Runnable{
 			ui.draw(g2,screenWidth,screenHeight,gameState,player.punteggio,titleSize,player.countLife(),livelloCorrente);
 		}else if(gameState==playState){
 			gp.paintComponent(g2,obj,titleSize,pw,player.attacking,tileM,mapTilenum,dg);
-			player.draw(g2);
+			//player.draw(g2);
+			gp.drawPlayer(g2,player.direction,player.x,player.y,titleSize);
 			for(int i=0;i<ghost.length;i++) {
 				if(ghost[i]!=null) {
 					ghost[i].setAction();
