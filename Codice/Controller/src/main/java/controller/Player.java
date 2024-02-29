@@ -143,8 +143,8 @@ public class Player  extends Entity{
 		if(monsterIndex!=999) {
 			if(invincible==false && attacking ==false) {
 				life-=1;
-				System.out.println("Hai colpito il fantasma"+gp.ghost[monsterIndex].type+"");
-				System.out.println("ti sono rimaste: "+life +" vite");
+				//System.out.println("Hai colpito il fantasma"+gp.ghost[monsterIndex].type+"");
+				//System.out.println("ti sono rimaste: "+life +" vite");
 				countLife();
 				restartVita();
 				setDefaultValue();
