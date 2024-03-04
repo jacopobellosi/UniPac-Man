@@ -22,7 +22,13 @@ public class DatiGhost {
 				e.printStackTrace();
 			}
 		}
-		
+		public int getX() {
+			return x;
+		}
+		public int getY() {
+			return y;
+		}
+
 		private void getImage(int immagine) {
 			// TODO Auto-generated method stub
 			if(immagine==1) {
